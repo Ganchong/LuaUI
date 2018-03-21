@@ -77,7 +77,7 @@ namespace LuaInterface
         }
 
         //格式: 路径/?.lua
-        public bool AddSearchPath(string path, bool front = false)
+		public virtual bool AddSearchPath(string path, bool front = false)
         {
             int index = searchPaths.IndexOf(path);
 
@@ -98,7 +98,7 @@ namespace LuaInterface
             return true;
         }
 
-        public bool RemoveSearchPath(string path)
+		public virtual bool RemoveSearchPath(string path)
         {
             int index = searchPaths.IndexOf(path);
 
@@ -111,7 +111,7 @@ namespace LuaInterface
             return false;
         }
 
-        public void AddSearchBundle(string name, AssetBundle bundle)
+		public virtual void AddSearchBundle(string name, AssetBundle bundle)
         {
             zipMap[name] = bundle;            
         }

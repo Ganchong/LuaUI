@@ -13,7 +13,7 @@ namespace LuaFrameWorkCore
 		public LuaLoader()
 		{
 			instance = this;
-			beZip = LuaManager.Instance.isUseAB;
+			beZip = GameManager.Instance.isUseAB;
 		}
 
 		/** 以AB包的形式添加Lua脚本文件 */

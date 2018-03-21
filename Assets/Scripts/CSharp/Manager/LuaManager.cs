@@ -17,8 +17,6 @@ namespace LuaUIFrameWork
 		/** Lua AB包加载方法 */
 		public static Action<CallBack<Dictionary<string,AssetBundle>>> LoadLuaABFunc = null;
 
-		[Tooltip("是否使用AB包")]
-		public bool isUseAB = false;
 
 		/** lua虚拟机 */
 		private LuaState luaState = null;
@@ -43,37 +41,42 @@ namespace LuaUIFrameWork
 			DelegateFactory.Init();
 			LuaCoroutine.Register(luaState,this);
 
-			InitLuaLoadPath();
-
-
+			this.InitLuaLoadPath();
+			luaState.Start ();
+			this.InitLuaLooper ();
 		}
 
 
 		/** 初始化Lua文件加载路径 */
 		void InitLuaLoadPath()
 		{
-			if(!isUseAB){
+			if(!GameManager.Instance.isUseAB){
 				luaState.AddSearchPath(Application.dataPath+LUAFILEPATH);
 			}else{
 				if(LoadLuaABFunc!=null){
 					LoadLuaABFunc((abDic)=>{
-						string[] keys = abDic.Keys;
-						for (int i = 0,max = abDic.Count; i < max; ++i) {
-							if(string.IsNullOrEmpty(keys[i])||abDic[i]==null){
+						foreach (KeyValuePair<string, AssetBundle> iter in abDic)
+						{
+							if(string.IsNullOrEmpty(iter.Key)||iter.Value==null){
 								Debug.Log("luaAB load error,name is null or assetBundle is null");
 								continue;
 							}
-							luaLoader.AddSearchBundle(keys[i],abDic);
+							luaLoader.AddSearchBundle(iter.Key,iter.Value);
 						}
 					});
 				}
 			}
 		}
 
+		/** 初始化Lua携程驱动器 */
+		void InitLuaLooper()
+		{
+			if (luaLooper == null)
+				luaLooper = gameObject.AddMissCompoent<LuaLooper> ();
+			luaLooper.luaState = this.luaState;
+		}
 
-		/// <summary>
-		/// 初始化加载第三方库
-		/// </summary>
+		/** 初始化加载第三方库 */
 		void OpenLibs() {
 			luaState.OpenLibs(LuaDLL.luaopen_pb);
 			luaState.OpenLibs(LuaDLL.luaopen_lpeg);
@@ -87,6 +90,16 @@ namespace LuaUIFrameWork
 			luaState.OpenLibs(LuaDLL.luaopen_cjson_safe);
 			luaState.LuaSetField(-2, "cjson.safe");
 			#endregion
+		}
+
+		/** 清理 */
+		public void Clear()
+		{
+			luaLooper.Destroy ();
+			luaLooper = null;
+			luaLoader = null;
+			luaState.Dispose ();
+			luaState = null;
 		}
 	}
 }

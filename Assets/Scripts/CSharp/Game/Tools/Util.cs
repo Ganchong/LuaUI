@@ -22,5 +22,14 @@ namespace LuaFrameworkCore {
 		{
 			Debug.Log(str);
 		}
+		public static void LogError(string str)
+		{
+			Debug.LogError (str);
+		}
+		public static void LogWarning(string str)
+		{
+			Debug.LogWarning (str);
+		}
+
     }
 }

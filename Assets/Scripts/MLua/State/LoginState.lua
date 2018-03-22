@@ -5,8 +5,8 @@
 ---
 require("State/BaseState")
 
-local InitSate = class("InitSate",BaseState)
-local this = InitSate
+local LoginState = class("LoginState",BaseState)
+local this = LoginState
 
 function this:Enter()
     self:InitManagers()
@@ -14,7 +14,7 @@ end
 
 --初始化各类管理器
 function this:InitManagers()
-	Log("start to init managers")
+	
 end
 
 function this:Update()

@@ -1,11 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using LuaInterface;
-using LuaFrameWorkCore;
+using LuaFrameworkCore;
 using System.Collections.Generic;
-using LuaFrameWorkCore;
 
-namespace LuaUIFrameWork
+namespace LuaUIFramework
 {
 	/// <summary>
 	/// Lua manager.
@@ -13,10 +12,9 @@ namespace LuaUIFrameWork
 	public class LuaManager : MonoSingleton<LuaManager>{
 		
 		/** Lua文件加载根目录 */
-		public static string LUAFILEPATH = "Scripts/MLua";
+		public static string LUAFILEPATH = "/Scripts/MLua";
 		/** Lua AB包加载方法 */
 		public static Action<CallBack<Dictionary<string,AssetBundle>>> LoadLuaABFunc = null;
-
 
 		/** lua虚拟机 */
 		private LuaState luaState = null;
@@ -25,9 +23,6 @@ namespace LuaUIFrameWork
 		/** lua协程驱动器（C#的每一帧都会去驱动lua的协同完成协同功能） */
 		private LuaLooper luaLooper = null;
 
-		void Awake()
-		{
-		}
 
 		/** 启动lua */
 		public void LuaStart()
@@ -46,6 +41,17 @@ namespace LuaUIFrameWork
 			this.InitLuaLooper ();
 		}
 
+		/** 加载并执行Lua文件 */
+		public void DoFile(string fileName)
+		{
+			luaState.DoFile(fileName);
+		}
+
+		/** 调用Lua文件中的方法 */
+		public LuaFunction GetLuaFunction(string funcName)
+		{
+			return luaState.GetFunction(funcName);
+		}
 
 		/** 初始化Lua文件加载路径 */
 		void InitLuaLoadPath()
@@ -58,7 +64,7 @@ namespace LuaUIFrameWork
 						foreach (KeyValuePair<string, AssetBundle> iter in abDic)
 						{
 							if(string.IsNullOrEmpty(iter.Key)||iter.Value==null){
-								Debug.Log("luaAB load error,name is null or assetBundle is null");
+								Debug.Log("luaAB load error, assetBundle name is null or assetBundle is null");
 								continue;
 							}
 							luaLoader.AddSearchBundle(iter.Key,iter.Value);

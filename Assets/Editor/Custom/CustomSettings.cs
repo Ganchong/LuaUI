@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using LuaInterface;
 using UnityEditor;
+using LuaFrameworkCore;
 
 using BindType = ToLuaMenu.BindType;
 using System.Reflection;
@@ -146,6 +147,7 @@ public static class CustomSettings
         _GT(typeof(RenderTexture)),
         _GT(typeof(Resources)),     
         _GT(typeof(LuaProfiler)),
+		_GT(typeof(Util)),
     };
 
     public static List<Type> dynamicList = new List<Type>()

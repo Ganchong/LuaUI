@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using LuaInterface;
-using LuaUIFrameWork;
+using LuaUIFramework;
 
-namespace LuaFrameWorkCore
+namespace LuaFrameworkCore
 {
 	/// <summary>
 	/// Lua脚本文件加载器，重载自LuaFileUtils以实现自己的添加方法

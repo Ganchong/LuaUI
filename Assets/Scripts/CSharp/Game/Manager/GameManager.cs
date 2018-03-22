@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LuaFrameWorkCore;
+using LuaFrameworkCore;
 
 /// <summary>
 /// 游戏管理器
@@ -13,6 +13,9 @@ public class GameManager : MonoSingleton<GameManager>{
 	[Tooltip("是否使用AB包")]
 	public bool isUseAB = false;
 
+	/** 当前状态 */
+	StateBase curState = null;
+	List<StateBase> states = null;
 	void Awake()
 	{
 		Application.targetFrameRate = TARGET_FRAMERATE;
@@ -29,5 +32,31 @@ public class GameManager : MonoSingleton<GameManager>{
 		}
 		DontDestroyOnLoad (this);
 		DontDestroyOnLoad (_coreRoot);
+
+		AFRManager.Instance.RegisterFunc();
+		states = new List<StateBase>();
+		this.ChangeState<InitState>();
+	}
+
+	/** 切换状态 */
+	public void ChangeState<T>() where T: StateBase,new()
+	{
+		if(curState!=null)curState.Exit();
+		curState = GetState<T>();
+		curState.Enter();
+	}
+	/** 获取状态 */
+	private T GetState<T>() where T : StateBase,new()
+	{
+		T t = null;
+		foreach (var s in states) {
+			t = s as T;
+			if(t!=null){
+				return t;
+			}
+		}
+		t = new T();
+		states.Add(t);
+		return t;
 	}
 }

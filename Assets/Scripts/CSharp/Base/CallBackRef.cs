@@ -1,5 +1,5 @@
 ﻿
-namespace LuaFrameWorkCore
+namespace LuaFrameworkCore
 {
 
 	public delegate void CallBack();

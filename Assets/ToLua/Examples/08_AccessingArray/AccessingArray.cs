@@ -64,8 +64,8 @@ public class AccessingArray : MonoBehaviour
         func.EndPCall();
 
         //调用通用函数需要转换一下类型，避免可变参数拆成多个参数传递
-        object[] objs = func.LazyCall((object)array);
-
+//        object[] objs = func.LazyCall((object)array);
+		object[] objs = func.Invoke<object,object>((object)array) as object[];
         if (objs != null)
         {
             Debugger.Log("return is {0} {1} {2}", objs[0], objs[1], objs[2]);

@@ -2,11 +2,84 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a870454-ff65-4965-9926-c252bff905af" name="默认的" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" />
-      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Core/LuaFileUtils.cs" afterPath="$PROJECT_DIR$/Assets/ToLua/Core/LuaFileUtils.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Common/Define.lua" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/LuaAPP.lua" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/State/BaseState.lua" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/State/InitState.lua" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/State/StateDefine.lua" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Custom/CustomSettings.cs" afterPath="$PROJECT_DIR$/Assets/Editor/Custom/CustomSettings.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/Main.lua" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Lua/Main.lua.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/CallBackRef.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/CallBackRef.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/LuaLoader.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/LuaLoader.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/MonoSingleton.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/MonoSingleton.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager/GameManager.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager/GameManager.cs.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager/LuaManager.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager/LuaManager.cs.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/LuaBinder.cs" afterPath="$PROJECT_DIR$/Assets/Source/Generate/LuaBinder.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/LuaInterface_DebuggerWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/LuaInterface_DebuggerWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/LuaProfilerWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/LuaProfilerWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationBlendModeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationBlendModeWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationClipWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationClipWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationStateWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationStateWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimatorWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimatorWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ApplicationWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ApplicationWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AssetBundleWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AssetBundleWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AsyncOperationWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AsyncOperationWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AudioClipWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AudioClipWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AudioSourceWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AudioSourceWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BehaviourWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BehaviourWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BlendWeightsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BlendWeightsWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BoxColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BoxColliderWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CameraClearFlagsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CameraClearFlagsWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CameraWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CameraWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CapsuleColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CapsuleColliderWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CharacterControllerWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CharacterControllerWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ColliderWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ComponentWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ComponentWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_GameObjectWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_GameObjectWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_InputWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_InputWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_KeyCodeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_KeyCodeWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_LightTypeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_LightTypeWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_LightWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_LightWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MaterialWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MaterialWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MeshColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MeshColliderWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MeshRendererWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MeshRendererWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MonoBehaviourWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MonoBehaviourWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ParticleSystemWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ParticleSystemWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_PhysicsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_PhysicsWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_PlayModeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_PlayModeWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_QualitySettingsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_QualitySettingsWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_QueueModeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_QueueModeWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RenderSettingsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RenderSettingsWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RenderTextureWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RenderTextureWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RendererWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RendererWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ResourcesWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ResourcesWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RigidbodyWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RigidbodyWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ScreenWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ScreenWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ShaderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ShaderWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SkinnedMeshRendererWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SkinnedMeshRendererWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SleepTimeoutWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SleepTimeoutWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SpaceWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SpaceWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SphereColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SphereColliderWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_Texture2DWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_Texture2DWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TextureWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TextureWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TimeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TimeWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TrackedReferenceWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TrackedReferenceWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TransformWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TransformWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_WWWWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_WWWWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_WrapModeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_WrapModeWrap.cs.meta" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToLua/BaseType/System_DelegateWrap.cs" afterPath="$PROJECT_DIR$/Assets/ToLua/BaseType/System_DelegateWrap.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Core/LuaFunction.cs" afterPath="$PROJECT_DIR$/Assets/ToLua/Core/LuaFunction.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Examples/08_AccessingArray/AccessingArray.cs" afterPath="$PROJECT_DIR$/Assets/ToLua/Examples/08_AccessingArray/AccessingArray.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Lua/Common/DefinitionClass.lua" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Common/DefinitionClass.lua" />
+      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Lua/Common/DefinitionClass.lua.meta" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,22 +89,92 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Main.lua" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UIManager.lua" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LuaAPP.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/LuaAPP.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tolua.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/tolua.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIManager.lua" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+            <state relative-caret-position="308">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefinitionClass.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Common/DefinitionClass.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Define.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Common/Define.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InitState.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/InitState.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StateDefine.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/StateDefine.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseState.lua" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/BaseState.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,7 +200,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/MLua/State/BaseState.lua" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MLua/Global.lua" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MLua/Define.lua" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MLua/Common/Define.lua" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MLua/State/StateDefine.lua" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MLua/LuaAPP.lua" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MLua/State/InitState.lua" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua" />
       </list>
     </option>
@@ -69,10 +219,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="274" />
-    <option name="y" value="31" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="添加" />
@@ -92,7 +242,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,6 +275,19 @@
               <item name="MLua" type="462c0819:PsiDirectoryNode" />
               <item name="Manager" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="LuaUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LuaUI" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+              <item name="ToLua" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LuaUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LuaUI" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+              <item name="ToLua" type="462c0819:PsiDirectoryNode" />
+              <item name="Lua" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -133,13 +295,20 @@
       <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/toluaProject" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\LuaUI\Assets\Scripts\MLua\Common" />
+      <recent name="D:\LuaUI\Assets\Scripts\MLua" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -235,6 +404,18 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
+    <configuration name="Main.lua" type="lua.app" factoryName="Lua Application" temporary="true">
+      <option name="program" value="lua.exe" />
+      <option name="file" value="$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua" />
+      <option name="workingDir" value="" />
+      <option name="debuggerType" value="1" />
+      <option name="params" value="" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Lua Application.Main.lua" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -250,45 +431,56 @@
       <option name="presentableId" value="Default" />
       <updated>1521624178098</updated>
       <workItem from="1521624179441" duration="1293000" />
+      <workItem from="1521701184780" duration="12662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1293000" />
+    <option name="totallyTimeSpent" value="13955000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="LuaCheck" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="控制板" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="设计师" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="LuaCheck" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.015069968" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="控制板" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25266525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="设计师" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +490,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="lua-line">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/MLua/Common/Define.lua</url>
+          <line>19</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="4" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -314,6 +515,86 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Global.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Common/Define.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/tolua.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/LuaAPP.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/InitState.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Common/DefinitionClass.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/StateDefine.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/BaseState.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>

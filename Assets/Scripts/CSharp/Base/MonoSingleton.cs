@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LuaFrameWorkCore
+namespace LuaFrameworkCore
 {
 	/** 单例 */
 	public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T> {

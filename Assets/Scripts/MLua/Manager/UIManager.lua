@@ -7,5 +7,8 @@ UIManager = class("UIManager")
 local this = UIManager
 
 function this:ctor()
+    --已经打开的UI
+    self.openedUI = {}
+    --正在打开的UI
 
 end

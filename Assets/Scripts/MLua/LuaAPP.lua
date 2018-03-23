@@ -13,6 +13,14 @@ function LuaAPP.Init()
     LuaAPP.ChangeState(StateNames.InitState)
 end
 
+---@return UIManager
+function LuaAPP.GetUIManager()
+    if _uiManager == nil then
+    _uiManager = UIManager.new()
+    end
+    return _uiManager
+end
+
 --注册所有状态
 function LuaAPP.RegisterStates()
     stateMap = {}
@@ -39,3 +47,4 @@ function LuaAPP.ChangeState(stateName)
         LogError(stateName)
     end
 end
+

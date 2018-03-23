@@ -15,11 +15,25 @@ GameObject = UnityEngine.GameObject
 WWW = UnityEngine.WWW
 Util = LuaFrameworkCore.Util
 
+--状态名称
 StateNames = {
     InitState = "State/InitState",
     LoginState = "State/LoginState",
 }
-
+--UI层级 bottom{静态，动态} middle{静态，动态} top{静态，动态} 实现动静分离
+UILayer = {
+    BottomStatic = "_BottomStatic#",
+    BottomDyn = "_BottomDyn#",
+    MiddleStatic = "_MiddleStatic#",
+    MiddleDyn = "_MiddleDyn",
+    TopStatic = "_TopStatic#",
+    TopDyn = "_TopDyn#",
+}
+--UI类型 普通， 全屏（关闭时均按返回处理）
+UIType = {
+    None = "None",
+    FullType = "FullType",
+}
 
 ---#全局方法定义#--
 --日志打印

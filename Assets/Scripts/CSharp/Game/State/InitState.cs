@@ -15,7 +15,7 @@ public class InitState : StateBase
 			InitResFunc(()=>{
 				LuaManager.Instance.LuaStart();
 				LuaManager.Instance.DoFile("Main.lua");
-				LuaManager.Instance.GetLuaFunction("Main").Call();
+				LuaManager.Instance.GetLuaFunction("Start").Call();
 			});
 		}
 	}

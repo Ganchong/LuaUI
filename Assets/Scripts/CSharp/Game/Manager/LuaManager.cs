@@ -53,6 +53,10 @@ namespace LuaUIFramework
 			return luaState.GetFunction(funcName);
 		}
 
+		public void LuaGC()
+		{
+			luaState.LuaGC(LuaGCOptions.LUA_GCCOLLECT);
+		}
 		/** 初始化Lua文件加载路径 */
 		void InitLuaLoadPath()
 		{

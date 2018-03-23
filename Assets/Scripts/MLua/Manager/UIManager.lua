@@ -7,8 +7,57 @@ UIManager = class("UIManager")
 local this = UIManager
 
 function this:ctor()
-    --已经打开的UI
-    self.openedUI = {}
-    --正在打开的UI
+    --require 的class 缓存
+    self._uiClassMap = {}
+    --打开过的UI名称列表，顺序数组
+    self._openingNameList = {}
+    --打开过的UI（绑定了UIObj的Class）
+    self._openedUIMap = {}
+    --加载过得预制
+    self._uiObjMap = {}
+    --界面层级
+    self._canvasLayerTrans = {}
+end
+--初始化
+function this:Init()
+    self:InitUIRoot()
+end
+
+--初始化UIRoot层级
+function this:InitUIRoot()
+    local root = GameObject.Find("_CoreRoot#").transform
+    self._canvasLayerTrans[UILayer.BottomStatic] = root:Find("_Bottom#/_BottomStatic#")
+    self._canvasLayerTrans[UILayer.BottomDyn] = root:Find("_Bottom#/_BottomDyn#")
+    self._canvasLayerTrans[UILayer.MiddleStatic] = root:Find("_Middle#/_MiddleStatic#")
+    self._canvasLayerTrans[UILayer.MiddleDyn] = root:Find("_Middle#/_MiddleDyn#")
+    self._canvasLayerTrans[UILayer.TopStatic] = root:Find("_Top#/_TopStatic#")
+    self._canvasLayerTrans[UILayer.TopDyn] = root:Find("_Top#/_TopStatic#")
+end
+
+--打开界面
+function this:OpenWindow(name)
+    --处理之前界面
+    local opening,index = self:IsOpening(name)
+    if opening then
+        Util.SetAsLastSibling(self._openedUIMap[name].UIObj)
+        table.remove(self._openingNameList,index)
+        table.insert(self._openingNameList,name)
+        self:_ShowUI()
+    end
+end
+
+--显示UI，只刷新数据
+function this:_ShowUI()
 
 end
+--界面是处于打开状态（包括隐藏的和显示着的）
+function this:IsOpening(name)
+    for i = 1, #self._openingNameList do
+        if self._openingNameList[i] == name then
+            return true,i
+        end
+    end
+    return false,-1
+end
+
+return this

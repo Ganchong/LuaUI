@@ -11,6 +11,11 @@ function Main()
     LuaAPP.ChangeState(StateNames.LoginState)
 end
 
+function Start()
+    LuaAPP.Init()
+    local uiManager = LuaAPP:GetUIManager()
+    uiManager:Init()
+end
 --切换场景通知
 function OnLevelWasLoad(level)
     collectgarbage("collect")

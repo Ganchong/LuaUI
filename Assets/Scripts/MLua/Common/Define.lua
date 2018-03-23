@@ -7,11 +7,18 @@
 require("Common/DefinitionClass")
 --引入UI管理器
 require("Manager/UIManager")
+--引入lua APP
+require("LuaApp")
 
 ---#全局变量定义#--
 GameObject = UnityEngine.GameObject
 WWW = UnityEngine.WWW
 Util = LuaFrameworkCore.Util
+
+StateNames = {
+    InitState = "State/InitState",
+    LoginState = "State/LoginState",
+}
 
 
 ---#全局方法定义#--

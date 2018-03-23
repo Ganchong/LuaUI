@@ -4,7 +4,3 @@
 --- DateTime: 2018/3/22 15:00
 ---
 
-StateNames = {
-    InitState = "State/InitState";
-    LoginState = "State/LoginState";
-}

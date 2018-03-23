@@ -8,6 +8,8 @@ public class LuaFrameworkCore_UtilWrap
 	{
 		L.BeginClass(typeof(LuaFrameworkCore.Util), typeof(System.Object));
 		L.RegFunction("Log", Log);
+		L.RegFunction("LogError", LogError);
+		L.RegFunction("LogWarning", LogWarning);
 		L.RegFunction("New", _CreateLuaFrameworkCore_Util);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.EndClass();
@@ -45,6 +47,38 @@ public class LuaFrameworkCore_UtilWrap
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			LuaFrameworkCore.Util.Log(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LogError(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			LuaFrameworkCore.Util.LogError(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LogWarning(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			LuaFrameworkCore.Util.LogWarning(arg0);
 			return 0;
 		}
 		catch (Exception e)

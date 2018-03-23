@@ -6,16 +6,15 @@
 
 --Lua应用
 LuaAPP = LuaAPP or {}
-local this = LuaAPP
 
 --初始化
-function this:Init()
-    self:RegisterStates()
-    self:ChangeState(StateNames.InitState)
+function LuaAPP.Init()
+    LuaAPP.RegisterStates()
+    LuaAPP.ChangeState(StateNames.InitState)
 end
 
 --注册所有状态
-function this:RegisterStates()
+function LuaAPP.RegisterStates()
     stateMap = {}
     for key, value in pairs(StateNames or {}) do
         stateMap[value] = require(value).new()
@@ -23,20 +22,20 @@ function this:RegisterStates()
 end
 
 --获取状态
-function this:GetState(stateName)
+function LuaAPP.GetState(stateName)
     return stateMap[stateName]
 end
 
 --切换状态
-function this:ChangeState(stateName)
+function LuaAPP.ChangeState(stateName)
     local state = stateMap[stateName]
     if state ~= nil then
-        if this.curState~=nil then
-            this.curState.Exit()
+        if LuaAPP.curState~=nil then
+            LuaAPP.curState.Exit()
         end
-        this.curState = state
-        this.curState.Enter()
+        LuaAPP.curState = state
+        LuaAPP.curState:Enter()
     else
-        LogError("change state error:"..stateName.."is nil")
+        LogError(stateName)
     end
 end

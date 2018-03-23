@@ -2,84 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a870454-ff65-4965-9926-c252bff905af" name="默认的" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Common/Define.lua" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/LuaAPP.lua" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/State/BaseState.lua" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/State/InitState.lua" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/State/StateDefine.lua" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/Custom/CustomSettings.cs" afterPath="$PROJECT_DIR$/Assets/Editor/Custom/CustomSettings.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/Main.lua" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Lua/Main.lua.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/CallBackRef.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/CallBackRef.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/LuaLoader.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/LuaLoader.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/MonoSingleton.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/Base/MonoSingleton.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager/GameManager.cs" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager/GameManager.cs.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager/LuaManager.cs" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/Manager/LuaManager.cs.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Main.lua" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/LuaBinder.cs" afterPath="$PROJECT_DIR$/Assets/Source/Generate/LuaBinder.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/LuaInterface_DebuggerWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/LuaInterface_DebuggerWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/LuaProfilerWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/LuaProfilerWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationBlendModeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationBlendModeWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationClipWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationClipWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationStateWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationStateWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimationWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimatorWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AnimatorWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ApplicationWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ApplicationWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AssetBundleWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AssetBundleWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AsyncOperationWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AsyncOperationWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AudioClipWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AudioClipWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AudioSourceWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_AudioSourceWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BehaviourWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BehaviourWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BlendWeightsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BlendWeightsWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BoxColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_BoxColliderWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CameraClearFlagsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CameraClearFlagsWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CameraWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CameraWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CapsuleColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CapsuleColliderWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CharacterControllerWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_CharacterControllerWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ColliderWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ComponentWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ComponentWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_GameObjectWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_GameObjectWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_InputWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_InputWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_KeyCodeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_KeyCodeWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_LightTypeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_LightTypeWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_LightWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_LightWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MaterialWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MaterialWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MeshColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MeshColliderWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MeshRendererWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MeshRendererWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MonoBehaviourWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_MonoBehaviourWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ParticleSystemWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ParticleSystemWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_PhysicsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_PhysicsWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_PlayModeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_PlayModeWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_QualitySettingsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_QualitySettingsWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_QueueModeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_QueueModeWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RenderSettingsWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RenderSettingsWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RenderTextureWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RenderTextureWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RendererWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RendererWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ResourcesWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ResourcesWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RigidbodyWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_RigidbodyWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ScreenWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ScreenWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ShaderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_ShaderWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SkinnedMeshRendererWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SkinnedMeshRendererWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SleepTimeoutWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SleepTimeoutWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SpaceWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SpaceWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SphereColliderWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_SphereColliderWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_Texture2DWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_Texture2DWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TextureWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TextureWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TimeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TimeWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TrackedReferenceWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TrackedReferenceWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TransformWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_TransformWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_WWWWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_WWWWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_WrapModeWrap.cs.meta" afterPath="$PROJECT_DIR$/Assets/Source/Generate/UnityEngine_WrapModeWrap.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/Assets/ToLua/BaseType/System_DelegateWrap.cs" afterPath="$PROJECT_DIR$/Assets/ToLua/BaseType/System_DelegateWrap.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Core/LuaFunction.cs" afterPath="$PROJECT_DIR$/Assets/ToLua/Core/LuaFunction.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Examples/08_AccessingArray/AccessingArray.cs" afterPath="$PROJECT_DIR$/Assets/ToLua/Examples/08_AccessingArray/AccessingArray.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Lua/Common/DefinitionClass.lua" afterPath="$PROJECT_DIR$/Assets/Scripts/MLua/Common/DefinitionClass.lua" />
-      <change beforePath="$PROJECT_DIR$/Assets/ToLua/Lua/Common/DefinitionClass.lua.meta" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -431,12 +354,12 @@
       <option name="presentableId" value="Default" />
       <updated>1521624178098</updated>
       <workItem from="1521624179441" duration="1293000" />
-      <workItem from="1521701184780" duration="12662000" />
+      <workItem from="1521701184780" duration="12722000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13955000" />
+    <option name="totallyTimeSpent" value="14015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

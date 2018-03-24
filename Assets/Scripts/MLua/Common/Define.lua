@@ -9,6 +9,8 @@ require("Common/DefinitionClass")
 require("Manager/UIManager")
 --引入lua APP
 require("LuaApp")
+--引入UIBase
+require("Base/UIBase")
 
 ---#全局变量定义#--
 GameObject = UnityEngine.GameObject

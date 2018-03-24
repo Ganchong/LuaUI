@@ -1,0 +1,14 @@
+ManifestFileVersion: 0
+CRC: 2414519891
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ui/loginwindow.unity3d
+      Dependencies:
+        Dependency_0: texture/loginback_3.unity3d
+    Info_1:
+      Name: uiprefabs/resources/_coreroot#.unity3d
+      Dependencies: {}
+    Info_2:
+      Name: texture/loginback_3.unity3d
+      Dependencies: {}

@@ -21,6 +21,7 @@ public class LuaFrameworkCore_UtilWrap
 		L.RegFunction("TimeToString_02", TimeToString_02);
 		L.RegFunction("GetChildComponent", GetChildComponent);
 		L.RegFunction("GetComponent", GetComponent);
+		L.RegFunction("GetChildByCount", GetChildByCount);
 		L.RegFunction("SetAsLastSibling", SetAsLastSibling);
 		L.RegFunction("SetSiblingIndex", SetSiblingIndex);
 		L.RegFunction("InstantiateGameObject", InstantiateGameObject);
@@ -46,8 +47,6 @@ public class LuaFrameworkCore_UtilWrap
 		L.RegFunction("LoadSceneAsync", LoadSceneAsync);
 		L.RegFunction("LoadYourAsyncScene", LoadYourAsyncScene);
 		L.RegFunction("StringMagex", StringMagex);
-		L.RegFunction("ReadAllByte", ReadAllByte);
-		L.RegFunction("CopyFile", CopyFile);
 		L.RegFunction("ReplaceNewLineSymbol", ReplaceNewLineSymbol);
 		L.RegFunction("AddDropdownoption", AddDropdownoption);
 		L.RegFunction("New", _CreateLuaFrameworkCore_Util);
@@ -353,6 +352,24 @@ public class LuaFrameworkCore_UtilWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetChildByCount(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckObject<UnityEngine.Transform>(L, 1);
+			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+			UnityEngine.Transform[] o = LuaFrameworkCore.Util.GetChildByCount(arg0, arg1);
+			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int SetAsLastSibling(IntPtr L)
 	{
 		try
@@ -537,11 +554,10 @@ public class LuaFrameworkCore_UtilWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 3);
+			ToLua.CheckArgsCount(L, 2);
 			string arg0 = ToLua.CheckString(L, 1);
-			UnityEngine.Transform arg1 = (UnityEngine.Transform)ToLua.CheckObject<UnityEngine.Transform>(L, 2);
-			System.Action<UnityEngine.GameObject> arg2 = (System.Action<UnityEngine.GameObject>)ToLua.CheckDelegate<System.Action<UnityEngine.GameObject>>(L, 3);
-			LuaFrameworkCore.Util.InstantiateUIObj(arg0, arg1, arg2);
+			System.Action<UnityEngine.GameObject> arg1 = (System.Action<UnityEngine.GameObject>)ToLua.CheckDelegate<System.Action<UnityEngine.GameObject>>(L, 2);
+			LuaFrameworkCore.Util.InstantiateUIObj(arg0, arg1);
 			return 0;
 		}
 		catch (Exception e)
@@ -936,40 +952,6 @@ public class LuaFrameworkCore_UtilWrap
 			bool o = LuaFrameworkCore.Util.StringMagex(arg0);
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int ReadAllByte(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			string arg0 = ToLua.CheckString(L, 1);
-			byte[] o = LuaFrameworkCore.Util.ReadAllByte(arg0);
-			ToLua.Push(L, o);
-			return 1;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int CopyFile(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 2);
-			string arg0 = ToLua.CheckString(L, 1);
-			string arg1 = ToLua.CheckString(L, 2);
-			LuaFrameworkCore.Util.CopyFile(arg0, arg1);
-			return 0;
 		}
 		catch (Exception e)
 		{

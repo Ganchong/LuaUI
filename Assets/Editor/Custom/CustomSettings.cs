@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using LuaInterface;
 using UnityEditor;
 using LuaFrameworkCore;
+using UnityEngine.UI;
 
 using BindType = ToLuaMenu.BindType;
 using System.Reflection;
@@ -147,6 +148,10 @@ public static class CustomSettings
         _GT(typeof(RenderTexture)),
         _GT(typeof(Resources)),     
         _GT(typeof(LuaProfiler)),
+
+
+		_GT(typeof(Text)),
+
 		_GT(typeof(Util)),
     };
 

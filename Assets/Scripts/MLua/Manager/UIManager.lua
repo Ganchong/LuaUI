@@ -35,21 +35,138 @@ function this:InitUIRoot()
 end
 
 --打开界面
-function this:OpenWindow(name)
-    --处理之前界面
+function this:OpenWindow(name,param)
     local opening,index = self:IsOpening(name)
+    --打开过
     if opening then
-        Util.SetAsLastSibling(self._openedUIMap[name].UIObj)
+        local uiBase = self._openedUIMap[name]
+        Util.SetAsLastSibling(uiBase.UIObj)
         table.remove(self._openingNameList,index)
         table.insert(self._openingNameList,name)
-        self:_ShowUI()
+        self:OnEnableUI(name,uiBase,param)
+        --因为当前界面是全屏，隐藏所有其他UI
+        if uiBase:GetUIType() == UIType.FullType then
+            self:HideAllUI()
+        end
+        return
+    end
+    --未曾打开过
+    Log("new ......")
+    local uiBase = self:GetUIClass(name).new()
+    local layer = uiBase:GetUILayer()
+    self:GetUIObj(name,function (uiObj)
+        uiObj.transform.parent = self._canvasLayerTrans[layer]
+        uiObj.transform.localPosition = Vector3.zero
+        uiObj.transform.localScale = Vector3.one
+        uiBase.UIObj = uiObj
+        uiBase:InitUI(uiObj)
+        self:OnEnableUI(name,uiBase,param)
+        self._openedUIMap[name] = uiBase
+        --因为当前界面是全屏，隐藏所有其他UI
+        if uiBase:GetUIType() == UIType.FullType then
+            self:HideAllUI()
+        end
+    end)
+end
+
+--关闭窗口
+function this:CloseWindow(name)
+    local uiBase = self._openedUIMap[name]
+    if uiBase == nil then
+        LogError("window you want to close is not exist,name is"..name)
+        return
+    end
+    uiBase:SetVisible(false)
+    if uiBase:IsStatic() then
+        self:CloseUI(name,uiBase)
+    else
+        self:DestroyUI(name,uiBase)
     end
 end
 
---显示UI，只刷新数据
-function this:_ShowUI()
 
+--关闭UI
+function this:CloseUI(name,uiBase)
+    uiBase:CloseUI(function ()
+        for i = #self._openingNameList-1, 1,-1 do
+            local name = self._openingNameList[i]
+            local tmpUIBase = self._openedUIMap[name]
+            if tmpUIBase:GetUIType() == UIType.FullType then
+                local opening,index = self:IsOpening(name)
+                table.remove(self._openingNameList,index)
+                self:OnEnableUI(name,tmpUIBase,nil)
+                return
+            end
+        end
+    end )
 end
+
+--销毁UI
+function this:DestroyUI(name,uiBase)
+    uiBase:CloseUI(function ()
+        for i = #self._openingNameList-1, 1,-1 do
+            local tmpname = self._openingNameList[i]
+            local tmpUIBase = self._openedUIMap[tmpname]
+            if tmpUIBase:GetUIType() == UIType.FullType then
+                --打开最近的全屏窗口
+                local opening,index = self:IsOpening(tmpname)
+                table.remove(self._openingNameList,index)
+                self:OnEnableUI(tmpname,tmpUIBase,nil)
+                --启动销毁程序
+                uiBase:DestroyUI()
+                Util.DestroyObject(self._openedUIMap[name].UIObj)
+                --这里需要测试是否已经销毁
+                self._uiObjMap[name] = nil
+                self._openedUIMap[name].UIObj = nil
+                self._openedUIMap[name] = nil
+                return
+            end
+        end
+    end)
+end
+
+--获取UIObj
+function this:GetUIObj(name,callback)
+    local uiObj = self._uiObjMap[name]
+    if uiObj~=nil then
+        callback(uiObj)
+    else
+        self:LoadUIObj(name,callback)
+    end
+end
+--加载UIObj
+function this:LoadUIObj(name,callback)
+    Util.InstantiateUIObj(name,function (uiObj)
+        self._uiObjMap[name] = uiObj;
+        callback(uiObj);
+    end)
+end
+
+--获取UIClass
+function this:GetUIClass(name)
+    local uiClass = self._uiClassMap[name]
+    if uiClass == nil then
+        uiClass = require("UI/"..name)
+        self._uiClassMap[name] = uiClass
+    end
+    return uiClass
+end
+
+--隐藏所有UI（除了当前显示的）
+function this:HideAllUI()
+    for i = 1, #self._openingNameList-1 do
+        local uiBase = self._openedUIMap[self._openingNameList[i]]
+        uiBase:SetVisible(false)
+    end
+end
+
+--重新显示UI
+function this:OnEnableUI(name,uiBase,param)
+    uiBase:SetVisible(true)
+    uiBase:OnEnableUI(param)
+    table.insert(self._openingNameList,name)
+end
+
 --界面是处于打开状态（包括隐藏的和显示着的）
 function this:IsOpening(name)
     for i = 1, #self._openingNameList do

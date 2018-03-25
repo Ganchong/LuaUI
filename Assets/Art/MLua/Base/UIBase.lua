@@ -10,24 +10,30 @@
 UIBase = class("UIBase")
 
 function UIBase:ctor()
-    --开启Update方法，请不要在UIBase中声明Update方法
+
+end
+
+--开启Update方法，请不要在UIBase中声明Update方法
+function UIBase:StartUpdate()
     if self.Update ~= nil then
         local handle = UpdateBeat:CreateListener(self.Update,self)
         UpdateBeat:AddListener(handle)
     end
-
-    --开启LateUpdate方法，请不要在UIBase中声明LateUpdate方法
-    if self.LateUpdate ~= nil then
-        local handle = LateUpdateBeat:CreateListener(self.LateUpdate,self)
-        LateUpdateBeat:AddListener(handle)
-    end
 end
 
+--开启FixedUpdate方法，请不要在UIBase中声明FixedUpdate方法
 function UIBase:StartFixedUpdate()
-    --开启FixedUpdate方法，请不要在UIBase中声明FixedUpdate方法
     if self.FixedUpdate ~= nil then
         local handle = FixedUpdateBeat:CreateListener(self.FixedUpdate,self)
         FixedUpdateBeat:AddListener(handle)
+    end
+end
+
+--开启LateUpdate方法，请不要在UIBase中声明LateUpdate方法
+function UIBase:StartLateUpdate()
+    if self.LateUpdate ~= nil then
+        local handle = LateUpdateBeat:CreateListener(self.LateUpdate,self)
+        LateUpdateBeat:AddListener(handle)
     end
 end
 

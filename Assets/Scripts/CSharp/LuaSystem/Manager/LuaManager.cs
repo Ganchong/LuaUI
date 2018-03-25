@@ -12,7 +12,7 @@ namespace LuaUIFramework
 	public class LuaManager : SingletonBehaviour<LuaManager>{
 		
 		/** Lua文件加载根目录 */
-		public static string LUAFILEPATH = "/Scripts/MLua";
+		public static string LUAFILEPATH = "/Art/MLua";
 		/** Lua AB包加载方法 */
 		public static Action<CallBack<Dictionary<string,AssetBundle>>> LoadLuaABFunc = null;
 

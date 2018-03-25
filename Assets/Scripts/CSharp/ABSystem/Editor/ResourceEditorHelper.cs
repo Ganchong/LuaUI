@@ -15,6 +15,8 @@ namespace ABSystem{
 		public static string SUFFIX="_";
 		/** 主资源路径 */
 		public static string RESROOT;
+		/** Lua文件主路径*/
+		public static string LUAROOT;
 		/** 主路径 */
 		public static string ASSETROOT;
 		/** 资源后缀 */
@@ -30,6 +32,7 @@ namespace ABSystem{
 		{
 			ASSETROOT = Replace (Application.dataPath);
 			RESROOT = ASSETROOT + "/Art/";
+			LUAROOT = ASSETROOT + "/temp/";
 			MANIFEASTPATH = ASSETROOT+"/../Manifests";
 			ASSETROOT = ASSETROOT.Substring (0, ASSETROOT.Length - "Assets".Length);
 			STREAMPATH = Replace (Application.streamingAssetsPath);
@@ -141,6 +144,43 @@ namespace ABSystem{
 			AssetDatabase.Refresh ();
 			BuildAssetBundle (BuildTarget.iOS);
 		}
+		[MenuItem("AssetBundle/Lua/MarkLuaAssets")]
+		public static void MarkLuaAssets()
+		{
+			if (!Directory.Exists (LUAROOT)) {
+				Debug.Log (LUAROOT+", isn't exist!,will to create..");
+			}
+			CopyLuaFilesToTemp ();
+			DirectoryInfo dicectoryLua = new DirectoryInfo (LUAROOT);
+			MarkLuaDirectory(dicectoryLua);
+		}
+		[MenuItem("AssetBundle/Lua/CopyLuaFilesToTemp")]
+		public static void CopyLuaFilesToTemp()
+		{
+			ToLuaMenu.ClearAllLuaFiles();
+			#if !UNITY_5 && !UNITY_2017 && !UNITY_2018
+			string tempDir = CreateStreamDir("Lua");
+			#else
+			string tempDir = Application.dataPath + "/temp/Lua";
+
+			if (!File.Exists(tempDir))
+			{
+				Directory.CreateDirectory(tempDir);
+			}        
+			#endif
+			ToLuaMenu.CopyLuaBytesFiles(LuaConst.luaDir, tempDir);
+			ToLuaMenu.CopyLuaBytesFiles(LuaConst.toluaDir, tempDir);
+			AssetDatabase.Refresh();
+			Debug.Log ("拷贝Lua文件到临时目录成功！");
+		}
+		[MenuItem("AssetBundle/Lua/ClearAllTempLuaFiles")]
+		public static void ClearAllTempLuaFiles()
+		{
+			ToLuaMenu.ClearAllLuaFiles();
+			AssetDatabase.Refresh ();
+			Debug.Log ("清理Lua临时文件成功！");
+		}
+
 
 		[MenuItem("AssetBundle/BuildAllSelectAndroid")]
 		public static void BuildAllSelectAndroid()
@@ -227,7 +267,27 @@ namespace ABSystem{
 				File.Move(file.FullName,targetPath);
 			});
 		}
-
+		/** 标记Lua文件夹下文件 */
+		private static void MarkLuaDirectory(DirectoryInfo dicectory)
+		{
+			if (dicectory.Name.EndsWith (SUFFIX)) return;
+			string directoryFullName = Replace (dicectory.FullName);
+			FileInfo[] files=dicectory.GetFiles ();
+			for(int i=0;i<files.Length;i++)
+			{
+				if(!files[i].Name.EndsWith(".bytes")) continue;
+				AssetImporter importer = AssetImporter.GetAtPath (Replace(files[i].FullName).Replace(ASSETROOT,string.Empty));
+				string assetName=FileHelper.StripSuffix(Replace (files[i].FullName).Replace(LUAROOT,string.Empty).Replace(".lua",""));
+				if(importer.assetBundleName==assetName) return;
+				importer.assetBundleName=assetName;
+				importer.assetBundleVariant=ABSUFFIX;
+			}
+			DirectoryInfo[] dicectorys = dicectory.GetDirectories ();
+			for (int i = 0; i < dicectorys.Length; i++) 
+			{
+				MarkLuaDirectory (dicectorys [i]);
+			}
+		}
 		/** 标记文件夹下文件 */
 		private static void MarkDirectory(DirectoryInfo dicectory,string platform)
 		{

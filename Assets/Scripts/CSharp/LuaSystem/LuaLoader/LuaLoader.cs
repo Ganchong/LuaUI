@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using LuaInterface;
 using LuaUIFramework;
+using System.IO;
+using ABSystem;
 
 namespace LuaFrameworkCore
 {
@@ -13,7 +15,7 @@ namespace LuaFrameworkCore
 		public LuaLoader()
 		{
 			instance = this;
-			beZip = false;
+			beZip = GameManager.Instance.isUseAB;
 		}
 
 		/** 以AB包的形式添加Lua脚本文件 */
@@ -23,11 +25,40 @@ namespace LuaFrameworkCore
 		}
 		public override byte[] ReadFile (string fileName)
 		{
-			return base.ReadFile (fileName);
+			if (!beZip)
+			{
+				string path = FindFile(fileName);
+				byte[] str = null;
+
+				if (!string.IsNullOrEmpty(path) && File.Exists(path))
+				{
+					#if !UNITY_WEBPLAYER
+					str = File.ReadAllBytes(path);
+					#else
+					throw new LuaException("can't run in web platform, please switch to other platform");
+					#endif
+				}
+				return str;
+			}
+			else
+			{
+				return ReadAssetBundleFile(fileName);
+			}
 		}
-		public override bool RemoveSearchPath (string path)
+
+		public byte[] ReadAssetBundleFile(string fileName)
 		{
-			return base.RemoveSearchPath (path);
+			byte[] buffer = null;
+			fileName = fileName.Replace (".lua","");
+			LuaPool.Instance.Load (fileName,1,(luaCode)=>{
+				if (luaCode != null)
+				{
+					buffer = luaCode.bytes;
+					Resources.UnloadAsset(luaCode);
+				}
+			});
+
+			return buffer;
 		}
 	}
 

@@ -6,7 +6,6 @@
 LoginWindow = class("LoginWindow",UIBase)
 
 local this = LoginWindow
-this.num = 0
 
 function this:InitUI(uiObj)
     self.UIObj = uiObj

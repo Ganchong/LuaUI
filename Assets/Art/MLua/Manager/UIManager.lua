@@ -42,7 +42,6 @@ function this:OpenWindow(name,param)
         local uiBase = self._openedUIMap[name]
         Util.SetAsLastSibling(uiBase.UIObj)
         table.remove(self._openingNameList,index)
-        table.insert(self._openingNameList,name)
         self:OnEnableUI(name,uiBase,param)
         --因为当前界面是全屏，隐藏所有其他UI
         if uiBase:GetUIType() == UIType.FullType then
@@ -51,14 +50,12 @@ function this:OpenWindow(name,param)
         return
     end
     --未曾打开过
-    Log("new ......")
     local uiBase = self:GetUIClass(name).new()
     local layer = uiBase:GetUILayer()
     self:GetUIObj(name,function (uiObj)
         uiObj.transform.parent = self._canvasLayerTrans[layer]
         uiObj.transform.localPosition = Vector3.zero
         uiObj.transform.localScale = Vector3.one
-        uiBase.UIObj = uiObj
         uiBase:InitUI(uiObj)
         self:OnEnableUI(name,uiBase,param)
         self._openedUIMap[name] = uiBase
@@ -104,7 +101,11 @@ end
 --销毁UI
 function this:DestroyUI(name,uiBase)
     uiBase:CloseUI(function ()
-        for i = #self._openingNameList-1, 1,-1 do
+        local opening,index = self:IsOpening(name)
+        if opening then
+            table.remove(self._openingNameList,index)
+        end
+        for i = #self._openingNameList, 1,-1 do
             local tmpname = self._openingNameList[i]
             local tmpUIBase = self._openedUIMap[tmpname]
             if tmpUIBase:GetUIType() == UIType.FullType then
@@ -115,7 +116,12 @@ function this:DestroyUI(name,uiBase)
                 --启动销毁程序
                 uiBase:DestroyUI()
                 Util.DestroyObject(self._openedUIMap[name].UIObj)
-                --这里需要测试是否已经销毁
+                --这里的obj已经销毁，_uiObjMap[name]虽然此时不为nil，但是数据已经不存在了
+                --也就是说不置为空,_uiObjMap[name]永远不为空，那么下次用的话会报错
+                --比如说下一帧调用_uiObjMap[name].transform的时候C#端将会抛出异常，说他是nil
+                --if self._uiObjMap[name].transform.parent==nil then
+                --    Log("=======================")
+                --end
                 self._uiObjMap[name] = nil
                 self._openedUIMap[name].UIObj = nil
                 self._openedUIMap[name] = nil
@@ -130,8 +136,10 @@ function this:GetUIObj(name,callback)
     local uiObj = self._uiObjMap[name]
     if uiObj~=nil then
         callback(uiObj)
+        Log("getUIObj from cache")
     else
         self:LoadUIObj(name,callback)
+        Log("getUIObj from new load")
     end
 end
 --加载UIObj
@@ -148,6 +156,7 @@ function this:GetUIClass(name)
     if uiClass == nil then
         uiClass = require("UI/"..name)
         self._uiClassMap[name] = uiClass
+        Log("get ui class from require")
     end
     return uiClass
 end

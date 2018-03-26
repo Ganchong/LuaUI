@@ -149,9 +149,10 @@ public static class CustomSettings
         _GT(typeof(Resources)),     
         _GT(typeof(LuaProfiler)),
 
-
+		_GT(typeof(UnityEngine.Events.UnityEvent)),
 		_GT(typeof(Text)),
-
+		_GT(typeof(Image)),
+		_GT(typeof(Button)),
 		_GT(typeof(Util)),
     };
 

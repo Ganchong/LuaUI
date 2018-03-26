@@ -13,7 +13,7 @@ end
 
 function Start()
     LuaAPP.Init()
-    local uiManager = LuaAPP:GetUIManager()
+    local uiManager = LuaAPP.GetUIManager()
     uiManager:Init()
     uiManager:OpenWindow("LoginWindow","")
 end

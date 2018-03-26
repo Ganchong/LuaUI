@@ -25,12 +25,11 @@ public class GameManager : SingletonBehaviour<GameManager>{
 	void Start()
 	{
 		GameObject _coreRoot = GameObject.Find ("_CoreRoot#");
-		if (_coreRoot == null) {
-			_coreRoot = Resources.Load ("_CoreRoot#") as GameObject;
-			_coreRoot = GameObject.Instantiate (_coreRoot);
-			_coreRoot.name = "_CoreRoot#";
-			_coreRoot.transform.SetParent (null);
-		}
+		if(_coreRoot!=null)DestroyImmediate(_coreRoot);
+		_coreRoot = Resources.Load ("_CoreRoot#") as GameObject;
+		_coreRoot = GameObject.Instantiate (_coreRoot);
+		_coreRoot.name = "_CoreRoot#";
+		_coreRoot.transform.SetParent (null);
 		DontDestroyOnLoad (this);
 		DontDestroyOnLoad (_coreRoot);
 		GameObject eventSystem = GameObject.Find ("EventSystem");

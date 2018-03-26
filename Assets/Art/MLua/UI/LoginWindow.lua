@@ -10,15 +10,23 @@ local this = LoginWindow
 function this:InitUI(uiObj)
     self.UIObj = uiObj
     self:BindWindow(uiObj)
+    self:AddButtonEvent()
 end
 
 function this:BindWindow(uiObj)
-    Log("bind loingwindow")
     self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",4)
+    self.LoginButton = Util.GetChildComponent(uiObj,"root/LoginButton",3);
     self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
-    Log(type(self.TimeLabel))
     self:StartFixedUpdate()
 
+end
+
+function this:AddButtonEvent()
+    self.LoginButton.onClick:AddListener(function() self:LoginEvent() end)
+end
+
+function this:LoginEvent()
+    LuaAPP.GetUIManager():OpenWindow("Alert","")
 end
 
 function this:OnEnableUI(param)
@@ -34,6 +42,9 @@ end
 
 function this:GetUILayer()
     return UILayer.MiddleStatic
+end
+function this:GetUIType()
+    return UIType.FullType
 end
 return this
 

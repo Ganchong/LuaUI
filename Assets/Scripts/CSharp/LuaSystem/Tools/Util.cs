@@ -88,7 +88,6 @@ namespace LuaFrameworkCore {
 
 		public static Component GetChildComponent(GameObject go, string subnode, int compName)
 		{
-			Debug.Log ("go:"+go.name+"path:"+subnode+"com:"+compName);
 			if (go != null)
 			{
 				return GetChildComponent(go.transform, subnode, compName);
@@ -101,10 +100,8 @@ namespace LuaFrameworkCore {
 			{
 
 				Transform sub = tran.Find(subnode);
-				Debug.Log (sub.name);
 				if (sub == null)
 					return null;
-				Debug.Log (GetComponent (sub, compName).name);
 				return GetComponent(sub, compName);
 			}
 			return null;

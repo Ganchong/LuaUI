@@ -14,7 +14,6 @@ end
 
 --初始化各类管理器
 function this:InitManagers()
-	Log("start to init managers")
 end
 
 function this:Update()

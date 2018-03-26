@@ -41,7 +41,7 @@ end
 
 --初始化UI
 function UIBase:InitUI(uiObj)
-    self.UIObj = uiObj;
+    self.UIObj = uiObj
 end
 
 --打开UI
@@ -51,7 +51,9 @@ end
 
 --关闭UI
 function UIBase:CloseUI(callback)
-
+    if callback~=nil then
+        callback()
+    end
 end
 
 --UI打开动画
@@ -65,8 +67,10 @@ function UIBase:DoCloseAnimation(callback)
 end
 
 --销毁UI
-function UIBase:DestroyUI()
-
+function UIBase:DestroyUI(callback)
+    if callback~=nil then
+        callback()
+    end
 end
 
 --设置UI显示情况

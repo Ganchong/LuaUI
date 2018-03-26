@@ -22,7 +22,7 @@ function this:AddButtonEvent()
     self.ReturnButton.onClick:AddListener(function ()self:ReturnEvent() end)
 end
 function this:ReturnEvent()
-    LuaAPP.GetUIManager():CloseWindow("CreateRoleWindow","")
+    LuaAPP.GetUIManager():CloseWindow("CreateRoleWindow")
 end
 function this:Update()
     Log("MainWindow Update")

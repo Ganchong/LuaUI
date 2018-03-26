@@ -51,6 +51,7 @@ end
 
 --关闭UI
 function UIBase:CloseUI(callback)
+    Log("UIBase closeUI")
     if callback~=nil then
         callback()
     end

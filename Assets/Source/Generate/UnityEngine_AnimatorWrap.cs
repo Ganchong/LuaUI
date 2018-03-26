@@ -31,6 +31,7 @@ public class UnityEngine_AnimatorWrap
 		L.RegFunction("SetLookAtPosition", SetLookAtPosition);
 		L.RegFunction("SetLookAtWeight", SetLookAtWeight);
 		L.RegFunction("SetBoneLocalRotation", SetBoneLocalRotation);
+		L.RegFunction("GetBehaviours", GetBehaviours);
 		L.RegFunction("GetLayerName", GetLayerName);
 		L.RegFunction("GetLayerIndex", GetLayerIndex);
 		L.RegFunction("GetLayerWeight", GetLayerWeight);
@@ -763,6 +764,25 @@ public class UnityEngine_AnimatorWrap
 			UnityEngine.Quaternion arg1 = ToLua.ToQuaternion(L, 3);
 			obj.SetBoneLocalRotation(arg0, arg1);
 			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetBehaviours(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			UnityEngine.Animator obj = (UnityEngine.Animator)ToLua.CheckObject(L, 1, typeof(UnityEngine.Animator));
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+			int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+			UnityEngine.StateMachineBehaviour[] o = obj.GetBehaviours(arg0, arg1);
+			ToLua.Push(L, o);
+			return 1;
 		}
 		catch (Exception e)
 		{
@@ -2300,7 +2320,7 @@ public class UnityEngine_AnimatorWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Animator obj = (UnityEngine.Animator)o;
-			UnityEngine.Experimental.Director.PlayableGraph ret = obj.playableGraph;
+			UnityEngine.Playables.PlayableGraph ret = obj.playableGraph;
 			ToLua.PushValue(L, ret);
 			return 1;
 		}

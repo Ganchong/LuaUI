@@ -1,245 +1,245 @@
 ManifestFileVersion: 0
-CRC: 4194175493
+CRC: 2493502218
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
+      Name: texture/normal/loginback_4.unity3d
+      Dependencies: {}
+    Info_1:
+      Name: texture/loginback_3.unity3d
+      Dependencies: {}
+    Info_2:
       Name: ui/loginwindow.unity3d
       Dependencies:
         Dependency_0: texture/loginback_3.unity3d
-    Info_1:
+    Info_3:
       Name: uiprefabs/resources/_coreroot#.unity3d
       Dependencies: {}
-    Info_2:
-      Name: texture/loginback_3.unity3d
-      Dependencies: {}
-    Info_3:
-      Name: lua/event.unity3d
-      Dependencies: {}
     Info_4:
-      Name: lua/list.unity3d
-      Dependencies: {}
-    Info_5:
-      Name: lua/ltn12.unity3d
-      Dependencies: {}
-    Info_6:
-      Name: lua/luaapp.unity3d
-      Dependencies: {}
-    Info_7:
-      Name: lua/main.unity3d
-      Dependencies: {}
-    Info_8:
-      Name: lua/mime.unity3d
-      Dependencies: {}
-    Info_9:
-      Name: lua/slot.unity3d
-      Dependencies: {}
-    Info_10:
-      Name: lua/socket.unity3d
-      Dependencies: {}
-    Info_11:
-      Name: lua/tolua.unity3d
-      Dependencies: {}
-    Info_12:
-      Name: lua/typeof.unity3d
-      Dependencies: {}
-    Info_13:
-      Name: lua/base/uibase.unity3d
-      Dependencies: {}
-    Info_14:
-      Name: lua/cjson/util.unity3d
-      Dependencies: {}
-    Info_15:
-      Name: lua/common/define.unity3d
-      Dependencies: {}
-    Info_16:
-      Name: lua/common/definitionclass.unity3d
-      Dependencies: {}
-    Info_17:
-      Name: lua/jit/bc.unity3d
-      Dependencies: {}
-    Info_18:
-      Name: lua/jit/bcsave.unity3d
-      Dependencies: {}
-    Info_19:
-      Name: lua/jit/dis_arm.unity3d
-      Dependencies: {}
-    Info_20:
-      Name: lua/jit/dis_arm64.unity3d
-      Dependencies: {}
-    Info_21:
-      Name: lua/jit/dis_arm64be.unity3d
-      Dependencies: {}
-    Info_22:
-      Name: lua/jit/dis_mips.unity3d
-      Dependencies: {}
-    Info_23:
-      Name: lua/jit/dis_mips64.unity3d
-      Dependencies: {}
-    Info_24:
-      Name: lua/jit/dis_mips64el.unity3d
-      Dependencies: {}
-    Info_25:
       Name: lua/jit/dis_mipsel.unity3d
       Dependencies: {}
-    Info_26:
-      Name: lua/jit/dis_ppc.unity3d
+    Info_5:
+      Name: lua/jit/bc.unity3d
       Dependencies: {}
-    Info_27:
-      Name: lua/jit/dis_x64.unity3d
+    Info_6:
+      Name: lua/socket/smtp.unity3d
       Dependencies: {}
-    Info_28:
-      Name: lua/jit/dis_x86.unity3d
+    Info_7:
+      Name: lua/unityengine/bounds.unity3d
       Dependencies: {}
-    Info_29:
-      Name: lua/jit/dump.unity3d
+    Info_8:
+      Name: lua/unityengine/ray.unity3d
       Dependencies: {}
-    Info_30:
-      Name: lua/jit/p.unity3d
+    Info_9:
+      Name: lua/socket/ftp.unity3d
       Dependencies: {}
-    Info_31:
-      Name: lua/jit/v.unity3d
+    Info_10:
+      Name: lua/unityengine/vector4.unity3d
       Dependencies: {}
-    Info_32:
-      Name: lua/jit/vmdef.unity3d
+    Info_11:
+      Name: lua/jit/dis_arm.unity3d
       Dependencies: {}
-    Info_33:
-      Name: lua/jit/zone.unity3d
+    Info_12:
+      Name: lua/protobuf/wire_format.unity3d
       Dependencies: {}
-    Info_34:
-      Name: lua/lpeg/re.unity3d
+    Info_13:
+      Name: lua/socket.unity3d
       Dependencies: {}
-    Info_35:
+    Info_14:
       Name: lua/manager/uimanager.unity3d
       Dependencies: {}
+    Info_15:
+      Name: lua/unityengine/time.unity3d
+      Dependencies: {}
+    Info_16:
+      Name: lua/list.unity3d
+      Dependencies: {}
+    Info_17:
+      Name: lua/ltn12.unity3d
+      Dependencies: {}
+    Info_18:
+      Name: lua/unityengine/raycasthit.unity3d
+      Dependencies: {}
+    Info_19:
+      Name: lua/protobuf/descriptor.unity3d
+      Dependencies: {}
+    Info_20:
+      Name: lua/socket/http.unity3d
+      Dependencies: {}
+    Info_21:
+      Name: lua/system/reflection/bindingflags.unity3d
+      Dependencies: {}
+    Info_22:
+      Name: lua/event.unity3d
+      Dependencies: {}
+    Info_23:
+      Name: lua/system/coroutine.unity3d
+      Dependencies: {}
+    Info_24:
+      Name: lua/common/definitionclass.unity3d
+      Dependencies: {}
+    Info_25:
+      Name: lua/mime.unity3d
+      Dependencies: {}
+    Info_26:
+      Name: lua/jit/p.unity3d
+      Dependencies: {}
+    Info_27:
+      Name: lua/protobuf/type_checkers.unity3d
+      Dependencies: {}
+    Info_28:
+      Name: lua/protobuf/containers.unity3d
+      Dependencies: {}
+    Info_29:
+      Name: lua/typeof.unity3d
+      Dependencies: {}
+    Info_30:
+      Name: lua/unityengine/plane.unity3d
+      Dependencies: {}
+    Info_31:
+      Name: lua/socket/tp.unity3d
+      Dependencies: {}
+    Info_32:
+      Name: lua/jit/dump.unity3d
+      Dependencies: {}
+    Info_33:
+      Name: lua/ui/loginwindow.unity3d
+      Dependencies: {}
+    Info_34:
+      Name: lua/jit/dis_mips64el.unity3d
+      Dependencies: {}
+    Info_35:
+      Name: lua/unityengine/profiler.unity3d
+      Dependencies: {}
     Info_36:
-      Name: lua/misc/functions.unity3d
+      Name: lua/unityengine/vector2.unity3d
       Dependencies: {}
     Info_37:
       Name: lua/misc/strict.unity3d
       Dependencies: {}
     Info_38:
-      Name: lua/misc/utf8.unity3d
+      Name: lua/socket/url.unity3d
       Dependencies: {}
     Info_39:
-      Name: lua/protobuf/containers.unity3d
+      Name: lua/jit/dis_mips.unity3d
       Dependencies: {}
     Info_40:
       Name: lua/protobuf/decoder.unity3d
       Dependencies: {}
     Info_41:
-      Name: lua/protobuf/descriptor.unity3d
+      Name: lua/main.unity3d
       Dependencies: {}
     Info_42:
-      Name: lua/protobuf/encoder.unity3d
+      Name: lua/jit/dis_arm64be.unity3d
       Dependencies: {}
     Info_43:
-      Name: lua/protobuf/listener.unity3d
+      Name: lua/luaapp.unity3d
       Dependencies: {}
     Info_44:
-      Name: lua/protobuf/protobuf.unity3d
+      Name: lua/jit/dis_x64.unity3d
       Dependencies: {}
     Info_45:
-      Name: lua/protobuf/text_format.unity3d
+      Name: lua/state/statedefine.unity3d
       Dependencies: {}
     Info_46:
-      Name: lua/protobuf/type_checkers.unity3d
+      Name: lua/ui/mainwindow.unity3d
       Dependencies: {}
     Info_47:
-      Name: lua/protobuf/wire_format.unity3d
+      Name: lua/misc/utf8.unity3d
       Dependencies: {}
     Info_48:
-      Name: lua/socket/ftp.unity3d
+      Name: lua/jit/dis_ppc.unity3d
       Dependencies: {}
     Info_49:
-      Name: lua/socket/headers.unity3d
+      Name: lua/state/basestate.unity3d
       Dependencies: {}
     Info_50:
-      Name: lua/socket/http.unity3d
+      Name: lua/unityengine/mathf.unity3d
       Dependencies: {}
     Info_51:
-      Name: lua/socket/mbox.unity3d
+      Name: lua/system/valuetype.unity3d
       Dependencies: {}
     Info_52:
-      Name: lua/socket/smtp.unity3d
+      Name: lua/unityengine/touch.unity3d
       Dependencies: {}
     Info_53:
-      Name: lua/socket/tp.unity3d
+      Name: lua/base/uibase.unity3d
       Dependencies: {}
     Info_54:
-      Name: lua/socket/url.unity3d
+      Name: lua/protobuf/text_format.unity3d
       Dependencies: {}
     Info_55:
-      Name: lua/state/basestate.unity3d
+      Name: lua/slot.unity3d
       Dependencies: {}
     Info_56:
       Name: lua/state/initstate.unity3d
       Dependencies: {}
     Info_57:
-      Name: lua/state/loginstate.unity3d
+      Name: lua/lpeg/re.unity3d
       Dependencies: {}
     Info_58:
-      Name: lua/state/statedefine.unity3d
+      Name: lua/state/loginstate.unity3d
       Dependencies: {}
     Info_59:
-      Name: lua/system/coroutine.unity3d
+      Name: lua/protobuf/listener.unity3d
       Dependencies: {}
     Info_60:
-      Name: lua/system/timer.unity3d
-      Dependencies: {}
-    Info_61:
-      Name: lua/system/valuetype.unity3d
-      Dependencies: {}
-    Info_62:
-      Name: lua/system/reflection/bindingflags.unity3d
-      Dependencies: {}
-    Info_63:
-      Name: lua/ui/loginwindow.unity3d
-      Dependencies: {}
-    Info_64:
-      Name: lua/ui/mainwindow.unity3d
-      Dependencies: {}
-    Info_65:
-      Name: lua/unityengine/bounds.unity3d
-      Dependencies: {}
-    Info_66:
-      Name: lua/unityengine/color.unity3d
-      Dependencies: {}
-    Info_67:
-      Name: lua/unityengine/layermask.unity3d
-      Dependencies: {}
-    Info_68:
-      Name: lua/unityengine/mathf.unity3d
-      Dependencies: {}
-    Info_69:
-      Name: lua/unityengine/plane.unity3d
-      Dependencies: {}
-    Info_70:
-      Name: lua/unityengine/profiler.unity3d
-      Dependencies: {}
-    Info_71:
-      Name: lua/unityengine/quaternion.unity3d
-      Dependencies: {}
-    Info_72:
-      Name: lua/unityengine/ray.unity3d
-      Dependencies: {}
-    Info_73:
-      Name: lua/unityengine/raycasthit.unity3d
-      Dependencies: {}
-    Info_74:
-      Name: lua/unityengine/time.unity3d
-      Dependencies: {}
-    Info_75:
-      Name: lua/unityengine/touch.unity3d
-      Dependencies: {}
-    Info_76:
-      Name: lua/unityengine/vector2.unity3d
-      Dependencies: {}
-    Info_77:
       Name: lua/unityengine/vector3.unity3d
       Dependencies: {}
+    Info_61:
+      Name: lua/protobuf/encoder.unity3d
+      Dependencies: {}
+    Info_62:
+      Name: lua/socket/mbox.unity3d
+      Dependencies: {}
+    Info_63:
+      Name: lua/jit/v.unity3d
+      Dependencies: {}
+    Info_64:
+      Name: lua/jit/dis_arm64.unity3d
+      Dependencies: {}
+    Info_65:
+      Name: lua/common/define.unity3d
+      Dependencies: {}
+    Info_66:
+      Name: lua/jit/vmdef.unity3d
+      Dependencies: {}
+    Info_67:
+      Name: lua/protobuf/protobuf.unity3d
+      Dependencies: {}
+    Info_68:
+      Name: lua/jit/dis_mips64.unity3d
+      Dependencies: {}
+    Info_69:
+      Name: lua/jit/dis_x86.unity3d
+      Dependencies: {}
+    Info_70:
+      Name: lua/cjson/util.unity3d
+      Dependencies: {}
+    Info_71:
+      Name: lua/socket/headers.unity3d
+      Dependencies: {}
+    Info_72:
+      Name: lua/unityengine/quaternion.unity3d
+      Dependencies: {}
+    Info_73:
+      Name: lua/system/timer.unity3d
+      Dependencies: {}
+    Info_74:
+      Name: lua/unityengine/layermask.unity3d
+      Dependencies: {}
+    Info_75:
+      Name: lua/jit/zone.unity3d
+      Dependencies: {}
+    Info_76:
+      Name: lua/unityengine/color.unity3d
+      Dependencies: {}
+    Info_77:
+      Name: lua/misc/functions.unity3d
+      Dependencies: {}
     Info_78:
-      Name: lua/unityengine/vector4.unity3d
+      Name: lua/jit/bcsave.unity3d
       Dependencies: {}
     Info_79:
-      Name: texture/normal/loginback_4.unity3d
+      Name: lua/tolua.unity3d
       Dependencies: {}

@@ -357,7 +357,7 @@ namespace ABSystem{
 					int maxSize = importer.maxTextureSize;
 					bool alpha = importer.DoesSourceTextureHaveAlpha ();
 
-					importer.textureType = TextureImporterType.Advanced;
+					importer.textureType = TextureImporterType.Default;
 					importer.npotScale = TextureImporterNPOTScale.ToNearest;
 					importer.isReadable = false;
 					importer.mipmapEnabled = false;

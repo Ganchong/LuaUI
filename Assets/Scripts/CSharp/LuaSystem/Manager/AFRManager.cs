@@ -13,7 +13,7 @@ public class AFRManager : Singleton<AFRManager>{
 
 	public void RegisterFunc()
 	{
-		Debug.Log("AFRManager");
+		Debug.Log("AFRManager start");
 		/** LuaAB加载注册 */
 		LuaManager.LoadLuaABFunc = (callBack)=>{
 			Dictionary<string,AssetBundle> abDic = new Dictionary<string, AssetBundle>();
@@ -21,10 +21,25 @@ public class AFRManager : Singleton<AFRManager>{
 		};
 		/** 切换状态资源准备 */
 		StateBase.InitResFunc = (callBack)=>{
-//			ResourceHelper.Instance.LoadResDataAsync(TEXTUREPATH+"loginback_3",(re)=>{
-//			});
 			ResourceHelper.Instance.LoadResData(TEXTUREPATH+"loginback_3");
 			callBack();
+		};
+		/** Lua bytes加载方法注册 */
+		LuaLoader.LoadLuaFuc = (fileName,callBack)=>{
+			byte[] buffer = null;
+			fileName = fileName.Replace (".lua","");
+			LuaPool.Instance.Load (fileName,1,(luaCode)=>{
+				if (luaCode != null)
+				{
+					buffer = luaCode.bytes;
+					Resources.UnloadAsset(luaCode);
+				}
+			});
+			if(callBack!=null)callBack(buffer);
+		};
+
+		Util.LoadUIObjFuc = (name,callback)=>{
+			ResourceLoaderManager.Instance.LoadUIObj (name,null,callback);
 		};
 	}
 }

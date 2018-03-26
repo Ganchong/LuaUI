@@ -190,9 +190,15 @@ namespace LuaFrameworkCore {
 			CommonFunction.SetUrlImg(img, accid, url, width);
 		}
 
+		/** 加载UI预制方法 */
+		public static Action<string,Action<GameObject>> LoadUIObjFuc = null ;              
 		public static void InstantiateUIObj(string name,Action<GameObject> callback)
 		{
-			ResourceLoaderManager.Instance.LoadUIObj (name,null,callback);
+			if(LoadUIObjFuc!=null){
+				LoadUIObjFuc(name,(obj)=>{
+					callback(obj);
+				});
+			}
 		}
 		public static void DestroyObject(UnityEngine.Object go)
 		{

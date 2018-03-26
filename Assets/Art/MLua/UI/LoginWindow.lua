@@ -14,7 +14,7 @@ end
 
 function this:BindWindow(uiObj)
     Log("bind loingwindow")
-    self.TimeLabel = Util.GetChildComponent(uiObj,"time",4)
+    self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",4)
     self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
     Log(type(self.TimeLabel))
     self:StartFixedUpdate()

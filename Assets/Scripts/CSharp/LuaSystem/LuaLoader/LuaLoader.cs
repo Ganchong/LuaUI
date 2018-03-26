@@ -10,7 +10,9 @@ namespace LuaFrameworkCore
 	/// Lua脚本文件加载器，重载自LuaFileUtils以实现自己的添加方法
 	/// </summary>
 	public class LuaLoader : LuaFileUtils {
-		
+		/** lua bytes资源加载接口 */
+		public static System.Action<string,CallBack<byte[]>> LoadLuaFuc = null;
+
 		/** 构造 */
 		public LuaLoader()
 		{
@@ -49,15 +51,11 @@ namespace LuaFrameworkCore
 		public byte[] ReadAssetBundleFile(string fileName)
 		{
 			byte[] buffer = null;
-			fileName = fileName.Replace (".lua","");
-			LuaPool.Instance.Load (fileName,1,(luaCode)=>{
-				if (luaCode != null)
-				{
-					buffer = luaCode.bytes;
-					Resources.UnloadAsset(luaCode);
-				}
-			});
-
+			if(LoadLuaFuc!=null){
+				LoadLuaFuc(fileName,(buf)=>{
+					buffer = buf;
+				});
+			}
 			return buffer;
 		}
 	}

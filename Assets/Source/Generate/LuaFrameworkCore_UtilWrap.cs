@@ -51,6 +51,7 @@ public class LuaFrameworkCore_UtilWrap
 		L.RegFunction("AddDropdownoption", AddDropdownoption);
 		L.RegFunction("New", _CreateLuaFrameworkCore_Util);
 		L.RegFunction("__tostring", ToLua.op_ToString);
+		L.RegVar("LoadUIObjFuc", get_LoadUIObjFuc, set_LoadUIObjFuc);
 		L.RegVar("NetAvailable", get_NetAvailable, null);
 		L.RegVar("IsWifi", get_IsWifi, null);
 		L.EndClass();
@@ -994,6 +995,20 @@ public class LuaFrameworkCore_UtilWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_LoadUIObjFuc(IntPtr L)
+	{
+		try
+		{
+			ToLua.Push(L, LuaFrameworkCore.Util.LoadUIObjFuc);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_NetAvailable(IntPtr L)
 	{
 		try
@@ -1014,6 +1029,21 @@ public class LuaFrameworkCore_UtilWrap
 		{
 			LuaDLL.lua_pushboolean(L, LuaFrameworkCore.Util.IsWifi);
 			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_LoadUIObjFuc(IntPtr L)
+	{
+		try
+		{
+			System.Action<string,System.Action<UnityEngine.GameObject>> arg0 = (System.Action<string,System.Action<UnityEngine.GameObject>>)ToLua.CheckDelegate<System.Action<string,System.Action<UnityEngine.GameObject>>>(L, 2);
+			LuaFrameworkCore.Util.LoadUIObjFuc = arg0;
+			return 0;
 		}
 		catch (Exception e)
 		{

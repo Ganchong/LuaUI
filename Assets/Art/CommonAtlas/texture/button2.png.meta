@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 6fac9f40a8caad44cae6fafcee2ed25a
-timeCreated: 1522055383
+guid: f7c814b8ce3aa2c4fbd1bad7811ec70a
+timeCreated: 1522122762
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -22,7 +22,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -77,21 +77,21 @@ TextureImporter:
   - buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 5
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 100
     crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    allowsAlphaSplitting: 1
+    overridden: 1
   - buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 47
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -99,5 +99,5 @@ TextureImporter:
     physicsShape: []
   spritePackingTag: 
   userData: 
-  assetBundleName: commonatlas/button5
-  assetBundleVariant: unity3d
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,7 +3,7 @@
 --- Created by 干冲.
 --- DateTime: 2018/3/24 19:06
 ---
-LoginWindow = class("LoginWindow",UIBase)
+LoginWindow = class("LoginWindow", WindowBase)
 
 local this = LoginWindow
 
@@ -11,14 +11,12 @@ function this:InitUI(uiObj)
     self.UIObj = uiObj
     self:BindWindow(uiObj)
     self:AddButtonEvent()
+    Log("LoginWindow InitUI")
 end
 
 function this:BindWindow(uiObj)
     self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",4)
     self.LoginButton = Util.GetChildComponent(uiObj,"root/LoginButton",3);
-    self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
-    self:StartFixedUpdate()
-
 end
 
 function this:AddButtonEvent()
@@ -30,21 +28,18 @@ function this:LoginEvent()
 end
 
 function this:OnEnableUI(param)
+    self:StartUpdate()
 end
 
-function this:Update1()
-    Log(Time.GetTimestamp())
-end
-
-function this:FixedUpdate()
+function this:Update()
     self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
 end
 
 function this:GetUILayer()
-    return UILayer.MiddleStatic
+    return WindowLayer.MiddleStatic
 end
 function this:GetUIType()
-    return UIType.FullType
+    return WindowType.FullType
 end
 return this
 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: cf5b8e58835a9664bba343f76a5daf7d
-timeCreated: 1522055352
+guid: 694dfec16a9cf0c449c446b1b3701cc4
+timeCreated: 1522055360
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -86,12 +86,12 @@ TextureImporter:
   - buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 47
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -99,5 +99,5 @@ TextureImporter:
     physicsShape: []
   spritePackingTag: 
   userData: 
-  assetBundleName: commonatlas/button5press
-  assetBundleVariant: unity3d
+  assetBundleName: 
+  assetBundleVariant: 

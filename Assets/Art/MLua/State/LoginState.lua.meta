@@ -3,6 +3,7 @@ guid: 66813e09cdb6cc845b040b14b7a56c04
 timeCreated: 1521701597
 licenseType: Pro
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: mlua/state/loginstate
   assetBundleVariant: unity3d

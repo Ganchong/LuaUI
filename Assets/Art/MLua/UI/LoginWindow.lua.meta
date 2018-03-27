@@ -3,6 +3,7 @@ guid: 894a6a7414d25a64fb87dcd7ccdf4c95
 timeCreated: 1521890023
 licenseType: Pro
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: mlua/ui/loginwindow
   assetBundleVariant: unity3d

@@ -11,6 +11,7 @@ require("Manager/UIManager")
 require("LuaApp")
 --引入UIBase
 require("Base/UIBase")
+require("Base/WindowBase")
 
 ---#全局变量定义#--
 GameObject = UnityEngine.GameObject
@@ -23,7 +24,7 @@ StateNames = {
     LoginState = "State/LoginState",
 }
 --UI层级 bottom{静态，动态} middle{静态，动态} top{静态，动态} 实现动静分离
-UILayer = {
+WindowLayer = {
     BottomStatic = "_BottomStatic#",
     BottomDyn = "_BottomDyn#",
     MiddleStatic = "_MiddleStatic#",
@@ -32,7 +33,7 @@ UILayer = {
     TopDyn = "_TopDyn#",
 }
 --UI类型 普通， 全屏（关闭时均按返回处理）
-UIType = {
+WindowType = {
     None = "None",
     FullType = "FullType",
 }

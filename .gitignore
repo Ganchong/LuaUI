@@ -25,3 +25,6 @@ sysinfo.txt
 /UnityVS.tolua.CSharp.csproj
 /UnityVS.tolua.CSharp.Editor.csproj
 /UnityVS.tolua.sln
+/Assets/StreamingAssets
+/Assets/temp
+/Manifests

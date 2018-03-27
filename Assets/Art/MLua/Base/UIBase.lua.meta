@@ -1,8 +1,9 @@
 fileFormatVersion: 2
 guid: 28a91333eeefbec4ca42f0980f47620e
-timeCreated: 1521869026
+timeCreated: 1522143153
 licenseType: Pro
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: mlua/base/uibase
   assetBundleVariant: unity3d

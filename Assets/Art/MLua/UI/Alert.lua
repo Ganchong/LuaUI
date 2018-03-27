@@ -3,13 +3,14 @@
 --- Created by 干冲.
 --- DateTime: 2018/3/26 17:27
 ---
-Alert = class("Alert",UIBase)
+Alert = class("Alert", WindowBase)
 local this = Alert
 
 function this:InitUI(uiObj)
     self.UIObj = uiObj
     self:BindWindow(uiObj)
     self:AddButtonEvent()
+    Log("Alert InitUI")
 end
 
 function this:BindWindow(uiObj)
@@ -23,11 +24,14 @@ function this:AddButtonEvent()
 end
 
 function this:SureEvent()
+    --LuaAPP.GetUIManager():CloseWindow("Alert")
+    self:FinishWindow();
     LuaAPP.GetUIManager():OpenWindow("CreateRoleWindow","")
 end
 
 function this:CancelEvent()
-    LuaAPP.GetUIManager():CloseWindow("Alert")
+    --LuaAPP.GetUIManager():CloseWindow("Alert")
+    self:FinishWindow()
 end
 
 function this:IsStatic()

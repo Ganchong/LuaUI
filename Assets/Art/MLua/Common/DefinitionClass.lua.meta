@@ -3,6 +3,7 @@ guid: 86f9aa8f29ad0af4d947b26243830134
 timeCreated: 1521708015
 licenseType: Pro
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: mlua/common/definitionclass
   assetBundleVariant: unity3d

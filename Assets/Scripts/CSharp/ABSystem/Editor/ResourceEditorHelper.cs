@@ -55,7 +55,8 @@ namespace ABSystem{
 					EditorUtility.DisplayProgressBar("清理标记中", name, (float)startIndex / (float)names.Length);
 
 					paths=AssetDatabase.GetAssetPathsFromAssetBundle(names[startIndex]);
-
+					Debug.Log(names[startIndex]);
+					Debug.Log(paths.Length);
 					if(paths==null)
 					{
 						name=names[startIndex];
@@ -66,6 +67,7 @@ namespace ABSystem{
 						for(int j=0;j<paths.Length;j++)
 						{
 							if(!paths[j].Contains(ResData.ALPHAPREFIX)) continue;
+							Debug.Log(paths[j]);
 							AssetImporter importer = AssetImporter.GetAtPath(paths[j]);
 							importer.assetBundleName=string.Empty;
 							name=names[startIndex];
@@ -297,6 +299,16 @@ namespace ABSystem{
 			if (System.IO.File.Exists (prefabPath)) 
 			{
 				AssetImporter importer = AssetImporter.GetAtPath (prefabPath.Replace(ASSETROOT,string.Empty));
+				string assetName=directoryFullName.Replace(RESROOT,string.Empty);
+				if(importer.assetBundleName==assetName) return;
+				importer.assetBundleName=assetName;
+				importer.assetBundleVariant=ABSUFFIX;
+				return;
+			}
+			string spritAtlas = directoryFullName+FileHelper.FILESPEARATOR+dicectory.Name+".spriteatlas";
+			if (System.IO.File.Exists (spritAtlas)) 
+			{
+				AssetImporter importer = AssetImporter.GetAtPath (spritAtlas.Replace(ASSETROOT,string.Empty));
 				string assetName=directoryFullName.Replace(RESROOT,string.Empty);
 				if(importer.assetBundleName==assetName) return;
 				importer.assetBundleName=assetName;

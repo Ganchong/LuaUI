@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 2f8c214b00697c04c8678ab07d871022
-timeCreated: 1521889299
+guid: efe4452e964dbf640b2f3f3b0a3e57ce
+timeCreated: 1521645331
 licenseType: Pro
 NativeFormatImporter:
+  externalObjects: {}
   mainObjectFileID: 100100000
   userData: 
-  assetBundleName: ui/loginwindow
+  assetBundleName: _coreroot#
   assetBundleVariant: unity3d

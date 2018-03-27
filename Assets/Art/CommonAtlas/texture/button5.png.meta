@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2b6a5e7e4434251448f5424aaa7198e8
-timeCreated: 1522055345
+guid: 6fac9f40a8caad44cae6fafcee2ed25a
+timeCreated: 1522055383
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -99,5 +99,5 @@ TextureImporter:
     physicsShape: []
   spritePackingTag: 
   userData: 
-  assetBundleName: commonatlas/button1press
-  assetBundleVariant: unity3d
+  assetBundleName: 
+  assetBundleVariant: 

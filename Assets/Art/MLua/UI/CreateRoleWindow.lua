@@ -4,10 +4,11 @@
 --- DateTime: 2018/3/24 22:25
 ---
 
-CreateRoleWindow = class("CreateRoleWindow",UIBase)
+CreateRoleWindow = class("CreateRoleWindow", WindowBase)
 local this = CreateRoleWindow
 
 function this:InitUI(uiObj)
+    Log("CreateRoleWindow InitUI")
     self.UIObj = uiObj
     self:BindWindow(uiObj)
     self:AddButtonEvent()
@@ -22,14 +23,11 @@ function this:AddButtonEvent()
     self.ReturnButton.onClick:AddListener(function ()self:ReturnEvent() end)
 end
 function this:ReturnEvent()
-    LuaAPP.GetUIManager():CloseWindow("CreateRoleWindow")
-end
-function this:Update()
-    Log("MainWindow Update")
+    self:FinishWindow()
 end
 
 function this:GetUIType()
-    return UIType.FullType
+    return WindowType.FullType
 end
 
 return this

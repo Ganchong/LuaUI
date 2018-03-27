@@ -3,6 +3,7 @@ guid: 758e7e3fc4ac7ca4683561c1b6e92f5f
 timeCreated: 1521701597
 licenseType: Pro
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: mlua/state/basestate
   assetBundleVariant: unity3d

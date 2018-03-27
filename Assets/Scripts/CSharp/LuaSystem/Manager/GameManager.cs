@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using LuaFrameworkCore;
 using UnityEngine.EventSystems;
+using ABSystem;
 
 /// <summary>
 /// 游戏管理器
@@ -10,6 +12,11 @@ using UnityEngine.EventSystems;
 public class GameManager : SingletonBehaviour<GameManager>{
 	/** 游戏目标帧率*/
 	public static int TARGET_FRAMERATE = 30;
+	/** 默认加载资源 */
+	public static string[] BASERESOURCES;
+	/** Root节点 */
+	const string COREROOT = "_CoreRoot#";
+
 
 	[Tooltip("是否使用AB包")]
 	public bool isUseAB = false;
@@ -24,11 +31,31 @@ public class GameManager : SingletonBehaviour<GameManager>{
 
 	void Start()
 	{
-		GameObject _coreRoot = GameObject.Find ("_CoreRoot#");
+		BASERESOURCES = Resources.Load<TextAsset>("resourcesConfig").text.Replace("\r","").Split(new string[]{"\n"},StringSplitOptions.RemoveEmptyEntries);
+		int count = 0;
+		Action loadFinish = ()=>{
+			count++;
+			if(count<2)return;
+			LoadResourcesFinish();
+		};
+		ResourcesManager.Instance.cache(BASERESOURCES,loadFinish);
+		ResourceHelper.Instance.InitManifest(loadFinish);
+	}
+	/** 加载默认资源结束 */
+	void LoadResourcesFinish()
+	{
+		InitRoot();
+		AFRManager.Instance.RegisterFunc();
+		states = new List<StateBase>();
+		this.ChangeState<InitState>();
+	}
+	/** 初始化Root */
+	void InitRoot()
+	{
+		GameObject _coreRoot = GameObject.Find (COREROOT);
 		if(_coreRoot!=null)DestroyImmediate(_coreRoot);
-		_coreRoot = Resources.Load ("_CoreRoot#") as GameObject;
-		_coreRoot = GameObject.Instantiate (_coreRoot);
-		_coreRoot.name = "_CoreRoot#";
+		_coreRoot = Instantiate(ResourcesManager.Instance.getObjectFromCache(COREROOT).LoadMainAsset<GameObject>())as GameObject;
+		_coreRoot.name = COREROOT;
 		_coreRoot.transform.SetParent (null);
 		DontDestroyOnLoad (this);
 		DontDestroyOnLoad (_coreRoot);
@@ -38,10 +65,6 @@ public class GameManager : SingletonBehaviour<GameManager>{
 		}
 		eventSystem.AddMissCompoent<EventSystem> ();
 		DontDestroyOnLoad (eventSystem);
-
-		AFRManager.Instance.RegisterFunc();
-		states = new List<StateBase>();
-		this.ChangeState<InitState>();
 	}
 
 	/** 切换状态 */

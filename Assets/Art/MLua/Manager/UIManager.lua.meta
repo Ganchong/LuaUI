@@ -3,6 +3,7 @@ guid: 900975a1919f17149985328dfe0093f9
 timeCreated: 1521624874
 licenseType: Pro
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: mlua/manager/uimanager
   assetBundleVariant: unity3d

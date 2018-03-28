@@ -11,7 +11,10 @@ require("Manager/UIManager")
 require("LuaApp")
 --引入UIBase
 require("Base/UIBase")
+--引入窗口基类
 require("Base/WindowBase")
+--引入有序列表
+require("Common/YMList")
 
 ---#全局变量定义#--
 GameObject = UnityEngine.GameObject

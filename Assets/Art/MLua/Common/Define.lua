@@ -15,6 +15,8 @@ require("Base/UIBase")
 require("Base/WindowBase")
 --引入有序列表
 require("Common/YMList")
+--引入字典
+require("Common/YMDictionary")
 
 ---#全局变量定义#--
 GameObject = UnityEngine.GameObject

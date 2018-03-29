@@ -9,6 +9,7 @@ LuaAPP = LuaAPP or {}
 
 --初始化
 function LuaAPP.Init()
+    LuaAPP.LauncherTimer()
     LuaAPP.RegisterStates()
     LuaAPP.ChangeState(StateNames.InitState)
 end
@@ -19,6 +20,24 @@ function LuaAPP.GetUIManager()
     _uiManager = UIManager.new()
     end
     return _uiManager
+end
+---@return TimerManager
+function LuaAPP.GetTimerManager()
+    if _timerManager == nil then
+        _timerManager = TimerManager.new()
+    end
+    return _timerManager
+end
+
+--启动定时器
+function LuaAPP.LauncherTimer()
+    local handle = FixedUpdateBeat:CreateListener(LuaAPP.FixedUpdate,LuaAPP)
+    FixedUpdateBeat:AddListener(handle)
+end
+
+--固定帧更新定时器
+function LuaAPP.FixedUpdate()
+    LuaAPP.GetTimerManager():Update()
 end
 
 --注册所有状态

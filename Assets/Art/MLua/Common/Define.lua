@@ -17,6 +17,11 @@ require("Base/WindowBase")
 require("Common/YMList")
 --引入字典
 require("Common/YMDictionary")
+--引入定时器
+require("Common/Timer")
+--引入定时器管理器
+require("Manager/TimerManager")
+
 
 ---#全局变量定义#--
 GameObject = UnityEngine.GameObject

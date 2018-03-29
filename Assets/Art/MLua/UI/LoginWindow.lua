@@ -12,6 +12,12 @@ function this:InitUI(uiObj)
     self:BindWindow(uiObj)
     self:AddButtonEvent()
     Log("LoginWindow InitUI")
+
+    local timer = Timer.new()
+    timer:InitTimer(1000,0)
+    timer:AddOnTimer(self.UpdateTime())
+    LuaAPP.GetTimerManager():AddTimer(timer)
+    timer:Start(true)
 end
 
 function this:BindWindow(uiObj)
@@ -30,9 +36,12 @@ end
 function this:OnEnableUI(param)
     self:StartUpdate()
 end
+function this:UpdateTime()
+    self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
+end
 
 function this:Update()
-    self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
+    --self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
 end
 
 function this:GetUILayer()

@@ -18,6 +18,7 @@ function this:ctor()
     --界面层级
     self._canvasLayerTrans = {}
 end
+
 --初始化
 function this:Init()
     self:InitUIRoot()
@@ -35,8 +36,6 @@ function this:InitUIRoot()
 end
 
 --打开界面
----@name 窗口名
----@param 窗口需要的数据
 function this:OpenWindow(name,param)
     local opening,index = self:IsOpening(name)
     --打开过
@@ -111,7 +110,6 @@ function this:DestroyWindow(window)
     end)
 end
 
-
 --重新调整窗口
 function this:RestAllWindow(window)
     for i = #self._openingNameList, 1,-1 do
@@ -141,7 +139,6 @@ function this:RestAllWindow(window)
     end
 end
 
-
 --获取UIObj
 function this:GetUIObj(name,callback)
     local uiObj = self._windowObjMap[name]
@@ -151,6 +148,7 @@ function this:GetUIObj(name,callback)
         self:LoadUIObj(name,callback)
     end
 end
+
 --加载UIObj
 function this:LoadUIObj(name,callback)
     Util.InstantiateUIObj(name,function (uiObj)

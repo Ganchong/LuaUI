@@ -16,10 +16,12 @@ end
 
 --添加item
 function YMList:Add(item)
+    Log("insert item")
     if self:CheckType(item) then
         table.insert(self, item)
+        Log("insert item")
     else
-        LogError( string.format("type mismatch:you want to add a %s into a %s type list",type(item),self.itemType))
+        LogError( string.format("type mismatch:you want to add a %s into a %s type list",tostring(type(item)),tostring(self.itemType)))
     end
 end
 
@@ -42,11 +44,14 @@ end
 --是否包含至少一个item值
 function YMList:Contains(item)
     local count = self:Count()
+    Log(" YMList contains====== ")
     for i=1,count do
         if self[i] == item then
+            Log(" YMList contains ")
             return true
         end
     end
+    Log(" YMList not contains ")
     return false
 end
 

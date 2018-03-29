@@ -8,7 +8,6 @@ Timer  = class("Timer")
 
 --初始化定时器
 function Timer:InitTimer(intervalTime,repeatCount)
-    Log("Timer InitTimer")
     self.intervalTime = intervalTime
     self.repeatCount = repeatCount
     self.running = false

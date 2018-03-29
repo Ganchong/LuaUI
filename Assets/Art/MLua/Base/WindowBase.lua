@@ -17,6 +17,14 @@ function WindowBase:ctor()
 
 end
 
+--添加子UI
+function WindowBase:AddSubUIBase(subUIBase)
+    if self.subUIs == nil then
+        self.subUIs = {}
+    end
+    self.subUIs[subUIBase.name] = subUIBase
+end
+
 ---#region UI控制
 
 --关闭自身窗口

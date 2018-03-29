@@ -12,12 +12,9 @@ function this:InitUI(uiObj)
     self:BindWindow(uiObj)
     self:AddButtonEvent()
     Log("LoginWindow InitUI")
-
-    local timer = Timer.new()
-    timer:InitTimer(1000,0)
-    timer:AddOnTimer(self.UpdateTime())
-    LuaAPP.GetTimerManager():AddTimer(timer)
-    timer:Start(true)
+    self.timer = self:NewTimer()
+    self.timer:AddOnTimer(function () self:UpdateTime() end)
+    self.timer:Start(true)
 end
 
 function this:BindWindow(uiObj)

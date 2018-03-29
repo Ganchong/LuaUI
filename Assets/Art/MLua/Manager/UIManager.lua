@@ -83,6 +83,7 @@ function this:CloseWindow(name)
     if window:IsStatic() then
         window:CloseUI(function ()
             window:OnDisableUI()
+            window:StopAllTimer()
             self:RestAllWindow(window)
         end )
     else
@@ -94,6 +95,7 @@ end
 function this:DestroyWindow(window)
     window:CloseUI(function ()
         window:OnDisableUI()
+        window:StopAllTimer()
         window:DestroyUI()
         self:RestAllWindow(window)
         --启动销毁程序
@@ -173,6 +175,7 @@ function this:HideAllWindow()
         local window = self._openedWindowMap[self._openingNameList[i]]
         window:SetVisible(false)
         window:OnDisableUI()
+        window:StopAllTimer()
         if window:GetUIType() == WindowType.FullType then
             return
         end

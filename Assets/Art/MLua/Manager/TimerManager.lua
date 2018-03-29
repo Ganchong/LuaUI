@@ -10,24 +10,38 @@ function TimerManager:ctor()
     self.timerList = YMList:New('table')
 end
 
+--定时更新
 function TimerManager:Update()
-    --Log("TimerManager Update")
     local nowTime = Time.GetTimestamp()
-    Log(self.timerList:Count())
     for i = self.timerList:Count(), 1,-1 do
-        Log("update")
         if self.timerList[i]:IsDispose() then
-            self.timerList[i]:RemoveAt(i)
+            self.timerList:RemoveAt(i)
         else
             self.timerList[i]:Update(nowTime)
         end
     end
 end
 
+--添加定时器
 function TimerManager:AddTimer(timer)
     if not self.timerList:Contains(timer) then
         self.timerList:Add(timer)
     end
+end
+
+function TimerManager:GetTimer(intervalTime)
+    local timer = Timer.new()
+    timer:InitTimer(intervalTime,0)
+    if self.timerList == nil then
+        self.timerList = YMList:New('table')
+    end
+    self.timerList:Add(timer)
+    return timer
+end
+
+--清空定时器
+function TimerManager:Clear()
+    self.timerList:Clear()
 end
 
 return TimerManager

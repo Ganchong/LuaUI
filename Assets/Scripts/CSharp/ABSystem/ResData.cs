@@ -108,8 +108,6 @@ namespace ABSystem{
 			if (_object != null) return (T)_object;
 			if (assetBundle != null) 
 			{
-				Debug.Log (assetBundle.GetAllAssetNames()[0]);
-				Debug.Log ("filename："+fileName);
 				_object = assetBundle.LoadAsset<T> (fileName);
 				this.release (false);
 				return (T)_object;

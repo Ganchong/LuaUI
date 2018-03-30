@@ -2,30 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a870454-ff65-4965-9926-c252bff905af" name="默认的" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Art/MLua/Base/WindowBase.lua" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/Art/MLua/Common/GlobalDefine.lua" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/CommonAtlas.spriteatlas" afterPath="$PROJECT_DIR$/Assets/Art/CommonAtlas/CommonAtlas.spriteatlas" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/back1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/button1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/button1Press.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/button2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/button2Press.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/button5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/button5Press.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/CommonAtlas/return.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MLua/Base/UIBase.lua" afterPath="$PROJECT_DIR$/Assets/Art/MLua/Base/UIBase.lua" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/MLua/Common/Define.lua" afterPath="$PROJECT_DIR$/Assets/Art/MLua/Common/Define.lua" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MLua/Manager/UIManager.lua" afterPath="$PROJECT_DIR$/Assets/Art/MLua/Manager/UIManager.lua" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MLua/UI/Alert.lua" afterPath="$PROJECT_DIR$/Assets/Art/MLua/UI/Alert.lua" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MLua/UI/CreateRoleWindow.lua" afterPath="$PROJECT_DIR$/Assets/Art/MLua/UI/CreateRoleWindow.lua" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/MLua/UI/LoginWindow.lua" afterPath="$PROJECT_DIR$/Assets/Art/MLua/UI/LoginWindow.lua" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/Custom/CustomSettings.cs" afterPath="$PROJECT_DIR$/Assets/Editor/Custom/CustomSettings.cs" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/ABSystem/Editor/ResourceEditorHelper.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/ABSystem/Editor/ResourceEditorHelper.cs" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/Manager/GameManager.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/Manager/GameManager.cs" />
-      <change beforePath="$PROJECT_DIR$/Manifests/StreamingAssets.manifest" afterPath="$PROJECT_DIR$/Manifests/StreamingAssets.manifest" />
-      <change beforePath="$PROJECT_DIR$/Manifests/ui/loginwindow.unity3d.manifest" afterPath="$PROJECT_DIR$/Manifests/ui/loginwindow.unity3d.manifest" />
-      <change beforePath="$PROJECT_DIR$/Manifests/uiprefabs/resources/_coreroot#.unity3d.manifest" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/ABSystem/ResData.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/ABSystem/ResData.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/ABSystem/ResourcesManager.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/ABSystem/ResourcesManager.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/Common/RegisterComponent.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/Common/RegisterComponent.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/Manager/AFRManager.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/Manager/AFRManager.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/Manager/LuaManager.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/Manager/LuaManager.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/DelegateFactory.cs" afterPath="$PROJECT_DIR$/Assets/Source/Generate/DelegateFactory.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/Source/Generate/LuaBinder.cs" afterPath="$PROJECT_DIR$/Assets/Source/Generate/LuaBinder.cs" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,51 +27,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginWindow.lua" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginWindow.lua" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/LoginWindow.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="31" column="3" lean-forward="false" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+            <state relative-caret-position="616">
+              <caret line="37" column="3" lean-forward="true" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Time.lua" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/UnityEngine/Time.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2156">
-              <caret line="98" column="7" lean-forward="false" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InitState.lua" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/State/InitState.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UIManager.lua" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UIManager.lua" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Manager/UIManager.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="201" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+            <state relative-caret-position="835">
+              <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Define.lua" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/Define.lua">
+      <file leaf-file-name="event.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/event.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state relative-caret-position="835">
+              <caret line="218" column="21" lean-forward="false" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LuaAPP.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/LuaAPP.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimerManager.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Manager/TimerManager.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="814">
+              <caret line="37" column="29" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -96,41 +87,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Alert.lua" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/Alert.lua">
+      <file leaf-file-name="YMList.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/YMList.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+            <state relative-caret-position="396">
+              <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WindowBase.lua" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Base/WindowBase.lua">
+      <file leaf-file-name="Define.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/Define.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1694">
-              <caret line="77" column="36" lean-forward="true" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+            <state relative-caret-position="395">
+              <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UIBase.lua" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Base/UIBase.lua">
+      <file leaf-file-name="GlobalDefine.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/GlobalDefine.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+            <state relative-caret-position="733">
+              <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateRoleWindow.lua" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/CreateRoleWindow.lua">
+      <file leaf-file-name="global.lua" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_PLUGINS_DIR$/EmmyLua/lib/EmmyLua-1.2.3b2.jar!/std/global.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            <state relative-caret-position="5060">
+              <caret line="230" column="9" lean-forward="false" selection-start-line="230" selection-start-column="9" selection-end-line="230" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -154,6 +145,7 @@
       <find>OnEnableUI</find>
       <find>OnDisableUI</find>
       <find>RestAllWindow</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>window</replace>
@@ -161,6 +153,8 @@
       <replace>_windowClassMap</replace>
       <replace>windowClass</replace>
       <replace>OnEnableWindow</replace>
+      <replace>YMDictionary</replace>
+      <replace>Log</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -192,13 +186,19 @@
         <option value="$PROJECT_DIR$/Assets/Art/MLua/Main.lua" />
         <option value="$PROJECT_DIR$/Assets/Art/MLua/UI/MainWindow.lua" />
         <option value="$PROJECT_DIR$/Assets/Art/MLua/State/InitState.lua" />
-        <option value="$PROJECT_DIR$/Assets/Art/MLua/Common/Define.lua" />
         <option value="$PROJECT_DIR$/Assets/Art/MLua/UI/CreateRoleWindow.lua" />
         <option value="$PROJECT_DIR$/Assets/Art/MLua/UI/Alert.lua" />
-        <option value="$PROJECT_DIR$/Assets/Art/MLua/Manager/UIManager.lua" />
-        <option value="$PROJECT_DIR$/Assets/Art/MLua/UI/LoginWindow.lua" />
         <option value="$PROJECT_DIR$/Assets/Art/MLua/Base/UIBase.lua" />
         <option value="$PROJECT_DIR$/Assets/Art/MLua/Base/WindowBase.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/Common/YMDictionary.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/Manager/UIManager.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/LuaAPP.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/Common/YMList.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/Common/Timer.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/Manager/TimerManager.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/Common/Define.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/Common/GlobalDefine.lua" />
+        <option value="$PROJECT_DIR$/Assets/Art/MLua/UI/LoginWindow.lua" />
       </list>
     </option>
   </component>
@@ -208,7 +208,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-4" />
     <option name="y" value="10" />
     <option name="width" value="1936" />
@@ -232,10 +232,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -305,6 +304,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,7 +313,8 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="D:/toluaProject" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
-    <property name="SearchEverywhereHistoryKey" value="inits&#9;FILE&#9;file://D:/LuaUI/Assets/Scripts/CSharp/LuaSystem/State/InitState.cs&#10;loginw&#9;FILE&#9;file://D:/LuaUI/Assets/Art/MLua/UI/LoginWindow.lua" />
+    <property name="SearchEverywhereHistoryKey" value="updateb&#9;null&#9;null&#10;list&#9;FILE&#9;file://D:/LuaUI/Assets/ToLua/Lua/list.lua&#10;inits&#9;FILE&#9;file://D:/LuaUI/Assets/Scripts/CSharp/LuaSystem/State/InitState.cs&#10;loginw&#9;FILE&#9;file://D:/LuaUI/Assets/Art/MLua/UI/LoginWindow.lua" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -465,12 +466,14 @@
       <workItem from="1522044981328" duration="15343000" />
       <workItem from="1522073701232" duration="4899000" />
       <workItem from="1522117424918" duration="14146000" />
-      <workItem from="1522145574974" duration="7314000" />
+      <workItem from="1522145574974" duration="7901000" />
+      <workItem from="1522288723686" duration="19560000" />
+      <workItem from="1522393317601" duration="5425000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98840000" />
+    <option name="totallyTimeSpent" value="124412000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -482,7 +485,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -498,7 +501,7 @@
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.015069968" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="控制板" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.304371" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3107676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="设计师" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -516,7 +519,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,40 +530,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/LuaAPP.lua" />
-    <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/list.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3325">
-          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/event.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3610">
-          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/UnityEngine/Time.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1406">
-          <caret line="74" column="21" lean-forward="false" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_PLUGINS_DIR$/EmmyLua/lib/EmmyLua-1.2.3b2.jar!/std/global.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4370">
-          <caret line="230" column="17" lean-forward="false" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Common/Define.lua" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/InitState.lua" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Manager/UIManager.lua" />
@@ -585,13 +559,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/BaseState.lua" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/StateDefine.lua" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Common/DefinitionClass.lua" />
-    <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/list.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3150">
-          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/State/InitState.lua" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/UI/LoginWidow.lua" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/LuaAPP.lua" />
@@ -610,32 +577,10 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MLua/Base/UIBase.lua" />
     <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/LuaAPP.bytes.lua" />
     <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/LoginWidow.lua" />
-    <entry file="jar://$APPLICATION_PLUGINS_DIR$/EmmyLua/lib/EmmyLua-1.2.3b2.jar!/std/global.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="316" column="57" lean-forward="false" selection-start-line="316" selection-start-column="57" selection-end-line="316" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/LuaAPP.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/CSharp/LuaSystem/State/InitState.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-71">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/event.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1167">
-          <caret line="127" column="7" lean-forward="false" selection-start-line="127" selection-start-column="7" selection-end-line="127" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -650,7 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,14 +602,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2156">
           <caret line="98" column="7" lean-forward="false" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/Define.lua">
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/Alert.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state relative-caret-position="704">
+          <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Base/WindowBase.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="835">
+          <caret line="77" column="36" lean-forward="false" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/CreateRoleWindow.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Base/UIBase.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/list.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1892">
+          <caret line="149" column="7" lean-forward="false" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/YMDictionary.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2178">
+          <caret line="99" column="61" lean-forward="false" selection-start-line="99" selection-start-column="61" selection-end-line="99" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/Timer.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -678,50 +663,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/CreateRoleWindow.lua">
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/YMList.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        <state relative-caret-position="396">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/LoginWindow.lua">
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/EmmyLua/lib/EmmyLua-1.2.3b2.jar!/std/global.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="31" column="3" lean-forward="false" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+        <state relative-caret-position="5060">
+          <caret line="230" column="9" lean-forward="false" selection-start-line="230" selection-start-column="9" selection-end-line="230" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Base/UIBase.lua">
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Manager/TimerManager.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="814">
+          <caret line="37" column="29" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Base/WindowBase.lua">
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/LuaAPP.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1694">
-          <caret line="77" column="36" lean-forward="true" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+        <state relative-caret-position="132">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/Alert.lua">
+    <entry file="file://$PROJECT_DIR$/Assets/ToLua/Lua/event.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        <state relative-caret-position="835">
+          <caret line="218" column="21" lean-forward="false" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Manager/UIManager.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="201" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+        <state relative-caret-position="835">
+          <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/Define.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/Common/GlobalDefine.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Art/MLua/UI/LoginWindow.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="37" column="3" lean-forward="true" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
           <folding />
         </state>
       </provider>

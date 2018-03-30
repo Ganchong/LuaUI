@@ -32,6 +32,10 @@ public class DelegateFactory
 		dict.Add(typeof(System.Action<UnityEngine.AsyncOperation>), factory.System_Action_UnityEngine_AsyncOperation);
 		dict.Add(typeof(System.Action<string,System.Action<UnityEngine.GameObject>>), factory.System_Action_string_System_Action_UnityEngine_GameObject);
 		dict.Add(typeof(System.Action<UnityEngine.GameObject>), factory.System_Action_UnityEngine_GameObject);
+		dict.Add(typeof(System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>>), factory.System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage);
+		dict.Add(typeof(System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>), factory.System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader);
+		dict.Add(typeof(LuaFrameworkCore.CallBack<UIRawImage>), factory.LuaFrameworkCore_CallBack_UIRawImage);
+		dict.Add(typeof(System.Action<string>), factory.System_Action_string);
 
 		DelegateTraits<System.Action>.Init(factory.System_Action);
 		DelegateTraits<UnityEngine.Events.UnityAction>.Init(factory.UnityEngine_Events_UnityAction);
@@ -48,6 +52,10 @@ public class DelegateFactory
 		DelegateTraits<System.Action<UnityEngine.AsyncOperation>>.Init(factory.System_Action_UnityEngine_AsyncOperation);
 		DelegateTraits<System.Action<string,System.Action<UnityEngine.GameObject>>>.Init(factory.System_Action_string_System_Action_UnityEngine_GameObject);
 		DelegateTraits<System.Action<UnityEngine.GameObject>>.Init(factory.System_Action_UnityEngine_GameObject);
+		DelegateTraits<System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>>>.Init(factory.System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage);
+		DelegateTraits<System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>>.Init(factory.System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader);
+		DelegateTraits<LuaFrameworkCore.CallBack<UIRawImage>>.Init(factory.LuaFrameworkCore_CallBack_UIRawImage);
+		DelegateTraits<System.Action<string>>.Init(factory.System_Action_string);
 
 		TypeTraits<System.Action>.Init(factory.Check_System_Action);
 		TypeTraits<UnityEngine.Events.UnityAction>.Init(factory.Check_UnityEngine_Events_UnityAction);
@@ -64,6 +72,10 @@ public class DelegateFactory
 		TypeTraits<System.Action<UnityEngine.AsyncOperation>>.Init(factory.Check_System_Action_UnityEngine_AsyncOperation);
 		TypeTraits<System.Action<string,System.Action<UnityEngine.GameObject>>>.Init(factory.Check_System_Action_string_System_Action_UnityEngine_GameObject);
 		TypeTraits<System.Action<UnityEngine.GameObject>>.Init(factory.Check_System_Action_UnityEngine_GameObject);
+		TypeTraits<System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>>>.Init(factory.Check_System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage);
+		TypeTraits<System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>>.Init(factory.Check_System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader);
+		TypeTraits<LuaFrameworkCore.CallBack<UIRawImage>>.Init(factory.Check_LuaFrameworkCore_CallBack_UIRawImage);
+		TypeTraits<System.Action<string>>.Init(factory.Check_System_Action_string);
 
 		StackTraits<System.Action>.Push = factory.Push_System_Action;
 		StackTraits<UnityEngine.Events.UnityAction>.Push = factory.Push_UnityEngine_Events_UnityAction;
@@ -80,6 +92,10 @@ public class DelegateFactory
 		StackTraits<System.Action<UnityEngine.AsyncOperation>>.Push = factory.Push_System_Action_UnityEngine_AsyncOperation;
 		StackTraits<System.Action<string,System.Action<UnityEngine.GameObject>>>.Push = factory.Push_System_Action_string_System_Action_UnityEngine_GameObject;
 		StackTraits<System.Action<UnityEngine.GameObject>>.Push = factory.Push_System_Action_UnityEngine_GameObject;
+		StackTraits<System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>>>.Push = factory.Push_System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage;
+		StackTraits<System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>>.Push = factory.Push_System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader;
+		StackTraits<LuaFrameworkCore.CallBack<UIRawImage>>.Push = factory.Push_LuaFrameworkCore_CallBack_UIRawImage;
+		StackTraits<System.Action<string>>.Push = factory.Push_System_Action_string;
 	}
     
     public static Delegate CreateDelegate(Type t, LuaFunction func = null)
@@ -1054,6 +1070,240 @@ public class DelegateFactory
 	}
 
 	void Push_System_Action_UnityEngine_GameObject(IntPtr L, System.Action<UnityEngine.GameObject> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage_Event : LuaDelegate
+	{
+		public System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage_Event(LuaFunction func) : base(func) { }
+		public System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0, UIRawImage param1, LuaFrameworkCore.CallBack<UIRawImage> param2)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.Push(param2);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0, UIRawImage param1, LuaFrameworkCore.CallBack<UIRawImage> param2)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.Push(param2);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>> System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>> fn = delegate(string param0, UIRawImage param1, LuaFrameworkCore.CallBack<UIRawImage> param2) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage_Event target = new System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage_Event(func);
+			System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage_Event target = new System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage_Event(func, self);
+			System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>>), L, pos);
+	}
+
+	void Push_System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage(IntPtr L, System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader_Event : LuaDelegate
+	{
+		public System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader_Event(LuaFunction func) : base(func) { }
+		public System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0, LuaFrameworkCore.CallBack<UnityEngine.Shader> param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0, LuaFrameworkCore.CallBack<UnityEngine.Shader> param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>> System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>> fn = delegate(string param0, LuaFrameworkCore.CallBack<UnityEngine.Shader> param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader_Event target = new System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader_Event(func);
+			System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader_Event target = new System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader_Event(func, self);
+			System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>), L, pos);
+	}
+
+	void Push_System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader(IntPtr L, System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class LuaFrameworkCore_CallBack_UIRawImage_Event : LuaDelegate
+	{
+		public LuaFrameworkCore_CallBack_UIRawImage_Event(LuaFunction func) : base(func) { }
+		public LuaFrameworkCore_CallBack_UIRawImage_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(UIRawImage param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(UIRawImage param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public LuaFrameworkCore.CallBack<UIRawImage> LuaFrameworkCore_CallBack_UIRawImage(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			LuaFrameworkCore.CallBack<UIRawImage> fn = delegate(UIRawImage param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			LuaFrameworkCore_CallBack_UIRawImage_Event target = new LuaFrameworkCore_CallBack_UIRawImage_Event(func);
+			LuaFrameworkCore.CallBack<UIRawImage> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			LuaFrameworkCore_CallBack_UIRawImage_Event target = new LuaFrameworkCore_CallBack_UIRawImage_Event(func, self);
+			LuaFrameworkCore.CallBack<UIRawImage> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_LuaFrameworkCore_CallBack_UIRawImage(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(LuaFrameworkCore.CallBack<UIRawImage>), L, pos);
+	}
+
+	void Push_LuaFrameworkCore_CallBack_UIRawImage(IntPtr L, LuaFrameworkCore.CallBack<UIRawImage> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Action_string_Event : LuaDelegate
+	{
+		public System_Action_string_Event(LuaFunction func) : base(func) { }
+		public System_Action_string_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public System.Action<string> System_Action_string(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<string> fn = delegate(string param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_string_Event target = new System_Action_string_Event(func);
+			System.Action<string> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_string_Event target = new System_Action_string_Event(func, self);
+			System.Action<string> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Action_string(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Action<string>), L, pos);
+	}
+
+	void Push_System_Action_string(IntPtr L, System.Action<string> o)
 	{
 		ToLua.Push(L, o);
 	}

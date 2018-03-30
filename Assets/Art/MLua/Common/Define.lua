@@ -3,6 +3,8 @@
 --- Created by 干冲.
 --- DateTime: 2018/3/22 16:10
 ---
+--引入全局表定义
+require("Common/GlobalDefine")
 --引入lua Class
 require("Common/DefinitionClass")
 --引入UI管理器
@@ -23,30 +25,10 @@ require("Common/Timer")
 require("Manager/TimerManager")
 
 
----#全局变量定义#--
 GameObject = UnityEngine.GameObject
 WWW = UnityEngine.WWW
 Util = LuaFrameworkCore.Util
 
---状态名称
-StateNames = {
-    InitState = "State/InitState",
-    LoginState = "State/LoginState",
-}
---UI层级 bottom{静态，动态} middle{静态，动态} top{静态，动态} 实现动静分离
-WindowLayer = {
-    BottomStatic = "_BottomStatic#",
-    BottomDyn = "_BottomDyn#",
-    MiddleStatic = "_MiddleStatic#",
-    MiddleDyn = "_MiddleDyn",
-    TopStatic = "_TopStatic#",
-    TopDyn = "_TopDyn#",
-}
---UI类型 普通， 全屏（关闭时均按返回处理）
-WindowType = {
-    None = "None",
-    FullType = "FullType",
-}
 
 ---#全局方法定义#--
 --日志打印

@@ -147,6 +147,13 @@ namespace ABSystem{
 			yield return request;
 			action ((T)request.asset);
 		}
+
+		public Shader GetShader(string name)
+		{
+			Shader shader = null;
+			shaderMap.TryGetValue(name,out shader);
+			return shader;
+		}
 	}
 
 }

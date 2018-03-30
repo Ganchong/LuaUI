@@ -21,11 +21,11 @@ public class AFRManager : Singleton<AFRManager>{
 		};
 		/** 切换状态资源准备 */
 		StateBase.InitResFunc = (callBack)=>{
-			ResourceHelper.Instance.LoadResData(TEXTUREPATH+"loginback_3");
+			//ResourceHelper.Instance.LoadResData(TEXTUREPATH+"loginback_3");
 			callBack();
 		};
 		/** Lua bytes加载方法注册 */
-		LuaLoader.LoadLuaFuc = (fileName,callBack)=>{
+		LuaLoader.LoadLuaFuc = (fileName,call)=>{
 			byte[] buffer = null;
 			fileName = fileName.Replace (".lua","");
 			LuaPool.Instance.Load (fileName,1,(luaCode)=>{
@@ -35,11 +35,41 @@ public class AFRManager : Singleton<AFRManager>{
 					Resources.UnloadAsset(luaCode);
 				}
 			});
-			if(callBack!=null)callBack(buffer);
+			if(call!=null)call(buffer);
+		};
+		/** UI预制加载方法 */
+		Util.LoadUIObjFuc = (name,call)=>{
+			ResourceLoaderManager.Instance.LoadUIObj (name,null,call);
 		};
 
-		Util.LoadUIObjFuc = (name,callback)=>{
-			ResourceLoaderManager.Instance.LoadUIObj (name,null,callback);
+		/** UIRawImage纹理加载方法注册 */
+		UIRawImage.LoadTextureFunc = (path,rawImage,call)=>{
+
+			if(rawImage==null||rawImage.IsDestroyed())return;
+			if(string.IsNullOrEmpty(path)){
+				rawImage.Alpha = 0;
+				return;
+			}
+			TexturePool.Instance.Load(TEXTUREPATH+path,(mainTex,alphaTex)=>{
+				if(rawImage == null||rawImage.IsDestroyed())return;
+				if(mainTex==null){
+					Debug.LogWarning("Load texture failed,path is :"+path);
+					return;
+				}
+				rawImage.Alpha = 1;
+				rawImage.texture = mainTex;
+				rawImage.alphaTex = alphaTex;
+				if(call!=null)call(rawImage);
+			});
 		};
+		/** UIRawImage默认Shader加载方法注册 */
+		UIRawImage.LoadUIDefaultShaderFunc = (shaderName,callBack)=>{
+			callBack(ResourcesManager.Instance.GetShader(shaderName));
+		};
+
+		MaterialManager.CustomGetShaderFunc = (shaderName)=>{
+			return ResourcesManager.Instance.GetShader(shaderName);
+		};
+
 	}
 }

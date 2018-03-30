@@ -63,18 +63,18 @@ namespace LuaUIFramework
 			if(!GameManager.Instance.isUseAB){
 				luaState.AddSearchPath(Application.dataPath+LUAFILEPATH);
 			}else{
-				if(LoadLuaABFunc!=null){
-					LoadLuaABFunc((abDic)=>{
-						foreach (KeyValuePair<string, AssetBundle> iter in abDic)
-						{
-							if(string.IsNullOrEmpty(iter.Key)||iter.Value==null){
-								Debug.Log("luaAB load error, assetBundle name is null or assetBundle is null");
-								continue;
-							}
-							luaLoader.AddSearchBundle(iter.Key,iter.Value);
-						}
-					});
-				}
+//				if(LoadLuaABFunc!=null){
+//					LoadLuaABFunc((abDic)=>{
+//						foreach (KeyValuePair<string, AssetBundle> iter in abDic)
+//						{
+//							if(string.IsNullOrEmpty(iter.Key)||iter.Value==null){
+//								Debug.Log("luaAB load error, assetBundle name is null or assetBundle is null");
+//								continue;
+//							}
+//							luaLoader.AddSearchBundle(iter.Key,iter.Value);
+//						}
+//					});
+//				}
 			}
 		}
 

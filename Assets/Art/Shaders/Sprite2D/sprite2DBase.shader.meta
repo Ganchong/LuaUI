@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 445bc7ded0f11d044aff154dc8cca0d9
+timeCreated: 1522378419
+licenseType: Pro
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: shaders
+  assetBundleVariant: unity3d

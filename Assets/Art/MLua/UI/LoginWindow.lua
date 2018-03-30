@@ -12,14 +12,12 @@ function this:InitUI(uiObj)
     self:BindWindow(uiObj)
     self:AddButtonEvent()
     Log("LoginWindow InitUI")
-    self.timer = self:NewTimer()
-    self.timer:AddOnTimer(function () self:UpdateTime() end)
-    self.timer:Start(true)
 end
 
 function this:BindWindow(uiObj)
-    self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",4)
-    self.LoginButton = Util.GetChildComponent(uiObj,"root/LoginButton",3);
+    self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",ComponentName.Text)
+    self.LoginButton = Util.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIButton)
+    self.back = Util.GetChildComponent(uiObj,"back",ComponentName.UIRawImage)
 end
 
 function this:AddButtonEvent()
@@ -31,8 +29,14 @@ function this:LoginEvent()
 end
 
 function this:OnEnableUI(param)
-    self:StartUpdate()
+    self.timer = self:NewTimer()
+    self.timer:AddOnTimer(function () self:UpdateTime() end)
+    self.timer:Start(true)
+    self.back:LoadImage()
+    --self.back:SetGray(true)
+    self.LoginButton:SetGray(true)
 end
+
 function this:UpdateTime()
     self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
 end

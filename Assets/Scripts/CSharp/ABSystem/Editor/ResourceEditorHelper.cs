@@ -55,8 +55,6 @@ namespace ABSystem{
 					EditorUtility.DisplayProgressBar("清理标记中", name, (float)startIndex / (float)names.Length);
 
 					paths=AssetDatabase.GetAssetPathsFromAssetBundle(names[startIndex]);
-					Debug.Log(names[startIndex]);
-					Debug.Log(paths.Length);
 					if(paths==null)
 					{
 						name=names[startIndex];

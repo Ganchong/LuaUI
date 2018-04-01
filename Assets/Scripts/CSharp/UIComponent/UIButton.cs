@@ -37,7 +37,7 @@ public class UIButton : Button,IGrayMember {
 	{
 		get
 		{
-			if (targetGraphic != null)
+			if (targetGraphic != null&&targetGraphic is IGrayMember)
 			{
 				return ((IGrayMember)targetGraphic).IsGray;
 			}

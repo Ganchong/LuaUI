@@ -17,6 +17,7 @@ end
 function this:BindWindow(uiObj)
     self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",ComponentName.Text)
     self.LoginButton = Util.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIButton)
+    self.LoginImage = Util.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIImage)
     self.back = Util.GetChildComponent(uiObj,"back",ComponentName.UIRawImage)
 end
 
@@ -34,7 +35,8 @@ function this:OnEnableUI(param)
     self.timer:Start(true)
     self.back:LoadImage()
     --self.back:SetGray(true)
-    self.LoginButton:SetGray(true)
+    --self.LoginImage:LoadImage("LoginWindowAtlas","button2",nil)
+    --self.LoginButton:SetGray(true)
 end
 
 function this:UpdateTime()

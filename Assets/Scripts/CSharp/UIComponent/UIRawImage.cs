@@ -8,12 +8,6 @@ public class UIRawImage : RawImage,IGrayMember
 	/** static  */
 	/** 图片加载方法 */
 	public static Action<string,UIRawImage,CallBack<UIRawImage>> LoadTextureFunc = null;
-	/** 加载默认UISpriteShader方法 */
-	public static Action<string,CallBack<Shader>> LoadUIDefaultShaderFunc = null;
-	/** 默认加载的Shader */
-	public static string DEFAULTSPRITESHADERNAME = "Custom/Sprites/SpriteUI";
-	const string DefaultShaderName = "UI/Default";
-
 	[Tooltip("当前路径")]
 	public string nowPath;
 	/** 带有alpha通道的分离贴图，如果是ETC2就不用了 */
@@ -54,20 +48,15 @@ public class UIRawImage : RawImage,IGrayMember
 		if (_isGray == isGray)
 			return;
 		switch (material.shader.name) {
-		case DefaultShaderName:
-			Shader shader = null;
-			if(LoadUIDefaultShaderFunc!=null){
-				LoadUIDefaultShaderFunc(DEFAULTSPRITESHADERNAME,(_shader)=>{
-					shader = _shader;
-				});
-			}
-			Material defaultImageMaterial = MaterialManager.CreateMaterial("defImageMaterial", shader);
-			if (shader == null) {
-				Debug.LogWarning ("UIRawImage.setGray :can not find the Shader name:"+DEFAULTSPRITESHADERNAME);
+		case "UI/Default":
+
+			if (GrayManager.DefImageMaterial == null)
+			{
+				Debug.LogWarning("AorRawImage.setGray :: can not find the Shader<Custom/RawImage/RawImage Gray>");
 				return;
 			}
-			material = defaultImageMaterial;
-			SetMaterialDirty ();
+			material = GrayManager.DefImageMaterial;
+			SetMaterialDirty();
 			break;
 
 		}

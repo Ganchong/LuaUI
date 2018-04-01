@@ -13,6 +13,7 @@ public static class LuaBinder
 		LuaProfilerWrap.Register(L);
 		UIRawImageWrap.Register(L);
 		UIButtonWrap.Register(L);
+		UIImageWrap.Register(L);
 		L.BeginModule("UnityEngine");
 		UnityEngine_ComponentWrap.Register(L);
 		UnityEngine_TransformWrap.Register(L);
@@ -97,8 +98,9 @@ public static class LuaBinder
 		L.RegFunction("Action_string_System_Action_UnityEngine_GameObject", System_Action_string_System_Action_UnityEngine_GameObject);
 		L.RegFunction("Action_UnityEngine_GameObject", System_Action_UnityEngine_GameObject);
 		L.RegFunction("Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage", System_Action_string_UIRawImage_LuaFrameworkCore_CallBack_UIRawImage);
-		L.RegFunction("Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader", System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader);
 		L.RegFunction("Action_string", System_Action_string);
+		L.RegFunction("Action_string_string_UIImage_System_Action_UIImage", System_Action_string_string_UIImage_System_Action_UIImage);
+		L.RegFunction("Action_UIImage", System_Action_UIImage);
 		L.EndModule();
 		L.EndModule();
 		L.BeginPreLoad();
@@ -578,33 +580,6 @@ public static class LuaBinder
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int System_Action_string_LuaFrameworkCore_CallBack_UnityEngine_Shader(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
-
-			if (count == 1)
-			{
-				Delegate arg1 = DelegateTraits<System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>>.Create(func);
-				ToLua.Push(L, arg1);
-			}
-			else
-			{
-				LuaTable self = ToLua.CheckLuaTable(L, 2);
-				Delegate arg1 = DelegateTraits<System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>>.Create(func, self);
-				ToLua.Push(L, arg1);
-			}
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int System_Action_string(IntPtr L)
 	{
 		try
@@ -621,6 +596,60 @@ public static class LuaBinder
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
 				Delegate arg1 = DelegateTraits<System.Action<string>>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int System_Action_string_string_UIImage_System_Action_UIImage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<System.Action<string,string,UIImage,System.Action<UIImage>>>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<System.Action<string,string,UIImage,System.Action<UIImage>>>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int System_Action_UIImage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<System.Action<UIImage>>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<System.Action<UIImage>>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;

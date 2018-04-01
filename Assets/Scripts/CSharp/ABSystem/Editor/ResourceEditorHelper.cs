@@ -37,7 +37,6 @@ namespace ABSystem{
 			ASSETROOT = ASSETROOT.Substring (0, ASSETROOT.Length - "Assets".Length);
 			STREAMPATH = Replace (Application.streamingAssetsPath);
 		}
-
 		/* static methods */
 		/** 清除标记 */
 		[MenuItem ("AssetBundle/ClearMarks")]
@@ -65,7 +64,6 @@ namespace ABSystem{
 						for(int j=0;j<paths.Length;j++)
 						{
 							if(!paths[j].Contains(ResData.ALPHAPREFIX)) continue;
-							Debug.Log(paths[j]);
 							AssetImporter importer = AssetImporter.GetAtPath(paths[j]);
 							importer.assetBundleName=string.Empty;
 							name=names[startIndex];
@@ -85,7 +83,17 @@ namespace ABSystem{
 			};
 			AssetDatabase.Refresh ();
 		}
-
+		[MenuItem("AssetBundle/MarkLuaAssets")]
+		public static void MarkLuaAssets()
+		{
+			if (!Directory.Exists (LUAROOT)) {
+				Debug.Log (LUAROOT+", isn't exist!,will to create..");
+			}
+			CopyLuaFilesToTemp ();
+			DirectoryInfo dicectoryLua = new DirectoryInfo (LUAROOT);
+			MarkLuaDirectory(dicectoryLua);
+			AssetDatabase.Refresh ();
+		}
 		/** 标记资源 */
 		[MenuItem ("AssetBundle/MarkAndroidAssets")]
 		public static void MarkAndroidAssets()
@@ -144,17 +152,7 @@ namespace ABSystem{
 			AssetDatabase.Refresh ();
 			BuildAssetBundle (BuildTarget.iOS);
 		}
-		[MenuItem("AssetBundle/Lua/MarkLuaAssets")]
-		public static void MarkLuaAssets()
-		{
-			if (!Directory.Exists (LUAROOT)) {
-				Debug.Log (LUAROOT+", isn't exist!,will to create..");
-			}
-			CopyLuaFilesToTemp ();
-			DirectoryInfo dicectoryLua = new DirectoryInfo (LUAROOT);
-			MarkLuaDirectory(dicectoryLua);
-		}
-		[MenuItem("AssetBundle/Lua/CopyLuaFilesToTemp")]
+
 		public static void CopyLuaFilesToTemp()
 		{
 			ToLuaMenu.ClearAllLuaFiles();
@@ -173,7 +171,6 @@ namespace ABSystem{
 			AssetDatabase.Refresh();
 			Debug.Log ("拷贝Lua文件到临时目录成功！");
 		}
-		[MenuItem("AssetBundle/Lua/ClearAllTempLuaFiles")]
 		public static void ClearAllTempLuaFiles()
 		{
 			ToLuaMenu.ClearAllLuaFiles();

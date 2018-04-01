@@ -1,4 +1,4 @@
-﻿CommonAtlas
+﻿Atlas/CommonAtlas
 _CoreRoot#
 Texture/loginBack_3
 Texture/loginBack

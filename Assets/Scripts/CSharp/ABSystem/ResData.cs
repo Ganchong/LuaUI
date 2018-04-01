@@ -319,7 +319,7 @@ namespace ABSystem{
 
 		#if UNITY_EDITOR
 		/** 获取资源后缀 */
-		private string getFileSuffix<T>(string path)
+		public static string getFileSuffix<T>(string path)
 		{
 			string filePath = Application.dataPath + path.Replace ("Assets", "");
 			int index=filePath.LastIndexOf (FileHelper.FILESPEARATOR);
@@ -349,6 +349,10 @@ namespace ABSystem{
 					suffix=".mp3";
 				else if(System.IO.File.Exists (path + ".wav"))
 					suffix=".wav";
+			}
+			if (typeof(T) == typeof(UnityEngine.U2D.SpriteAtlas)) {
+				if(System.IO.File.Exists (path + ".spriteatlas"))
+					suffix=".spriteatlas";
 			}
 			return isDictory?path+name+suffix:path+suffix;
 		}

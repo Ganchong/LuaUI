@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour {
 
-	string tes;
+	public Sprite tes;
+	void Awake()
+	{
+		init ();
+	}
 	// Use this for initialization
-	void Start () {
-		int ss = 0;
-		test(()=>{
-			Debug.Log("汪总是傻逼");
-			tes = 1.ToString();
-		});
-		test(()=>{
-			ss = 1;
-		});
+	[ContextMenu("一键引用(数组引用例外)")]
+	void init () {
+		Image image = GetComponent<Image> ();
+		var atlas = Resources.Load<SpriteAtlas> ("LoginWindow");
+		tes = atlas.GetSprite ("button2");
 	}
 	
 	// Update is called once per frame

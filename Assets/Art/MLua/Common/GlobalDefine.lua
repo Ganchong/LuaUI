@@ -45,5 +45,6 @@ ComponentName = {
     Camera = 18,
     Animation = 19,
     UIButton = 20,
+    UIImage = 21,
 }
 

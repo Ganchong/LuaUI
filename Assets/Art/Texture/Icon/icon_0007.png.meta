@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 59fbc5c8f9beb874dadf8aa82b1af621
-timeCreated: 1522051291
+timeCreated: 1522504980
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -22,7 +22,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -77,21 +77,21 @@ TextureImporter:
   - buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 5
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 100
     crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    allowsAlphaSplitting: 1
+    overridden: 1
   - buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 5
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 100
     crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    allowsAlphaSplitting: 1
+    overridden: 1
   spriteSheet:
     serializedVersion: 2
     sprites: []

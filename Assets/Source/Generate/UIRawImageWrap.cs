@@ -12,8 +12,6 @@ public class UIRawImageWrap
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("LoadTextureFunc", get_LoadTextureFunc, set_LoadTextureFunc);
-		L.RegVar("LoadUIDefaultShaderFunc", get_LoadUIDefaultShaderFunc, set_LoadUIDefaultShaderFunc);
-		L.RegVar("DEFAULTSPRITESHADERNAME", get_DEFAULTSPRITESHADERNAME, set_DEFAULTSPRITESHADERNAME);
 		L.RegVar("nowPath", get_nowPath, set_nowPath);
 		L.RegVar("alphaTex", get_alphaTex, set_alphaTex);
 		L.RegVar("IsGray", get_IsGray, null);
@@ -117,34 +115,6 @@ public class UIRawImageWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_LoadUIDefaultShaderFunc(IntPtr L)
-	{
-		try
-		{
-			ToLua.Push(L, UIRawImage.LoadUIDefaultShaderFunc);
-			return 1;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_DEFAULTSPRITESHADERNAME(IntPtr L)
-	{
-		try
-		{
-			LuaDLL.lua_pushstring(L, UIRawImage.DEFAULTSPRITESHADERNAME);
-			return 1;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_nowPath(IntPtr L)
 	{
 		object o = null;
@@ -227,36 +197,6 @@ public class UIRawImageWrap
 		{
 			System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>> arg0 = (System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>>)ToLua.CheckDelegate<System.Action<string,UIRawImage,LuaFrameworkCore.CallBack<UIRawImage>>>(L, 2);
 			UIRawImage.LoadTextureFunc = arg0;
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_LoadUIDefaultShaderFunc(IntPtr L)
-	{
-		try
-		{
-			System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>> arg0 = (System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>)ToLua.CheckDelegate<System.Action<string,LuaFrameworkCore.CallBack<UnityEngine.Shader>>>(L, 2);
-			UIRawImage.LoadUIDefaultShaderFunc = arg0;
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_DEFAULTSPRITESHADERNAME(IntPtr L)
-	{
-		try
-		{
-			string arg0 = ToLua.CheckString(L, 2);
-			UIRawImage.DEFAULTSPRITESHADERNAME = arg0;
 			return 0;
 		}
 		catch (Exception e)

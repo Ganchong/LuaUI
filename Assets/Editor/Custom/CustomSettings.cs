@@ -156,6 +156,7 @@ public static class CustomSettings
 		_GT(typeof(Util)),
 		_GT(typeof(UIRawImage)),
 		_GT(typeof(UIButton)),
+		_GT(typeof(UIImage)),
     };
 
     public static List<Type> dynamicList = new List<Type>()

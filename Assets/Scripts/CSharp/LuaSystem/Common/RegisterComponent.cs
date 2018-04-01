@@ -49,6 +49,8 @@ public class RegisterComponent
 			return trans.GetComponent<Animation> ();
 		case 20:
 			return trans.GetComponent<UIButton>();
+		case 21:
+			return trans.GetComponent<UIImage>();
 		default:
 			return null;
 		}

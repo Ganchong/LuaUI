@@ -4,13 +4,14 @@ using UnityEngine;
 using LuaFrameworkCore;
 using LuaUIFramework;
 using ABSystem ;
+using UnityEngine.U2D;
 /// <summary>
 /// 全局委托注册管理器
 /// </summary>
 public class AFRManager : Singleton<AFRManager>{
 	/** 贴图 */
 	public const string TEXTUREPATH="Texture/";
-
+	public const string ATLASPATH = "Atlas/";
 	public void RegisterFunc()
 	{
 		Debug.Log("AFRManager start");
@@ -62,13 +63,20 @@ public class AFRManager : Singleton<AFRManager>{
 				if(call!=null)call(rawImage);
 			});
 		};
-		/** UIRawImage默认Shader加载方法注册 */
-		UIRawImage.LoadUIDefaultShaderFunc = (shaderName,callBack)=>{
-			callBack(ResourcesManager.Instance.GetShader(shaderName));
-		};
-
+		/** 自定义Shader加载方法注册 */
 		MaterialManager.CustomGetShaderFunc = (shaderName)=>{
+			if(!GameManager.Instance.isUseAB)return Shader.Find(shaderName);
 			return ResourcesManager.Instance.GetShader(shaderName);
+		};
+		/** UIImage sprite加载方法注册 */
+		UIImage.LoadSprite = (atlasName,name,uiImage,call)=>{
+			ResourceHelper.Instance.LoadResDataAsync(ATLASPATH+atlasName,(res)=>{
+				res.LoadAssetAsync<SpriteAtlas>(atlasName,(atlas)=>{
+					uiImage.Alpha = 1;
+					uiImage.sprite = atlas.GetSprite (name);
+					if(call!=null)call(uiImage);
+				});
+			});
 		};
 
 	}

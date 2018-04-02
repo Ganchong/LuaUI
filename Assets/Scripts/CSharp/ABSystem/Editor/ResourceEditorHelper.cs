@@ -160,7 +160,6 @@ namespace ABSystem{
 			string tempDir = CreateStreamDir("Lua");
 			#else
 			string tempDir = Application.dataPath + "/temp/Lua";
-
 			if (!File.Exists(tempDir))
 			{
 				Directory.CreateDirectory(tempDir);

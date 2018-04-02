@@ -37,6 +37,7 @@ public class DelegateFactory
 		dict.Add(typeof(System.Action<string>), factory.System_Action_string);
 		dict.Add(typeof(System.Action<string,string,UIImage,System.Action<UIImage>>), factory.System_Action_string_string_UIImage_System_Action_UIImage);
 		dict.Add(typeof(System.Action<UIImage>), factory.System_Action_UIImage);
+		dict.Add(typeof(System.Action<string,UIText>), factory.System_Action_string_UIText);
 
 		DelegateTraits<System.Action>.Init(factory.System_Action);
 		DelegateTraits<UnityEngine.Events.UnityAction>.Init(factory.UnityEngine_Events_UnityAction);
@@ -58,6 +59,7 @@ public class DelegateFactory
 		DelegateTraits<System.Action<string>>.Init(factory.System_Action_string);
 		DelegateTraits<System.Action<string,string,UIImage,System.Action<UIImage>>>.Init(factory.System_Action_string_string_UIImage_System_Action_UIImage);
 		DelegateTraits<System.Action<UIImage>>.Init(factory.System_Action_UIImage);
+		DelegateTraits<System.Action<string,UIText>>.Init(factory.System_Action_string_UIText);
 
 		TypeTraits<System.Action>.Init(factory.Check_System_Action);
 		TypeTraits<UnityEngine.Events.UnityAction>.Init(factory.Check_UnityEngine_Events_UnityAction);
@@ -79,6 +81,7 @@ public class DelegateFactory
 		TypeTraits<System.Action<string>>.Init(factory.Check_System_Action_string);
 		TypeTraits<System.Action<string,string,UIImage,System.Action<UIImage>>>.Init(factory.Check_System_Action_string_string_UIImage_System_Action_UIImage);
 		TypeTraits<System.Action<UIImage>>.Init(factory.Check_System_Action_UIImage);
+		TypeTraits<System.Action<string,UIText>>.Init(factory.Check_System_Action_string_UIText);
 
 		StackTraits<System.Action>.Push = factory.Push_System_Action;
 		StackTraits<UnityEngine.Events.UnityAction>.Push = factory.Push_UnityEngine_Events_UnityAction;
@@ -100,6 +103,7 @@ public class DelegateFactory
 		StackTraits<System.Action<string>>.Push = factory.Push_System_Action_string;
 		StackTraits<System.Action<string,string,UIImage,System.Action<UIImage>>>.Push = factory.Push_System_Action_string_string_UIImage_System_Action_UIImage;
 		StackTraits<System.Action<UIImage>>.Push = factory.Push_System_Action_UIImage;
+		StackTraits<System.Action<string,UIText>>.Push = factory.Push_System_Action_string_UIText;
 	}
     
     public static Delegate CreateDelegate(Type t, LuaFunction func = null)
@@ -1369,6 +1373,65 @@ public class DelegateFactory
 	}
 
 	void Push_System_Action_UIImage(IntPtr L, System.Action<UIImage> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Action_string_UIText_Event : LuaDelegate
+	{
+		public System_Action_string_UIText_Event(LuaFunction func) : base(func) { }
+		public System_Action_string_UIText_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0, UIText param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0, UIText param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public System.Action<string,UIText> System_Action_string_UIText(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<string,UIText> fn = delegate(string param0, UIText param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_string_UIText_Event target = new System_Action_string_UIText_Event(func);
+			System.Action<string,UIText> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_string_UIText_Event target = new System_Action_string_UIText_Event(func, self);
+			System.Action<string,UIText> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Action_string_UIText(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Action<string,UIText>), L, pos);
+	}
+
+	void Push_System_Action_string_UIText(IntPtr L, System.Action<string,UIText> o)
 	{
 		ToLua.Push(L, o);
 	}

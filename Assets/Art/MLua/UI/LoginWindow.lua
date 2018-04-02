@@ -15,7 +15,7 @@ function this:InitUI(uiObj)
 end
 
 function this:BindWindow(uiObj)
-    self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",ComponentName.Text)
+    self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",ComponentName.UIText)
     self.LoginButton = Util.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIButton)
     self.LoginImage = Util.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIImage)
     self.back = Util.GetChildComponent(uiObj,"back",ComponentName.UIRawImage)

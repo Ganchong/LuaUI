@@ -18,23 +18,46 @@ public class UIImage : Image,IGrayMember
 	public string atlasName;
 	[HideInInspector]
 	public string spriteName;
+	private bool _isGray;
+	private Color oldColor;
 
+
+	//[ContextMenu("excute")]
+	protected override void Awake ()
+	{
+		base.Awake ();
+		if (!string.IsNullOrEmpty(atlasName)) {
+			#if UNITY_EDITOR
+			string mainPath = "Assets/Art/Atlas/";
+			UnityEngine.U2D.SpriteAtlas atlas = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.U2D.SpriteAtlas> (mainPath+atlasName+"/"+atlasName+".spriteatlas");
+			if (atlas != null) {
+				sprite = atlas.GetSprite (spriteName);
+			}
+			#else
+			LoadImage (atlasName,spriteName,null);
+			#endif
+		}
+		if (sprite == null) {
+			this.Alpha = 0;
+		}
+	}
+
+	protected override void Start ()
+	{
+
+		Collider2D collider2D = GetComponent<Collider2D> ();
+		if (collider2D != null) {
+			setCollider (collider2D);
+		}
+
+		base.Start ();
+	}
 	public void LoadImage (string atlasName, string spName, Action<UIImage> call = null)
 	{
 		if (null != LoadSprite) {
 			LoadSprite (atlasName, spName, this, call);
 		}
 	}
-
-	private bool _isGray;
-
-	public bool IsGray {
-		get {
-			return _isGray;
-		}
-	}
-
-	private Color oldColor;
 
 	/// <summary>
 	/// 变灰
@@ -64,49 +87,6 @@ public class UIImage : Image,IGrayMember
 			color = new Color (oldColor.r, oldColor.g, oldColor.b, Alpha);
 		}
 	}
-	[ContextMenu("excute")]
-	protected override void Awake ()
-	{
-		base.Awake ();
-
-		if (!string.IsNullOrEmpty(atlasName)) {
-			#if UNITY_EDITOR
-			string mainPath = "Assets/Art/Atlas/";
-			UnityEngine.U2D.SpriteAtlas atlas = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.U2D.SpriteAtlas> (mainPath+atlasName+"/"+atlasName+".spriteatlas");
-			if (atlas != null) {
-				sprite = atlas.GetSprite (spriteName);
-			}
-			#else
-			LoadImage (atlasName,spriteName,null);
-			#endif
-		}
-		if (sprite == null) {
-			this.Alpha = 0;
-		}
-	}
-
-	protected override void Start ()
-	{
-
-		Collider2D collider2D = GetComponent<Collider2D> ();
-		if (collider2D != null) {
-			setCollider (collider2D);
-		}
-
-		base.Start ();
-	}
-
-
-	public float Alpha {
-		get {
-			return color.a;
-		}
-		set {
-			Color n = color;
-			n.a = Mathf.Clamp (value, 0, 1);
-			color = n;
-		}
-	}
 
 	public void setCollider (Collider2D collider2D)
 	{
@@ -130,6 +110,21 @@ public class UIImage : Image,IGrayMember
 			return isInside;
 		} else {
 			return base.IsRaycastLocationValid (sp, eventCamera);
+		}
+	}
+	public float Alpha {
+		get {
+			return color.a;
+		}
+		set {
+			Color n = color;
+			n.a = Mathf.Clamp (value, 0, 1);
+			color = n;
+		}
+	}
+	public bool IsGray {
+		get {
+			return _isGray;
 		}
 	}
 

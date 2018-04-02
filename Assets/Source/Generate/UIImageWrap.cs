@@ -15,8 +15,11 @@ public class UIImageWrap
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("LoadSprite", get_LoadSprite, set_LoadSprite);
 		L.RegVar("CanRaycast", get_CanRaycast, set_CanRaycast);
-		L.RegVar("IsGray", get_IsGray, null);
+		L.RegVar("sourceSprite", get_sourceSprite, set_sourceSprite);
+		L.RegVar("atlasName", get_atlasName, set_atlasName);
+		L.RegVar("spriteName", get_spriteName, set_spriteName);
 		L.RegVar("Alpha", get_Alpha, set_Alpha);
+		L.RegVar("IsGray", get_IsGray, null);
 		L.EndClass();
 	}
 
@@ -160,7 +163,7 @@ public class UIImageWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_IsGray(IntPtr L)
+	static int get_sourceSprite(IntPtr L)
 	{
 		object o = null;
 
@@ -168,13 +171,51 @@ public class UIImageWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UIImage obj = (UIImage)o;
-			bool ret = obj.IsGray;
-			LuaDLL.lua_pushboolean(L, ret);
+			UnityEngine.Sprite ret = obj.sourceSprite;
+			ToLua.PushSealed(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index IsGray on a nil value");
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index sourceSprite on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_atlasName(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIImage obj = (UIImage)o;
+			string ret = obj.atlasName;
+			LuaDLL.lua_pushstring(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index atlasName on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_spriteName(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIImage obj = (UIImage)o;
+			string ret = obj.spriteName;
+			LuaDLL.lua_pushstring(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spriteName on a nil value");
 		}
 	}
 
@@ -194,6 +235,25 @@ public class UIImageWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index Alpha on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_IsGray(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIImage obj = (UIImage)o;
+			bool ret = obj.IsGray;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index IsGray on a nil value");
 		}
 	}
 
@@ -228,6 +288,63 @@ public class UIImageWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index CanRaycast on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_sourceSprite(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIImage obj = (UIImage)o;
+			UnityEngine.Sprite arg0 = (UnityEngine.Sprite)ToLua.CheckObject(L, 2, typeof(UnityEngine.Sprite));
+			obj.sourceSprite = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index sourceSprite on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_atlasName(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIImage obj = (UIImage)o;
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.atlasName = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index atlasName on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_spriteName(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIImage obj = (UIImage)o;
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.spriteName = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spriteName on a nil value");
 		}
 	}
 

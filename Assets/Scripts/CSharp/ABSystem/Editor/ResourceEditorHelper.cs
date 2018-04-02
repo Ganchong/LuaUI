@@ -92,6 +92,7 @@ namespace ABSystem{
 			CopyLuaFilesToTemp ();
 			DirectoryInfo dicectoryLua = new DirectoryInfo (LUAROOT);
 			MarkLuaDirectory(dicectoryLua);
+			Debug.Log ("标记Lua文件成功！");
 			AssetDatabase.Refresh ();
 		}
 		/** 标记资源 */
@@ -105,6 +106,7 @@ namespace ABSystem{
 			}
 			DirectoryInfo dicectory = new DirectoryInfo (RESROOT);
 			MarkDirectory(dicectory,"Android");
+			Debug.Log ("标记Android文件成功！");
 			AssetDatabase.Refresh ();
 		}
 		/** 标记资源 */

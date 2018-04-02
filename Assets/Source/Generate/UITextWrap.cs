@@ -7,13 +7,33 @@ public class UITextWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginClass(typeof(UIText), typeof(UnityEngine.UI.Text));
+		L.RegFunction("SetGray", SetGray);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("OnAwake", get_OnAwake, set_OnAwake);
 		L.RegVar("m_spacing", get_m_spacing, set_m_spacing);
 		L.RegVar("text", get_text, set_text);
 		L.RegVar("spacing", get_spacing, set_spacing);
+		L.RegVar("Alpha", get_Alpha, set_Alpha);
+		L.RegVar("IsGray", get_IsGray, null);
 		L.EndClass();
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetGray(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			UIText obj = (UIText)ToLua.CheckObject<UIText>(L, 1);
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			obj.SetGray(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -106,6 +126,44 @@ public class UITextWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Alpha(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIText obj = (UIText)o;
+			float ret = obj.Alpha;
+			LuaDLL.lua_pushnumber(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index Alpha on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_IsGray(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIText obj = (UIText)o;
+			bool ret = obj.IsGray;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index IsGray on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_OnAwake(IntPtr L)
 	{
 		try
@@ -174,6 +232,25 @@ public class UITextWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spacing on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_Alpha(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UIText obj = (UIText)o;
+			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
+			obj.Alpha = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index Alpha on a nil value");
 		}
 	}
 }

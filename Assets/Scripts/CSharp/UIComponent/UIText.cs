@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [ExecuteInEditMode]
-public class UIText : Text
+public class UIText : Text,IGrayMember
 {
 	
 	public static Action<string, UIText> OnAwake = null;
 	/** 字间距 */
 	[HideInInspector]
 	public float m_spacing = 0f;
-	/** 间距是否改变 */
+	private bool _isGray;
+	private Color oldColor;
 
 	protected override void Awake ()
 	{
@@ -37,6 +38,53 @@ public class UIText : Text
 				return;
 			m_spacing = value;
 			this.SetVerticesDirty ();
+		}
+	}
+	public float Alpha {
+		get {
+			return color.a;
+		}
+		set {
+			Color n = color;
+			n.a = Mathf.Clamp (value, 0, 1);
+			color = n;
+		}
+	}
+	public bool IsGray {
+		get {
+			return _isGray;
+		}
+	}
+	/// <summary>
+	/// 变灰
+	/// </summary>
+	/// <param name="button"></param>
+	/// <param name="bo"></param>
+	public  void SetGray (bool isGray)
+	{
+		if (_isGray == isGray)
+			return;
+		switch (material.shader.name) {
+
+		case "UI/Default Font":
+
+			if (GrayManager.DefFontMaterial == null) {
+				Debug.LogWarning ("AorButtom.setGray :: can not find the Shader<Custom/Fonts/Default Font>");
+				return;
+			}
+			material = GrayManager.DefFontMaterial;
+			break;
+
+		default:
+			
+			break;
+		}
+		_isGray = isGray;
+		if (isGray) {
+			oldColor = color;
+			color = new Color (1, 1, 1, color.a);
+		} else {
+			color = new Color (oldColor.r, oldColor.g, oldColor.b, Alpha);
 		}
 	}
 

@@ -23,6 +23,10 @@ require("Common/YMDictionary")
 require("Common/Timer")
 --引入定时器管理器
 require("Manager/TimerManager")
+--引入语言表
+require("Config/Language")
+--引入Lua工具
+require("Common/LuaUtil")
 
 
 GameObject = UnityEngine.GameObject

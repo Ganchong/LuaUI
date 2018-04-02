@@ -15,10 +15,11 @@ function this:InitUI(uiObj)
 end
 
 function this:BindWindow(uiObj)
-    self.TimeLabel = Util.GetChildComponent(uiObj,"root/time",ComponentName.UIText)
-    self.LoginButton = Util.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIButton)
-    self.LoginImage = Util.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIImage)
-    self.back = Util.GetChildComponent(uiObj,"back",ComponentName.UIRawImage)
+    self.TimeLabel = LuaUtil.GetChildComponent(uiObj,"root/time",ComponentName.UIText)
+    self.LoginButton = LuaUtil.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIButton)
+    self.LoginText = LuaUtil.GetChildComponent(uiObj,"root/LoginButton/Text",ComponentName.UIText)
+    self.LoginImage = LuaUtil.GetChildComponent(uiObj,"root/LoginButton",ComponentName.UIImage)
+    self.back = LuaUtil.GetChildComponent(uiObj,"back",ComponentName.UIRawImage)
 end
 
 function this:AddButtonEvent()
@@ -34,9 +35,8 @@ function this:OnEnableUI(param)
     self.timer:AddOnTimer(function () self:UpdateTime() end)
     self.timer:Start(true)
     self.back:LoadImage()
-    --self.back:SetGray(true)
-    --self.LoginImage:LoadImage("LoginWindowAtlas","button2",nil)
-    --self.LoginButton:SetGray(true)
+    self.LoginButton:SetGray(true)
+    --self.LoginButton:SetGray(false)
 end
 
 function this:UpdateTime()

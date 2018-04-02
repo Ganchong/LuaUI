@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 92e9c44a0ff20ed4c9351aa142e2d4ac
+timeCreated: 1522670000
+licenseType: Pro
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: mlua/common/luautil
+  assetBundleVariant: unity3d

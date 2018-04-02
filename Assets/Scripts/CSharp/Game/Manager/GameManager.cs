@@ -20,6 +20,11 @@ public class GameManager : SingletonBehaviour<GameManager>{
 
 	[Tooltip("是否使用AB包")]
 	public bool isUseAB = false;
+	[Tooltip("是否快速跳过闪屏")]
+	public bool isSkipFlash = false;
+
+	public GameObject splash;
+
 
 	/** 当前状态 */
 	StateBase curState = null;
@@ -44,10 +49,14 @@ public class GameManager : SingletonBehaviour<GameManager>{
 	/** 加载默认资源结束 */
 	void LoadResourcesFinish()
 	{
-		InitRoot();
-		AFRManager.Instance.RegisterFunc();
-		states = new List<StateBase>();
-		this.ChangeState<InitState>();
+		splash.GetComponent<SplashAlpha>().setCallBack(()=>{
+			InitRoot();
+			AFRManager.Instance.RegisterFunc();
+			states = new List<StateBase>();
+			this.ChangeState<InitState>();
+			Destroy(splash);
+		});
+		splash.GetComponent<SplashAlpha> ().start ();
 	}
 	/** 初始化Root */
 	void InitRoot()

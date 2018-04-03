@@ -555,10 +555,11 @@ public class LuaFrameworkCore_UtilWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 2);
+			ToLua.CheckArgsCount(L, 3);
 			string arg0 = ToLua.CheckString(L, 1);
-			System.Action<UnityEngine.GameObject> arg1 = (System.Action<UnityEngine.GameObject>)ToLua.CheckDelegate<System.Action<UnityEngine.GameObject>>(L, 2);
-			LuaFrameworkCore.Util.InstantiateUIObj(arg0, arg1);
+			UnityEngine.Transform arg1 = (UnityEngine.Transform)ToLua.CheckObject<UnityEngine.Transform>(L, 2);
+			System.Action<UnityEngine.GameObject> arg2 = (System.Action<UnityEngine.GameObject>)ToLua.CheckDelegate<System.Action<UnityEngine.GameObject>>(L, 3);
+			LuaFrameworkCore.Util.InstantiateUIObj(arg0, arg1, arg2);
 			return 0;
 		}
 		catch (Exception e)

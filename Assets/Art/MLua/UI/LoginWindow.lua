@@ -31,10 +31,10 @@ function this:LoginEvent()
 end
 
 function this:OnEnableUI(param)
+    LuaAPP.GetBackGroundManager():Change("loginBack")
     self.timer = self:NewTimer()
     self.timer:AddOnTimer(function () self:UpdateTime() end)
     self.timer:Start(true)
-    self.back:LoadImage()
     self.LoginButton:SetGray(true)
     --self.LoginButton:SetGray(false)
 end
@@ -47,9 +47,6 @@ function this:Update()
     --self.TimeLabel.text = Util.TimeToString_02(Time.GetTimestamp())
 end
 
-function this:GetUILayer()
-    return WindowLayer.MiddleStatic
-end
 function this:GetUIType()
     return WindowType.FullType
 end

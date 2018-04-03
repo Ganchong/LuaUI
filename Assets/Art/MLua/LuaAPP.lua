@@ -28,6 +28,13 @@ function LuaAPP.GetTimerManager()
     end
     return _timerManager
 end
+---@return BackGroundManager
+function LuaAPP.GetBackGroundManager()
+    if _backGroundManager == nil then
+        _backGroundManager = BackGroundManager.new()
+    end
+    return _backGroundManager
+end
 
 --启动定时器
 function LuaAPP.LauncherTimer()

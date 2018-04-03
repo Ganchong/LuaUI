@@ -26,13 +26,14 @@ end
 
 --初始化UIRoot层级
 function this:InitUIRoot()
-    local root = GameObject.Find("_CoreRoot#").transform
-    self._canvasLayerTrans[WindowLayer.BottomStatic] = root:Find("_Bottom#/_BottomStatic#")
-    self._canvasLayerTrans[WindowLayer.BottomDyn] = root:Find("_Bottom#/_BottomDyn#")
-    self._canvasLayerTrans[WindowLayer.MiddleStatic] = root:Find("_Middle#/_MiddleStatic#")
-    self._canvasLayerTrans[WindowLayer.MiddleDyn] = root:Find("_Middle#/_MiddleDyn#")
-    self._canvasLayerTrans[WindowLayer.TopStatic] = root:Find("_Top#/_TopStatic#")
-    self._canvasLayerTrans[WindowLayer.TopDyn] = root:Find("_Top#/_TopStatic#")
+    local root = GameObject.Find("_CoreUISystem#").transform
+    self._canvasLayerTrans[WindowLayer.CoreUIBG] = root:Find(WindowLayer.CoreUIBG)
+    self._canvasLayerTrans[WindowLayer.MainLayer] = root:Find(WindowLayer.MainLayer)
+    self._canvasLayerTrans[WindowLayer.TopLayer] = root:Find(WindowLayer.TopLayer)
+    self._canvasLayerTrans[WindowLayer.FloatingUILayer_T] = root:Find(WindowLayer.FloatingUILayer_T)
+    self._canvasLayerTrans[WindowLayer.FloatingLayer_A] = root:Find(WindowLayer.FloatingLayer_A)
+    self._canvasLayerTrans[WindowLayer.FloatingLayer_B] = root:Find(WindowLayer.FloatingLayer_B)
+    self._canvasLayerTrans[WindowLayer.FloatingLayer_C] = root:Find(WindowLayer.FloatingLayer_C)
 end
 
 --打开界面
@@ -54,14 +55,11 @@ function this:OpenWindow(name,param)
     local window = self:GetWindowClass(name).new()
     window.name = name
     local layer = window:GetUILayer()
-    self:GetUIObj(name,function (uiObj)
+    self:GetUIObj(name,self._canvasLayerTrans[layer],function (uiObj)
         --因为当前界面是全屏，隐藏所有其他UI
         if window:GetUIType() == WindowType.FullType then
             self:HideAllWindow()
         end
-        uiObj.transform.parent = self._canvasLayerTrans[layer]
-        uiObj.transform.localPosition = Vector3.zero
-        uiObj.transform.localScale = Vector3.one
         window:InitUI(uiObj)
         self:OnEnableWindow(window,param)
         self._openedWindowMap[name] = window
@@ -142,18 +140,18 @@ function this:RestAllWindow(window)
 end
 
 --获取UIObj
-function this:GetUIObj(name,callback)
+function this:GetUIObj(name,layer,callback)
     local uiObj = self._windowObjMap[name]
     if uiObj~=nil then
         callback(uiObj)
     else
-        self:LoadUIObj(name,callback)
+        self:LoadUIObj(name,layer,callback)
     end
 end
 
 --加载UIObj
-function this:LoadUIObj(name,callback)
-    Util.InstantiateUIObj(name,function (uiObj)
+function this:LoadUIObj(name,layer,callback)
+    Util.InstantiateUIObj(name,layer,function (uiObj)
         self._windowObjMap[name] = uiObj;
         callback(uiObj);
     end)

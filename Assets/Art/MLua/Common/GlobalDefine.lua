@@ -9,14 +9,22 @@ StateNames = {
     InitState = "State/InitState",
     LoginState = "State/LoginState",
 }
---UI层级 bottom{静态，动态} middle{静态，动态} top{静态，动态} 实现动静分离
+--UI层级
 WindowLayer = {
-    BottomStatic = "_BottomStatic#",
-    BottomDyn = "_BottomDyn#",
-    MiddleStatic = "_MiddleStatic#",
-    MiddleDyn = "_MiddleDyn",
-    TopStatic = "_TopStatic#",
-    TopDyn = "_TopDyn#",
+    --UI背景（底层）层
+    CoreUIBG = "CoreUICanvas#/CoreUIBG#",
+    --UI主要层级
+    MainLayer = "CoreUICanvas#/CoreUILayer#/MainLayer",
+    --UI顶层
+    TopLayer = "CoreUICanvas#/CoreUILayer#/TopLayer",
+    --UI最上层浮动层
+    FloatingUILayer_T = "FloatingUILayer_T#",
+    --与UICanvas同级的浮动层A order in layer：-100，最先渲染
+    FloatingLayer_A = "FloatingLayer_A#",
+    --与UICanvas同级的浮动层B order in layer：-100，在A之后渲染
+    FloatingLayer_B = "FloatingLayer_B#",
+    --与UICanvas同级的浮动层C order in layer：-100，在B之后渲染
+    FloatingLayer_C = "FloatingLayer_C#",
 }
 --UI类型 普通， 全屏（关闭时均按返回处理）
 WindowType = {

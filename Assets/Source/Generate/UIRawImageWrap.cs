@@ -7,6 +7,7 @@ public class UIRawImageWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginClass(typeof(UIRawImage), typeof(UnityEngine.UI.RawImage));
+		L.RegFunction("LoadDefaultImage", LoadDefaultImage);
 		L.RegFunction("LoadImage", LoadImage);
 		L.RegFunction("SetGray", SetGray);
 		L.RegFunction("__eq", op_Equality);
@@ -20,7 +21,7 @@ public class UIRawImageWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadImage(IntPtr L)
+	static int LoadDefaultImage(IntPtr L)
 	{
 		try
 		{
@@ -29,20 +30,38 @@ public class UIRawImageWrap
 			if (count == 1)
 			{
 				UIRawImage obj = (UIRawImage)ToLua.CheckObject<UIRawImage>(L, 1);
-				obj.LoadImage();
+				obj.LoadDefaultImage();
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes<string>(L, 2))
+			else if (count == 2)
 			{
 				UIRawImage obj = (UIRawImage)ToLua.CheckObject<UIRawImage>(L, 1);
-				string arg0 = ToLua.ToString(L, 2);
-				obj.LoadImage(arg0);
+				LuaFrameworkCore.CallBack<UIRawImage> arg0 = (LuaFrameworkCore.CallBack<UIRawImage>)ToLua.CheckDelegate<LuaFrameworkCore.CallBack<UIRawImage>>(L, 2);
+				obj.LoadDefaultImage(arg0);
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes<LuaFrameworkCore.CallBack<UIRawImage>>(L, 2))
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: UIRawImage.LoadDefaultImage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadImage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
 			{
 				UIRawImage obj = (UIRawImage)ToLua.CheckObject<UIRawImage>(L, 1);
-				LuaFrameworkCore.CallBack<UIRawImage> arg0 = (LuaFrameworkCore.CallBack<UIRawImage>)ToLua.ToObject(L, 2);
+				string arg0 = ToLua.CheckString(L, 2);
 				obj.LoadImage(arg0);
 				return 0;
 			}

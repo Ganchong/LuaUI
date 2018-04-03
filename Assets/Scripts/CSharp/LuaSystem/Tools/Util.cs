@@ -189,11 +189,26 @@ namespace LuaFrameworkCore {
 
 		/** 加载UI预制方法 */
 		public static Action<string,Action<GameObject>> LoadUIObjFuc = null ;              
-		public static void InstantiateUIObj(string name,Action<GameObject> callback)
+		public static void InstantiateUIObj(string name,Transform parent, Action<GameObject> callback)
 		{
 			if(LoadUIObjFuc!=null){
 				LoadUIObjFuc(name,(obj)=>{
-					callback(obj);
+					if(obj!=null){
+						obj.transform.SetParent(parent);
+						obj.transform.localScale =Vector3.one;
+						obj.transform.localRotation = Quaternion.identity;
+						obj.transform.localPosition = Vector3.zero;
+						RectTransform rect = obj.GetComponent<RectTransform>();
+						rect.anchorMin = Vector2.zero;
+						rect.anchorMax = Vector2.one;
+						rect.pivot = 0.5f*Vector2.one;
+						rect.offsetMin = Vector2.zero;
+						rect.offsetMax = Vector2.zero;
+						if(callback!=null)callback(obj);
+					}
+					else{
+						Debug.LogError("obj is null");
+					}
 				});
 			}
 		}

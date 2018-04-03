@@ -26,7 +26,7 @@ public class UIRawImage : RawImage,IGrayMember
 		}
 	}
 	/** 默认加载 */
-	public void LoadImage(CallBack<UIRawImage> call = null)
+	public void LoadDefaultImage(CallBack<UIRawImage> call = null)
 	{
 		LoadImage(nowPath,call);
 	}

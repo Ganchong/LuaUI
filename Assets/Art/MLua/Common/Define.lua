@@ -9,6 +9,8 @@ require("Common/GlobalDefine")
 require("Common/DefinitionClass")
 --引入UI管理器
 require("Manager/UIManager")
+--引入背景管理器
+require("Manager/BackGroundManager")
 --引入lua APP
 require("LuaApp")
 --引入UIBase

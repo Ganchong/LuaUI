@@ -52,6 +52,7 @@ public class UIImage : Image,IGrayMember
 
 		base.Start ();
 	}
+	
 	public void LoadImage (string atlasName, string spName, Action<UIImage> call = null)
 	{
 		if (null != LoadSprite) {

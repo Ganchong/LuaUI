@@ -19,13 +19,16 @@ function this:BindWindow(uiObj)
     self.ReturnButton = Util.GetChildComponent(uiObj,"root/ReturnButton",3)
 end
 
+function this:OnEnableUI()
+    LuaAPP.GetBackGroundManager():Change("createRoleBack")
+end
+
 function this:AddButtonEvent()
     self.ReturnButton.onClick:AddListener(function ()self:ReturnEvent() end)
 end
 function this:ReturnEvent()
     self:FinishWindow()
 end
-
 function this:GetUIType()
     return WindowType.FullType
 end

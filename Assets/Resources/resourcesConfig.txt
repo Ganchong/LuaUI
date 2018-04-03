@@ -1,4 +1,7 @@
 ﻿Atlas/CommonAtlas
-_CoreRoot#
-Texture/loginBack_3
-Texture/loginBack
+_CoreUISystem#
+UI/LoginWindow
+Atlas/LoginWindowAtlas
+Texture/backGround/loginBack_3
+Texture/backGround/loginBack
+Fonts/FZCKJW

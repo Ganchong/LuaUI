@@ -14,7 +14,9 @@ end
 function Start()
     LuaAPP.Init()
     local uiManager = LuaAPP.GetUIManager()
+    local backGroundManger = LuaAPP.GetBackGroundManager()
     uiManager:Init()
+    backGroundManger:Init()
     uiManager:OpenWindow("LoginWindow","")
 end
 --切换场景通知

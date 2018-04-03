@@ -98,6 +98,6 @@ function WindowBase:IsStatic()
 end
 --窗口层级，默认为MiddleStatic#层，如有需要在子类实现相同方法
 function WindowBase:GetUILayer()
-    return WindowLayer.MiddleStatic
+    return WindowLayer.MainLayer
 end
 ---#endRegion UI控制

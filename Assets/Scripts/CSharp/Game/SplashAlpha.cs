@@ -7,8 +7,13 @@ public class SplashAlpha : MonoBehaviour
 {
 	public Color startColor;
 	public Color endColor;
+	[Tooltip("闪屏1渐变时间")]
 	public float time1;
+	[Tooltip("闪屏2渐变阶段1")]
 	public float time2;
+	[Tooltip("闪屏2停顿时间")]
+	public float spauseTime;
+	[Tooltip("闪屏2渐变阶段2")]
 	public float time3;
 	public RawImage loginLoading1;
 	public RawImage loginLoading2;
@@ -35,23 +40,24 @@ public class SplashAlpha : MonoBehaviour
 	{
 		if (startTime < 0) return;
 		loginLoading1.color = endColor-(endColor-startColor)*((Time.time - startTime) / time1);
-		if (Time.time > startTime + time1-0.1) 
+		if (Time.time > startTime + time1-0.1f) 
 		{
-			loginLoading2.color = (endColor-startColor)*((Time.time - startTime-time1) / time2) + startColor;
-			if(Time.time > startTime+ time1 + time2){
+			if(Time.time > startTime+ time1 + time2+spauseTime){
 				if(!flag)
 				{
 					//SDKHelper.saveState(StateStep.STEP5);
 					flag=true;
 				}
-				loginLoading2.color = endColor-(endColor-startColor)*((Time.time - startTime-time1-time2) / time3);
-				if(Time.time > startTime+ time1 + time2+time3-0.03){
+				loginLoading2.color = endColor-(endColor-startColor)*((Time.time - startTime-time1-time2-spauseTime-0.1f) / time3);
+				if(Time.time > startTime+ time1 + time2+time3+spauseTime-0.03f){
 					if (action != null)
 					{
 						action ();
 						action=null;
 					}
 				}
+			}else if(Time.time <= startTime+ time1 + time2){
+				loginLoading2.color = (endColor-startColor)*((Time.time - startTime-time1) / time2) + startColor;
 			}
 		}
 	}

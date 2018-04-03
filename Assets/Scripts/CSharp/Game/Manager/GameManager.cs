@@ -15,7 +15,7 @@ public class GameManager : SingletonBehaviour<GameManager>{
 	/** 默认加载资源 */
 	public static string[] BASERESOURCES;
 	/** Root节点 */
-	const string COREROOT = "_CoreRoot#";
+	const string COREROOT = "_CoreUISystem#";
 
 
 	[Tooltip("是否使用AB包")]
@@ -49,6 +49,7 @@ public class GameManager : SingletonBehaviour<GameManager>{
 	/** 加载默认资源结束 */
 	void LoadResourcesFinish()
 	{
+		if(splash==null)splash = GameObject.Find("Camera");
 		splash.GetComponent<SplashAlpha>().setCallBack(()=>{
 			InitRoot();
 			AFRManager.Instance.RegisterFunc();
@@ -58,6 +59,7 @@ public class GameManager : SingletonBehaviour<GameManager>{
 		});
 		splash.GetComponent<SplashAlpha> ().start ();
 	}
+
 	/** 初始化Root */
 	void InitRoot()
 	{

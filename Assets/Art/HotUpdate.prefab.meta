@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 251d2bccb9a5fca4e8158c9778e4bcff
-timeCreated: 1522560703
+guid: 402eda7986de3e643bdc72f11c8510c9
+timeCreated: 1521889299
 licenseType: Pro
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 100100000
   userData: 
-  assetBundleName: ui/gameobject
+  assetBundleName: ui/createrolewindow
   assetBundleVariant: unity3d

@@ -35,6 +35,13 @@ function LuaAPP.GetBackGroundManager()
     end
     return _backGroundManager
 end
+---@return YMEvent
+function LuaAPP.GetGlobalEvent()
+    if _ymEvent == nil then
+        _ymEvent = YMEvent.new()
+    end
+    return _ymEvent
+end
 
 --启动定时器
 function LuaAPP.LauncherTimer()

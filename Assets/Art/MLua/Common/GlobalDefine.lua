@@ -56,4 +56,12 @@ ComponentName = {
     UIImage = 21,
     UIText = 22,
 }
-
+--事件类型
+EventName = {
+    --LoginEvent
+    LoginEvent1 = 1,
+    LoginEvent2 = 2,
+    --MainEvent
+    MainEvent1 = 3,
+    MainEvent2 = 4,
+}

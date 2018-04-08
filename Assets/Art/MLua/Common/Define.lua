@@ -29,6 +29,8 @@ require("Manager/TimerManager")
 require("Config/Language")
 --引入Lua工具
 require("Common/LuaUtil")
+--引入事件系统
+require("Common/YMEvent")
 
 
 GameObject = UnityEngine.GameObject

@@ -24,10 +24,22 @@ end
 
 function this:AddButtonEvent()
     self.LoginButton.onClick:AddListener(function() self:LoginEvent() end)
+    ----[[eg
+    LuaAPP.GetGlobalEvent():AddEvent(EventName.LoginEvent1,
+            function (t) LuaAPP.GetUIManager():OpenWindow("Alert","")
+                for i, v in pairs(t) do
+                    Log("k.."..tostring(i))
+                    Log("v.."..tostring(v))
+                end
+                Log(t[1])
+            end
+    )
+    --]]--
 end
 
 function this:LoginEvent()
-    LuaAPP.GetUIManager():OpenWindow("Alert","")
+    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.LoginEvent1,3)
+    --LuaAPP.GetUIManager():OpenWindow("Alert","")
 end
 
 function this:OnEnableUI(param)

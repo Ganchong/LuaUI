@@ -4,7 +4,7 @@
 --- DateTime: 2018/3/22 16:10
 ---
 --引入全局表定义
-require("Common/GlobalDefine")
+require("Define/GlobalDefine")
 --引入lua Class
 require("Common/DefinitionClass")
 --引入UI管理器
@@ -31,7 +31,8 @@ require("Config/Language")
 require("Common/LuaUtil")
 --引入事件系统
 require("Common/YMEvent")
-
+--引入状态步骤
+require("Define/StateStepDefine")
 
 GameObject = UnityEngine.GameObject
 WWW = UnityEngine.WWW

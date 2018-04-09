@@ -3,7 +3,7 @@
 --- Created by 干冲.
 --- DateTime: 2018/3/21 17:24
 ---
-require("Common/Define")
+require("Define/Define")
 
 --Lua端主入口，从这里开始lua逻辑
 function Main()

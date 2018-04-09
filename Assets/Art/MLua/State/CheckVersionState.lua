@@ -14,7 +14,10 @@ function this:Enter()
     if Application.internetReachability == NetworkReachability.NotReachable then
         LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
             function ()
-                ResourceUpdateManager.Connect()
+                ResourceUpdateManager.Connect(
+                function(step,process)
+                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetValue,step,process)
+                end)
             end,Language.network_01)
     else
         ResourceUpdateManager.Connect()

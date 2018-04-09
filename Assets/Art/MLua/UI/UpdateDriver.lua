@@ -22,33 +22,35 @@ end
 
 function this:AddButtonEvent()
     LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverSetValue,
-            function(value,curLoadSize,totalLoadSize)
-                self:SetValue(value,curLoadSize,totalLoadSize)
+            function(step,process,curLoadSize,totalLoadSize)
+                self:SetValue(step,process,curLoadSize,totalLoadSize)
             end)
 end
 
-function this:SetValue(value,curLoadSize,totalLoadSize)
+function this:SetValue(step,process,curLoadSize,totalLoadSize)
     local tip = ""
-    if value<=0 then
+    if process<0 then
+        return
+    end
+    if step == UpdateStep.CheckVersion then
         tip = Language.UpdateDriver_03
-    elseif value>0 and value<=0.1 then
-        tip = Language.UpdateDriver_04
-    elseif value>0.1 and value <=0.2 then
-            tip = Language.UpdateDriver_05
-    elseif value>0.1 and value <=0.2 then
+    elseif step == UpdateStep.GetUpdateList then
         tip = Language.UpdateDriver_05
-    elseif value>0.2 and value<0.8 then
+    elseif step == UpdateStep.CompareData then
+        tip = Language.UpdateDriver_05
+    elseif step == UpdateStep.MakeSureDownload then
         tip = Language.Get(Language.UpdateDriver_06,curLoadSize,totalLoadSize)
-    elseif value>=0.8 and value<0.9 then
+    elseif step == UpdateStep.DownloadData then
+    elseif step == UpdateStep.CheckData then
         tip = Language.UpdateDriver_07
-    elseif value>=0.9 and value<1 then
+    elseif step == UpdateStep.CopyData then
         tip = Language.UpdateDriver_08
-    elseif value>=1 then
+    elseif step == UpdateStep.CleanCache then
+    elseif step == UpdateStep.Finish then
         tip = Language.UpdateDriver_09
-        value = 1
     end
     self.tips.text = tip
-    self.slider.value = value
+    self.slider.value = step
 end
 
 function this:OnEnableUI()

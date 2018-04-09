@@ -27,6 +27,13 @@ function this:AddButtonEvent()
             end)
 end
 
+function this:OnEnableUI()
+    self.slider.value = 0
+    self.tips.text = Language.UpdateDriver_01
+    self.version.text = Language.Get(Language.Version,"1.0.0")
+    LuaAPP.GetBackGroundManager():Change("loginBack_3")
+end
+
 function this:SetValue(step,process,curLoadSize,totalLoadSize)
     local tip = ""
     if process<0 then
@@ -51,13 +58,6 @@ function this:SetValue(step,process,curLoadSize,totalLoadSize)
     end
     self.tips.text = tip
     self.slider.value = step
-end
-
-function this:OnEnableUI()
-    self.slider.value = 0
-    self.tips.text = Language.UpdateDriver_01
-    self.version.text = Language.Get(Language.Version,"1.0.0")
-    LuaAPP.GetBackGroundManager():Change("loginBack_3")
 end
 
 function this:GetUIType()

@@ -24,21 +24,17 @@ end
 
 function this:AddButtonEvent()
     self.LoginButton.onClick:AddListener(function() self:LoginEvent() end)
-    ----[[eg
     LuaAPP.GetGlobalEvent():AddEvent(EventName.LoginEvent1,
-            function (t) LuaAPP.GetUIManager():OpenWindow("Alert","")
-                for i, v in pairs(t) do
-                    Log("k.."..tostring(i))
-                    Log("v.."..tostring(v))
-                end
-                Log(t[1])
+            function () LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
+                function ()
+                    LuaAPP.GetUIManager():OpenWindow(WindowName.CreateRoleWindow)
+                end,"go to create a role?")
             end
     )
-    --]]--
 end
 
 function this:LoginEvent()
-    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.LoginEvent1,3)
+    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.LoginEvent1)
     --LuaAPP.GetUIManager():OpenWindow("Alert","")
 end
 

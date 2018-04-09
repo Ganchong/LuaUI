@@ -10,12 +10,12 @@ function this:InitUI(uiObj)
     self.UIObj = uiObj
     self:BindWindow(uiObj)
     self:AddButtonEvent()
-    Log("Alert InitUI")
 end
 
 function this:BindWindow(uiObj)
-    self.SureButton = Util.GetChildComponent(uiObj,"root/SureButton",3)
-    self.CancelButton = Util.GetChildComponent(uiObj,"root/CancelButton",3)
+    self.SureButton = LuaUtil.GetChildComponent(uiObj,"root/SureButton",ComponentName.UIButton)
+    self.CancelButton = LuaUtil.GetChildComponent(uiObj,"root/CancelButton",ComponentName.UIButton)
+    self.Tips = LuaUtil.GetChildComponent(uiObj,"root/Tips",ComponentName.UIText)
 end
 
 function this:AddButtonEvent()
@@ -23,14 +23,19 @@ function this:AddButtonEvent()
     self.CancelButton.onClick:AddListener(function() self:CancelEvent() end)
 end
 
+function this:OnEnableUI(param)
+    self.action = param[1]
+    self.Tips.text = param[2]
+end
+
 function this:SureEvent()
-    --LuaAPP.GetUIManager():CloseWindow("Alert")
-    self:FinishWindow();
-    LuaAPP.GetUIManager():OpenWindow("CreateRoleWindow","")
+    self:FinishWindow()
+    if self.action ~= nil then
+        self.action()
+    end
 end
 
 function this:CancelEvent()
-    --LuaAPP.GetUIManager():CloseWindow("Alert")
     self:FinishWindow()
 end
 

@@ -37,7 +37,8 @@ function this:InitUIRoot()
 end
 
 --打开界面
-function this:OpenWindow(name,param)
+function this:OpenWindow(name,...)
+    local param = {...}
     local opening,index = self:IsOpening(name)
     --打开过
     if opening then

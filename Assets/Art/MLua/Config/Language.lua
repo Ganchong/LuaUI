@@ -16,4 +16,30 @@ Language = {
     --MainWindow
     mainWindow_01 = "首冲",
     mainWindow_02 = "每日任务",
+    --UpdateDriver
+    UpdateDriver_01 = "正在连接服务器",
+    UpdateDriver_02 = "初始化SDK",
+    UpdateDriver_03 = "正在检查更新",
+    UpdateDriver_04 = "正在获取文件列表",
+    UpdateDriver_05 = "正在对比资源",
+    UpdateDriver_06 = "正在下载资源(%dM/%dM)",
+    UpdateDriver_07 = "正在校验资源",
+    UpdateDriver_08 = "资源准备中",
+    UpdateDriver_09 = "准备完成",
+    UpdateDriver_10 = "更新失败",
+    UpdateDriver_11 = "连接服务器失败,请检查网络设置！",
+    UpdateDriver_12 = "初始化SDK失败,退出游戏",
+    --Version
+    Version = "版本号%s",
+
+    --NetWork
+    network_01 = "当前网络不可用，请检查网络",
+    network_02 = "需下载%dM资源，当前使用数据流量，是否下载？",
 }
+function Language.Get(str,...)
+    local args = {...}
+    if #args>0 then
+        return string.format(str,args)
+    end
+    return str
+end

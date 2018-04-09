@@ -8,6 +8,7 @@
 StateNames = {
     InitState = "State/InitState",
     LoginState = "State/LoginState",
+    CheckVersionState = "State/CheckVersionState",
 }
 --UI层级
 WindowLayer = {
@@ -58,10 +59,21 @@ ComponentName = {
 }
 --事件类型
 EventName = {
-    --LoginEvent
+    --LoginEvent 1-10
     LoginEvent1 = 1,
     LoginEvent2 = 2,
-    --MainEvent
-    MainEvent1 = 3,
-    MainEvent2 = 4,
+    --MainEvent 11-20
+    MainEvent1 = 11,
+    MainEvent2 = 12,
+    --UpdateDriver 21-30
+    UpdateDriverSetValue = 21,
+
+}
+
+--窗口名
+WindowName = {
+    LoginWindow = "LoginWindow",
+    UpdateDriver = "UpdateDriver",
+    CreateRoleWindow = "CreateRoleWindow",
+    Alert = "Alert",
 }

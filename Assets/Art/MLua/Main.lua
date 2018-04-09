@@ -19,6 +19,13 @@ function Start()
     backGroundManger:Init()
     uiManager:OpenWindow("LoginWindow","")
 end
+
+function CheckVersionUpdate()
+    LuaAPP.RegisterStates()
+    LuaAPP.GetUIManager():Init()
+    LuaAPP.ChangeState(StateNames.CheckVersionState)
+end
+
 --切换场景通知
 function OnLevelWasLoad(level)
     collectgarbage("collect")

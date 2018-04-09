@@ -35,8 +35,10 @@ require("Common/YMEvent")
 
 GameObject = UnityEngine.GameObject
 WWW = UnityEngine.WWW
-Util = LuaFrameworkCore.Util
-
+Util = LuaFramework.Core.Util
+ResourceUpdateManager = LuaHelper.GetResourceUpdateManager()
+Application = UnityEngine.Application
+NetworkReachability = UnityEngine.NetworkReachability
 
 ---#全局方法定义#--
 --日志打印

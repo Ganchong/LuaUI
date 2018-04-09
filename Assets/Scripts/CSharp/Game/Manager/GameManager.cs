@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using LuaFrameworkCore;
 using UnityEngine.EventSystems;
 using ABSystem;
 
@@ -17,11 +16,17 @@ public class GameManager : SingletonBehaviour<GameManager>{
 	/** Root节点 */
 	const string COREROOT = "_CoreUISystem#";
 
-
+	[Tooltip("资源版本")]
+	public int streamingAssetVersion;
 	[Tooltip("是否使用AB包")]
 	public bool isUseAB = false;
 	[Tooltip("是否快速跳过闪屏")]
 	public bool isSkipFlash = false;
+	[Tooltip("是否开启SDK")]
+	public bool openSDK = false;
+	[Tooltip("是否可以更新")]
+	public bool update = false;
+
 
 	public GameObject splash;
 

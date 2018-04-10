@@ -37,7 +37,8 @@ require("Define/StateStepDefine")
 GameObject = UnityEngine.GameObject
 WWW = UnityEngine.WWW
 Util = LuaFramework.Core.Util
-ResourceUpdateManager = LuaHelper.GetResourceUpdateManager()
+ResUpdateManager = LuaHelper.GetResourceUpdateManager()
+GameManager = LuaHelper.GetGameManager()
 Application = UnityEngine.Application
 NetworkReachability = UnityEngine.NetworkReachability
 

@@ -67,6 +67,7 @@ EventName = {
     MainEvent2 = 12,
     --UpdateDriver 21-30
     UpdateDriverSetValue = 21,
+    UpdateDriverSetTips = 22,
 
 }
 

@@ -5,14 +5,19 @@ using LuaInterface;
 using LuaFramework.Core;
 
 public static class LuaHelper {
+	
 
-	/// <summary>
-	/// 资源更新管理器
-	/// </summary>
+	/** 资源更新管理器 */
 	public static ResourceUpdateManager GetResourceUpdateManager()
 	{
 		return ResourceUpdateManager.Instance;
 	}
+	/** 游戏管理器 */
+	public static GameManager GetGameManager()
+	{
+		return GameManager.Instance;
+	}
 }
+
 
 

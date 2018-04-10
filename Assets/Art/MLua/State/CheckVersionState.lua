@@ -6,24 +6,114 @@
 
 require("State/BaseState")
 
-local CheckVersionState = class("CheckVersionState",BaseState)
+local CheckVersionState = class("CheckVersionState", BaseState)
 local this = CheckVersionState
 
 function this:Enter()
     LuaAPP.GetUIManager():OpenWindow(WindowName.UpdateDriver)
-    if Application.internetReachability == NetworkReachability.NotReachable then
-        LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
-            function ()
-                ResourceUpdateManager.Connect(
-                function(step,process)
-                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetValue,step,process)
+    ResUpdateManager.InitDelegate(
+            function(tips)
+                LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, tips)
+            end,
+            function(process)
+                LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetValue, process)
+            end)
+    CoroutineCenter.delayRunFrame(
+            function()
+                if Application.internetReachability == NetworkReachability.NotReachable then
+                    LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
+                            function()
+                                self:Connect()
+                            end, Language.network_01)
+                else
+                    self:Connect()
+                end
+            end, 1)
+
+end
+
+--连接服务器
+function this:Connect()
+    SDKHelper.saveState(StateStep.STEP7)
+    if GameManager.openSDK then
+        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_0)
+        ResUpdateManager.ConnectSDKServer(
+                function()
+                    this:CheckUpdate()
+                end,
+                function(node)
+                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_10)
+                    LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
+                            function()
+                                if node == "version" then
+                                    local downUrl = SDKHelper.getDownUrl()
+                                    if downUrl ~= nil and downUrl ~= "" then
+                                        Application.OpenURL(downUrl)
+                                    end
+                                    Application.Quit()
+                                end
+                                ResUpdateManager.ConnectSDKServer()
+                            end, Language.Get("connect_" .. node))
+                    SDKHelper.saveState(StateStep.STEP9)
                 end)
-            end,Language.network_01)
     else
-        ResourceUpdateManager.Connect()
+        this:CheckUpdate()
     end
 end
 
+--检查更新
+function this:CheckUpdate()
+    if SDKHelper.enableUpdate() then
+        if GameManager.openSDK then
+            SDKHelper.saveState(StateStep.STEP10)
+            self:StartUpdate(SDKHelper.getInfo(Handler.RESOURCEVERSION))
+        else
+            local url = SDKHelper.getUpdateDataUrl()
+            local _, index = string.find(url, '/', 7)
+            url = string.sub(url, 0, index) .. "/getVersion?1=1"
+            ResUpdateManager.AccessHttpConnect(url,
+            --连接成功
+                    function(result)
+                        self:StartUpdate(result)
+                    end,
+            --连接不成功
+                    function()
+                        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_7)
+                        self.process = 0.9
+                        self:InitNoUpdate(
+                                function()
+                                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_8)
+                                    self.process = 1
+                                end
+                        )
+                    end
+            )
+        end
+    else
+        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_7)
+        self.process = 0.9
+        self:InitNoUpdate(
+                function()
+                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_8)
+                    self.process = 1
+                end
+        )
+    end
+end
+
+--开始更新
+function this:StartUpdate(result)
+    ResUpdateManager.StartUpdate(result)
+end
+
+--无更新流程
+function this:InitNoUpdate()
+
+end
+
+function this:ToLoginScene()
+
+end
 
 function this:Update()
 

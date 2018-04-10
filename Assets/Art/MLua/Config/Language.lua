@@ -17,24 +17,33 @@ Language = {
     mainWindow_01 = "首冲",
     mainWindow_02 = "每日任务",
     --UpdateDriver
-    UpdateDriver_01 = "正在连接服务器",
-    UpdateDriver_02 = "初始化SDK",
-    UpdateDriver_03 = "正在检查更新",
-    UpdateDriver_04 = "正在获取文件列表",
-    UpdateDriver_05 = "正在对比资源",
-    UpdateDriver_06 = "正在下载资源(%dM/%dM)",
-    UpdateDriver_07 = "正在校验资源",
-    UpdateDriver_08 = "资源准备中",
-    UpdateDriver_09 = "准备完成",
-    UpdateDriver_10 = "更新失败",
-    UpdateDriver_11 = "连接服务器失败,请检查网络设置！",
-    UpdateDriver_12 = "初始化SDK失败,退出游戏",
+    TIP_0 = "正在连接服务器",
+    TIP_1 = "初始化SDK",
+    TIP_2 = "正在检查更新",
+    TIP_3 = "正在获取文件列表",
+    TIP_4 = "正在对比资源",
+    TIP_5 = "正在下载资源(%dM/%dM)",
+    TIP_6 = "正在校验资源",
+    TIP_7 = "资源准备中",
+    TIP_8 = "准备完成",
+    TIP_9 = "更新失败",
+    TIP_10 = "连接服务器失败,请检查网络设置！",
+    TIP_11 = "初始化SDK失败,退出游戏",
+
+
     --Version
     Version = "版本号%s",
 
     --NetWork
     network_01 = "当前网络不可用，请检查网络",
     network_02 = "需下载%dM资源，当前使用数据流量，是否下载？",
+
+    --Connect
+    connect_connect_error = "连接服务器失败,请检查网络设置！",
+    connect_param_error = "参数错误！",
+    connect_game_error = "游戏错误！",
+    connect_appClient_error = "客户端错误！",
+    connect_version = "发现新的版本，请前往更新！",
 }
 function Language.Get(str,...)
     local args = {...}

@@ -4,7 +4,7 @@
 --- DateTime: 2018/4/9 10:37
 --- 更新驱动
 
-UpdateDriver = class("UpdateDriver",WindowBase)
+UpdateDriver = class("UpdateDriver", WindowBase)
 
 local this = UpdateDriver
 
@@ -15,28 +15,36 @@ function this:InitUI(uiObj)
 end
 
 function this:BindWindow(uiObj)
-    self.tips = LuaUtil.GetChildComponent(uiObj,"root/tips",ComponentName.UIText)
-    self.slider = LuaUtil.GetChildComponent(uiObj,"root/Slider",ComponentName.slider)
-    self.version = LuaUtil.GetChildComponent(uiObj,"root/version",ComponentName.UIText)
+    self.tips = LuaUtil.GetChildComponent(uiObj, "root/tips", ComponentName.UIText)
+    self.slider = LuaUtil.GetChildComponent(uiObj, "root/Slider", ComponentName.slider)
+    self.version = LuaUtil.GetChildComponent(uiObj, "root/version", ComponentName.UIText)
 end
 
 function this:AddButtonEvent()
     LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverSetValue,
-            function(step,process,curLoadSize,totalLoadSize)
-                self:SetValue(step,process,curLoadSize,totalLoadSize)
+            function(step, process, curLoadSize, totalLoadSize)
+                self:SetValue(step, process, curLoadSize, totalLoadSize)
+            end)
+    LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverSetTips,
+            function(tips)
+                self:SetTips(tips)
             end)
 end
 
 function this:OnEnableUI()
     self.slider.value = 0
-    self.tips.text = Language.UpdateDriver_01
-    self.version.text = Language.Get(Language.Version,"1.0.0")
+    self.tips.text = Language.TIP_0
+    self.version.text = Language.Get(Language.Version, SDKHelper.getAppVersion().version)
     LuaAPP.GetBackGroundManager():Change("loginBack_3")
 end
 
-function this:SetValue(step,process,curLoadSize,totalLoadSize)
+function this:SetTips(tips)
+    self.tips.text = tips
+end
+
+function this:SetValue(step, process, curLoadSize, totalLoadSize)
     local tip = ""
-    if process<0 then
+    if process < 0 then
         return
     end
     if step == UpdateStep.CheckVersion then
@@ -46,7 +54,7 @@ function this:SetValue(step,process,curLoadSize,totalLoadSize)
     elseif step == UpdateStep.CompareData then
         tip = Language.UpdateDriver_05
     elseif step == UpdateStep.MakeSureDownload then
-        tip = Language.Get(Language.UpdateDriver_06,curLoadSize,totalLoadSize)
+        tip = Language.Get(Language.UpdateDriver_06, curLoadSize, totalLoadSize)
     elseif step == UpdateStep.DownloadData then
     elseif step == UpdateStep.CheckData then
         tip = Language.UpdateDriver_07

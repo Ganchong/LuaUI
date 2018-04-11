@@ -7,6 +7,9 @@ using LuaFramework.Core;
 /// </summary>
 public class InitState : StateBase 
 {
+	/** 加载资源方法注入接口 */
+	public static Action<CallBack> InitResFunc = null;
+
 	public override void Enter ()
 	{
 		base.Enter ();
@@ -14,7 +17,7 @@ public class InitState : StateBase
 			InitResFunc(()=>{
 				LuaManager.Instance.LuaStart();
 				LuaManager.Instance.DoFile("Main.lua");
-				LuaManager.Instance.GetLuaFunction("Start").Call();
+				LuaManager.Instance.GetLuaFunction("CheckVersionUpdate").Call();
 			});
 		}
 	}

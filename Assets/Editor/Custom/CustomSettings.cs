@@ -150,11 +150,17 @@ public static class CustomSettings
         _GT(typeof(Resources)),     
         _GT(typeof(LuaProfiler)),
 
+		_GT(typeof(AppVersion)),
+		_GT(typeof(SDKHelper)),
 		_GT(typeof(LuaHelper)),
+		_GT(typeof(CoroutineCenter)),
+		_GT(typeof(GameManager)),
 		_GT(typeof(ResourceUpdateManager)),
+		_GT(typeof(NetworkReachability)),
 
 		_GT(typeof(UnityEngine.Events.UnityEvent)),
 		_GT(typeof(Text)),
+		_GT(typeof(Slider)),
 		_GT(typeof(Image)),
 		_GT(typeof(Button)),
 		_GT(typeof(Util)),

@@ -37,32 +37,32 @@ function this:InitUIRoot()
 end
 
 --打开界面
-function this:OpenWindow(name,...)
-    local param = {...}
-    local opening,index = self:IsOpening(name)
+function this:OpenWindow(name, ...)
+    local param = { ... }
+    local opening, index = self:IsOpening(name)
     --打开过
     if opening then
         local window = self._openedWindowMap[name]
         Util.SetAsLastSibling(window.UIObj)
-        table.remove(self._openingNameList,index)
+        table.remove(self._openingNameList, index)
         --因为当前界面是全屏，隐藏所有其他UI
         if window:GetUIType() == WindowType.FullType then
             self:HideAllWindow()
         end
-        self:OnEnableWindow(window,param)
+        self:OnEnableWindow(window, param)
         return
     end
     --未曾打开过
     local window = self:GetWindowClass(name).new()
     window.name = name
     local layer = window:GetUILayer()
-    self:GetUIObj(name,self._canvasLayerTrans[layer],function (uiObj)
+    self:GetUIObj(name, self._canvasLayerTrans[layer], function(uiObj)
         --因为当前界面是全屏，隐藏所有其他UI
         if window:GetUIType() == WindowType.FullType then
             self:HideAllWindow()
         end
         window:InitUI(uiObj)
-        self:OnEnableWindow(window,param)
+        self:OnEnableWindow(window, param)
         self._openedWindowMap[name] = window
     end)
 end
@@ -71,16 +71,16 @@ end
 function this:CloseWindow(name)
     local window = self._openedWindowMap[name]
     if window == nil then
-        LogError("window you want to close is not exist,name is"..name)
+        LogError("window you want to close is not exist,name is" .. name)
         return
     end
     window:SetVisible(false)
-    local opening,index = self:IsOpening(window.name)
+    local opening, index = self:IsOpening(window.name)
     if opening then
-        table.remove(self._openingNameList,index)
+        table.remove(self._openingNameList, index)
     end
     if window:IsStatic() then
-        window:CloseUI(function ()
+        window:CloseUI(function()
             window:OnDisableUI()
             window:StopAllTimer()
             self:RestAllWindow(window)
@@ -92,7 +92,7 @@ end
 
 --销毁窗口
 function this:DestroyWindow(window)
-    window:CloseUI(function ()
+    window:CloseUI(function()
         window:OnDisableUI()
         window:StopAllTimer()
         window:DestroyUI()
@@ -111,26 +111,43 @@ function this:DestroyWindow(window)
     end)
 end
 
+--销毁所有窗口
+function this:DestroyAllWindow(callback)
+    for key, value in pairs(self._openedWindowMap or {}) do
+        self:DestroyWindow(key)
+    end
+    if callback ~= nil then
+        callback()
+    end
+end
+
+function this:InitResData(callback)
+    --这里初始化UI公共组件
+    if callback ~= nil then
+        callback()
+    end
+end
+
 --重新调整窗口
 function this:RestAllWindow(window)
-    for i = #self._openingNameList, 1,-1 do
+    for i = #self._openingNameList, 1, -1 do
         local tmpName = self._openingNameList[i]
         local tmpWindow = self._openedWindowMap[tmpName]
         if tmpWindow:GetUIType() == WindowType.FullType then
-            for j = 1, #self._openingNameList-i+1 do
+            for j = 1, #self._openingNameList - i + 1 do
                 tmpName = self._openingNameList[i]
                 tmpWindow = self._openedWindowMap[tmpName]
                 --如果当前关闭的界面是全屏才处理
                 if window.GetUIType() == WindowType.FullType then
-                    local opening,index = self:IsOpening(tmpName)
+                    local opening, index = self:IsOpening(tmpName)
                     if opening then
-                        table.remove(self._openingNameList,index)
+                        table.remove(self._openingNameList, index)
                     end
-                    self:OnEnableWindow(tmpWindow,"")
+                    self:OnEnableWindow(tmpWindow, "")
                 end
                 --聚焦当前窗口
-                if j == #self._openingNameList-i+1 then
-                    if tmpWindow.OnFocus~=nil then
+                if j == #self._openingNameList - i + 1 then
+                    if tmpWindow.OnFocus ~= nil then
                         tmpWindow:OnFocus()
                     end
                 end
@@ -141,18 +158,18 @@ function this:RestAllWindow(window)
 end
 
 --获取UIObj
-function this:GetUIObj(name,layer,callback)
+function this:GetUIObj(name, layer, callback)
     local uiObj = self._windowObjMap[name]
-    if uiObj~=nil then
+    if uiObj ~= nil then
         callback(uiObj)
     else
-        self:LoadUIObj(name,layer,callback)
+        self:LoadUIObj(name, layer, callback)
     end
 end
 
 --加载UIObj
-function this:LoadUIObj(name,layer,callback)
-    Util.InstantiateUIObj(name,layer,function (uiObj)
+function this:LoadUIObj(name, layer, callback)
+    Util.InstantiateUIObj(name, layer, function(uiObj)
         self._windowObjMap[name] = uiObj;
         callback(uiObj);
     end)
@@ -162,7 +179,7 @@ end
 function this:GetWindowClass(name)
     local windowClass = self._windowClassMap[name]
     if windowClass == nil then
-        windowClass = require("UI/"..name)
+        windowClass = require("UI/" .. name)
         self._windowClassMap[name] = windowClass
     end
     return windowClass
@@ -170,7 +187,7 @@ end
 
 --隐藏所有UI（除了当前显示的）
 function this:HideAllWindow()
-    for i = #self._openingNameList, 1,-1 do
+    for i = #self._openingNameList, 1, -1 do
         local window = self._openedWindowMap[self._openingNameList[i]]
         window:SetVisible(false)
         window:OnDisableUI()
@@ -185,17 +202,17 @@ end
 function this:OnEnableWindow(window, param)
     window:SetVisible(true)
     window:OnEnableUI(param)
-    table.insert(self._openingNameList,window.name)
+    table.insert(self._openingNameList, window.name)
 end
 
 --界面是处于打开状态（包括隐藏的和显示着的）
 function this:IsOpening(name)
     for i = 1, #self._openingNameList do
         if self._openingNameList[i] == name then
-            return true,i
+            return true, i
         end
     end
-    return false,-1
+    return false, -1
 end
 
 return this

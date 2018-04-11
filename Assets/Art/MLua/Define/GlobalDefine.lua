@@ -68,6 +68,8 @@ EventName = {
     --UpdateDriver 21-30
     UpdateDriverSetValue = 21,
     UpdateDriverSetTips = 22,
+    UpdateDriverSetDownValue = 23,
+    UpdateDriverFinish = 24,
 
 }
 

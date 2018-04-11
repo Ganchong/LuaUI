@@ -3,6 +3,11 @@
 --- Created by 干冲.
 --- DateTime: 2018/3/22 19:28
 ---
+require("Manager/ConfigManager")
+require("Manager/TimerManager")
+require("Manager/UIManager")
+require("Manager/BackGroundManager")
+
 
 --Lua应用
 LuaAPP = LuaAPP or {}
@@ -21,6 +26,15 @@ function LuaAPP.GetUIManager()
     end
     return _uiManager
 end
+
+---@return UIManager
+function LuaAPP.GetConfigManager()
+    if _configManager == nil then
+        _configManager = ConfigManager.new()
+    end
+    return _configManager
+end
+
 ---@return TimerManager
 function LuaAPP.GetTimerManager()
     if _timerManager == nil then

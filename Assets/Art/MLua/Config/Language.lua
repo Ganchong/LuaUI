@@ -30,7 +30,6 @@ Language = {
     TIP_10 = "连接服务器失败,请检查网络设置！",
     TIP_11 = "初始化SDK失败,退出游戏",
 
-
     --Version
     Version = "版本号%s",
 
@@ -47,6 +46,12 @@ Language = {
 }
 function Language.Get(str,...)
     local args = {...}
+    if str == "" then
+        return str
+    end
+    if Language.str ~= nil and #args>0 then
+        return string.format(Language.str,args)
+    end
     if #args>0 then
         return string.format(str,args)
     end

@@ -41,6 +41,7 @@ ResUpdateManager = LuaHelper.GetResourceUpdateManager()
 GameManager = LuaHelper.GetGameManager()
 Application = UnityEngine.Application
 NetworkReachability = UnityEngine.NetworkReachability
+CoroutineCenter = LuaHelper.GetCoroutineCenter()
 
 ---#全局方法定义#--
 --日志打印

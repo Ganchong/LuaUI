@@ -23,6 +23,8 @@ namespace ABSystem{
 		public const float UNLOADTIME=120;
 		/** 资源路径 */
 		public const string MANIFESTPATH = "manifest";
+		/** UI资源路径 */
+		public const string UIPATH="UI/";
 		/** 配置资源路径 */
 		public const string CONFIGPATH="Config/";
 		/** 阵法路径 */

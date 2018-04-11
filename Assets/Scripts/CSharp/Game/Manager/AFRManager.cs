@@ -22,7 +22,12 @@ public class AFRManager : Singleton<AFRManager>{
 			callBack(abDic);
 		};
 		/** 切换状态资源准备 */
-		StateBase.InitResFunc = (callBack)=>{
+		InitState.InitResFunc = (callBack)=>{
+			//ResourceHelper.Instance.LoadResData(TEXTUREPATH+"loginback_3");
+			callBack();
+		};
+		/** 切换状态资源准备 */
+		LoginState.InitResFunc = (callBack)=>{
 			//ResourceHelper.Instance.LoadResData(TEXTUREPATH+"loginback_3");
 			callBack();
 		};

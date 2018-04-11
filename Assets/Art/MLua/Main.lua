@@ -11,18 +11,8 @@ function Main()
     LuaAPP.ChangeState(StateNames.LoginState)
 end
 
-function Start()
-    LuaAPP.Init()
-    local uiManager = LuaAPP.GetUIManager()
-    local backGroundManger = LuaAPP.GetBackGroundManager()
-    uiManager:Init()
-    backGroundManger:Init()
-    uiManager:OpenWindow("LoginWindow","")
-end
-
 function CheckVersionUpdate()
-    LuaAPP.RegisterStates()
-    LuaAPP.GetUIManager():Init()
+    LuaAPP.Init()
     LuaAPP.ChangeState(StateNames.CheckVersionState)
 end
 

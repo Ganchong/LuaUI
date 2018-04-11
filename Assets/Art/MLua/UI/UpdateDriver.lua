@@ -16,60 +16,65 @@ end
 
 function this:BindWindow(uiObj)
     self.tips = LuaUtil.GetChildComponent(uiObj, "root/tips", ComponentName.UIText)
-    self.slider = LuaUtil.GetChildComponent(uiObj, "root/Slider", ComponentName.slider)
+    self.slider = LuaUtil.GetChildComponent(uiObj, "root/Slider", ComponentName.Slider)
     self.version = LuaUtil.GetChildComponent(uiObj, "root/version", ComponentName.UIText)
 end
 
 function this:AddButtonEvent()
-    LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverSetValue,
-            function(step, process, curLoadSize, totalLoadSize)
-                self:SetValue(step, process, curLoadSize, totalLoadSize)
-            end)
     LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverSetTips,
-            function(tips)
-                self:SetTips(tips)
+            function(t)
+                self:SetValue(t[1], t[2])
+            end)
+    LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverSetDownValue,
+            function(curSize, totalSize)
+                self:SetTips(string.format(Language.TIP_5, curSize, totalSize))
             end)
 end
 
 function this:OnEnableUI()
+    self:StartUpdate()
     self.slider.value = 0
+    self.process = 0
     self.tips.text = Language.TIP_0
-    self.version.text = Language.Get(Language.Version, SDKHelper.getAppVersion().version)
+    self.version.text = string.format(Language.Version, SDKHelper.getAppVersion().version)
     LuaAPP.GetBackGroundManager():Change("loginBack_3")
+end
+
+function this:Update()
+    if self.process == nil or self.process<0 then
+        return
+    end
+    if self.slider.value < self.process then
+        self.slider.value = LuaUtil.Lerp(self.slider.value,self.process,0.08)
+    end
+    if self.slider.value>0.99 then
+        self.tips.text = Language.TIP_8
+        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverFinish)
+        self.process = -1
+        self:FinishWindow()
+    end
 end
 
 function this:SetTips(tips)
     self.tips.text = tips
 end
 
-function this:SetValue(step, process, curLoadSize, totalLoadSize)
-    local tip = ""
-    if process < 0 then
-        return
+function this:SetValue(tips, process)
+    Log("tips"..tostring(tips))
+    if tips~=nil and tips~="" then
+        self.tips.text = tips
     end
-    if step == UpdateStep.CheckVersion then
-        tip = Language.UpdateDriver_03
-    elseif step == UpdateStep.GetUpdateList then
-        tip = Language.UpdateDriver_05
-    elseif step == UpdateStep.CompareData then
-        tip = Language.UpdateDriver_05
-    elseif step == UpdateStep.MakeSureDownload then
-        tip = Language.Get(Language.UpdateDriver_06, curLoadSize, totalLoadSize)
-    elseif step == UpdateStep.DownloadData then
-    elseif step == UpdateStep.CheckData then
-        tip = Language.UpdateDriver_07
-    elseif step == UpdateStep.CopyData then
-        tip = Language.UpdateDriver_08
-    elseif step == UpdateStep.CleanCache then
-    elseif step == UpdateStep.Finish then
-        tip = Language.UpdateDriver_09
+    if self.process < process then
+        self.process = process
     end
-    self.tips.text = tip
-    self.slider.value = step
 end
 
 function this:GetUIType()
     return WindowType.FullType
+end
+
+function this:IsStatic()
+    return false
 end
 
 return this

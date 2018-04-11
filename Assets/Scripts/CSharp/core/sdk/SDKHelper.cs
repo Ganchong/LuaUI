@@ -10,7 +10,7 @@ public class SDKHelper
 	/** 回调常量 */
 	public const string INIT="init",CONNECT="connect",CERTIFY="certify",LOGIN="login",LOGOUT="logout",RELOGIN="switch",PAY="pay";
 	/** 更新URL */
-	public const string UPDATEURL = "http://120.92.102.30:2007/100/1.0.0.4/4";
+	public const string UPDATEURL = "http://192.168.1.15:1001/100/1";
 	/** 是否更新 */
 	public const string RESOURCEVERSION="-1";
 	/**　默认平台ID */
@@ -52,6 +52,12 @@ public class SDKHelper
 	{
 		if (!GameManager.Instance.openSDK) return;
 		onFuncCall(Handler.STATE,((int)state).ToString());
+	}
+	/** 状态记录 */
+	public static void SaveState(int state)
+	{
+		if (!GameManager.Instance.openSDK) return;
+		onFuncCall(Handler.STATE,(state).ToString());
 	}
 
 	/** 是否应许更新 */

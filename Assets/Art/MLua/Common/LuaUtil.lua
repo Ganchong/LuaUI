@@ -20,3 +20,14 @@ function LuaUtil.GetChildComponent(uiObj,path,type)
     end
     return component
 end
+
+--插值函数
+function LuaUtil.Lerp(a,b,t)
+    if t<0 then
+        t = 0
+    end
+    if t>1 then
+        t = 1
+    end
+    return a+(b-a)*t
+end

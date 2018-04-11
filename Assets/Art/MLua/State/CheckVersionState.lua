@@ -9,15 +9,44 @@ require("State/BaseState")
 local CheckVersionState = class("CheckVersionState", BaseState)
 local this = CheckVersionState
 
+function this:ctor()
+    self.firstTime = true
+    self.isUpdate = false
+end
+
 function this:Enter()
     LuaAPP.GetUIManager():OpenWindow(WindowName.UpdateDriver)
-    ResUpdateManager.InitDelegate(
-            function(tips)
-                LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, tips)
-            end,
-            function(process)
-                LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetValue, process)
+    LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverFinish,
+            function()
+                self:UpdateFinish()
             end)
+    ResUpdateManager:InitDelegate(
+    --设置提示、更新进度委托
+            function(tips, process)
+                if tips ~= nil then
+                    tips = Language.Get(tips)
+                end
+                if process == nil or process < 0 then
+                    process = 0
+                end
+                LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, tips, process)
+            end,
+    --设置WiFi提示委托
+            function(size)
+                LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
+                        function()
+                            ResUpdateManager:DownLoadCurFileList()
+                        end, string.format(Language.network_01, size))
+            end,
+    --设置下载进度委托
+            function(curDownLoadSize, totalDownLoadSize)
+                LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetDownValue, curDownLoadSize, totalDownLoadSize)
+            end,
+    --设置下载完成回调
+            function()
+                self:DownLoadFinish()
+            end
+    )
     CoroutineCenter.delayRunFrame(
             function()
                 if Application.internetReachability == NetworkReachability.NotReachable then
@@ -34,15 +63,17 @@ end
 
 --连接服务器
 function this:Connect()
-    SDKHelper.saveState(StateStep.STEP7)
+    SDKHelper.SaveState(StateStep.STEP7)
     if GameManager.openSDK then
         LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_0)
-        ResUpdateManager.ConnectSDKServer(
+        ResUpdateManager:ConnectSDKServer(
+        --连接成功回调
                 function()
                     this:CheckUpdate()
                 end,
+        --连接错误回调
                 function(node)
-                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_10)
+                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_10, self.process)
                     LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
                             function()
                                 if node == "version" then
@@ -51,10 +82,11 @@ function this:Connect()
                                         Application.OpenURL(downUrl)
                                     end
                                     Application.Quit()
+                                    return
                                 end
-                                ResUpdateManager.ConnectSDKServer()
+                                ResUpdateManager:ConnectSDKServer()
                             end, Language.Get("connect_" .. node))
-                    SDKHelper.saveState(StateStep.STEP9)
+                    SDKHelper.SaveState(StateStep.STEP9)
                 end)
     else
         this:CheckUpdate()
@@ -63,39 +95,42 @@ end
 
 --检查更新
 function this:CheckUpdate()
+    self.isUpdate = false
     if SDKHelper.enableUpdate() then
         if GameManager.openSDK then
-            SDKHelper.saveState(StateStep.STEP10)
-            self:StartUpdate(SDKHelper.getInfo(Handler.RESOURCEVERSION))
+            SDKHelper.SaveState(StateStep.STEP10)
+            self:StartUpdate(SDKHelper.getUpdateDataUrl(), SDKHelper.getInfo(GlobalConst.resourceVersion))
         else
             local url = SDKHelper.getUpdateDataUrl()
-            local _, index = string.find(url, '/', 7)
-            url = string.sub(url, 0, index) .. "/getVersion?1=1"
-            ResUpdateManager.AccessHttpConnect(url,
+            local _, index = string.find(url, '/', 9)
+            url = string.sub(url, 1, index) .. "version.txt?1=1"
+            Log("Access http connect")
+            Log(tostring(url))
+            ResUpdateManager:AccessHttpConnect(url,
             --连接成功
                     function(result)
                         self:StartUpdate(result)
                     end,
             --连接不成功
                     function()
-                        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_7)
                         self.process = 0.9
+                        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_7, self.process)
                         self:InitNoUpdate(
                                 function()
-                                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_8)
                                     self.process = 1
+                                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_8, self.process)
                                 end
                         )
                     end
             )
         end
     else
-        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_7)
         self.process = 0.9
+        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_7, self.process)
         self:InitNoUpdate(
                 function()
-                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_8)
                     self.process = 1
+                    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_8, self.process)
                 end
         )
     end
@@ -103,16 +138,70 @@ end
 
 --开始更新
 function this:StartUpdate(result)
-    ResUpdateManager.StartUpdate(result)
+    self.isUpdate = true
+    ResUpdateManager:StartUpdate(result)
+end
+
+--更新完成
+function this:DownLoadFinish()
+    self.process = 0.9
+    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_8, self.process)
+    --初始化资源完成回调
+    local initFinish = function()
+        SDKHelper.SaveState(StateStep.STEP16)
+        self.process = 1
+        LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverSetTips, Language.TIP_8, self.process)
+    end
+    --是否有更新
+    if self.isUpdate then
+        SDKHelper.SaveState(StateStep.STEP15)
+        local count = 0
+        local loadFinish = function()
+            count = count + 1
+            if count < 1 then
+                return
+            end
+            initFinish()
+        end
+        LuaAPP.GetUIManager():DestroyAllWindow(loadFinish)
+        --这里需要扩展，更新完成后需要准备资源
+    else
+        if self.firstTime then
+            self:InitNoUpdate(initFinish)
+        else
+            initFinish()
+        end
+    end
+
 end
 
 --无更新流程
-function this:InitNoUpdate()
-
+function this:InitNoUpdate(callback)
+    local count = 0
+    local preLoadFinish = function()
+        count = count + 1
+        if count >= 3 then
+            callback()
+        end
+    end
+    --预加载基础的资源
+    ResUpdateManager:InitResource(preLoadFinish)
+    --预加载UI元素
+    LuaAPP.GetUIManager():InitResData(preLoadFinish)
+    --预加载配置数据
+    LuaAPP.GetConfigManager():InitConfig(preLoadFinish)
 end
 
-function this:ToLoginScene()
+--更新完成
+function this:UpdateFinish()
+    self.firstTime = false
+    SDKHelper.SaveState(StateStep.STEP17)
+    self:ToLoginScene()
+end
 
+--切换登陆场景
+function this:ToLoginScene()
+    ResUpdateManager:ChangeScene()
 end
 
 function this:Update()

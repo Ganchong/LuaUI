@@ -9,11 +9,8 @@ local InitSate = class("InitSate",BaseState)
 local this = InitSate
 
 function this:Enter()
-    self:InitManagers()
-end
-
---初始化各类管理器
-function this:InitManagers()
+    LuaAPP.GetUIManager():Init()
+    LuaAPP.GetBackGroundManager():Init()
 end
 
 function this:Update()

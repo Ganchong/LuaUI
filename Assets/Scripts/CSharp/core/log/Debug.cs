@@ -26,11 +26,11 @@ public static class Debug
 	}
 	public static void UnityLog(string condition,string stackTrace,LogType logType)
 	{
-		ClientErrorHttpPort.Instance.access (condition, stackTrace);
+		//ClientErrorHttpPort.Instance.access (condition, stackTrace);
 	}
 	public static void UnhandledException(object sender,UnhandledExceptionEventArgs eventArgs)
 	{
-		ClientErrorHttpPort.Instance.access (sender.GetType().FullName+":"+eventArgs.IsTerminating, eventArgs.ExceptionObject.ToString());
+		//ClientErrorHttpPort.Instance.access (sender.GetType().FullName+":"+eventArgs.IsTerminating, eventArgs.ExceptionObject.ToString());
 	}
 	public static void Log (object message)
 	{

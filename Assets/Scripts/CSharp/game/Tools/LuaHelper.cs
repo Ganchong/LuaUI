@@ -12,6 +12,13 @@ public static class LuaHelper {
 	{
 		return ResourceUpdateManager.Instance;
 	}
+
+	/** 协程中心 */
+	public static CoroutineCenter GetCoroutineCenter()
+	{
+		return CoroutineCenter.Instance;
+	}
+
 	/** 游戏管理器 */
 	public static GameManager GetGameManager()
 	{

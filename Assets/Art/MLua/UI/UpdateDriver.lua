@@ -26,8 +26,8 @@ function this:AddButtonEvent()
                 self:SetValue(t[1], t[2])
             end)
     LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverSetDownValue,
-            function(curSize, totalSize)
-                self:SetTips(string.format(Language.TIP_5, curSize, totalSize))
+            function(t)
+                self:SetTips(string.format(Language.TIP_5, t[1], t[2]))
             end)
 end
 
@@ -60,9 +60,8 @@ function this:SetTips(tips)
 end
 
 function this:SetValue(tips, process)
-    Log("tips"..tostring(tips))
     if tips~=nil and tips~="" then
-        self.tips.text = tips
+        self.tips.text = Language.Get(tips)
     end
     if self.process < process then
         self.process = process

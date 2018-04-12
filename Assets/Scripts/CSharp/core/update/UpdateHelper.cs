@@ -141,7 +141,6 @@ public class UpdateHelper : MonoBehaviour
 			{
 			}
 			curUpdateStep = UpdateStep.GetUpdateList;
-			Debug.Log("StartDownload");
 			versionFileDownloader = DownloadHelper.StartDownload(this, resServerUrl + "/" + ResFileListName, cacheVersionPath + "/" + ResFileListName, 1000, onDownloadDataFileList);
 		}
 		else
@@ -154,10 +153,8 @@ public class UpdateHelper : MonoBehaviour
 	/** 下载版本文件完成 */
 	private void onDownloadDataFileList(bool bSuccess)
 	{
-		Debug.Log("OnDown");
 		if (bSuccess)
 		{
-			Debug.Log("OnDown11");
 			curUpdateStep = UpdateStep.CompareData;
 			Log.debug("load file success: " + cacheVersionPath + "/" + ResFileListName);
 			string msg = localVersionPath + "/" + ResFileListName;
@@ -177,7 +174,6 @@ public class UpdateHelper : MonoBehaviour
 			if(File.Exists(msg)) ReadVersionFileToDic(msg, localFileInfoMap);
 			if (!ReadVersionFileToDic(versionPath, serverFileInfoMap))
 			{
-				Debug.Log("load error");
 				updateFinish(UpdateResult.LoadServerFailListError);
 			}
 			else
@@ -204,10 +200,8 @@ public class UpdateHelper : MonoBehaviour
 					foreach (string str4 in listUpdateFiles)
 					{
 						string str5 = cacheDataPath + "/" + str4;
-						Debug.Log("Str5"+str5);
 						if (!File.Exists(str5) || (Utils.GetMD5Hash(str5).ToLower() != serverFileInfoMap[str4].Md5.ToLower()))
 						{
-							Debug.Log("str111:"+str5);
 							listDownloadFileUrls.Add(serverDataPath + "/" + str4);
 							listDownloadFiles.Add(str5);
 							listDownloadFileSizes.Add(serverFileInfoMap[str4].Size);
@@ -250,7 +244,6 @@ public class UpdateHelper : MonoBehaviour
 				string path = cacheDataPath + "/" + str;
 				if (!File.Exists(path))
 				{
-					Debug.LogError("download file fail " + str);
 					listUpdateErrorFiles.Add(str);
 				}
 				else

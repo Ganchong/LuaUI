@@ -11,7 +11,6 @@ function this:InitUI(uiObj)
     self.UIObj = uiObj
     self:BindWindow(uiObj)
     self:AddButtonEvent()
-    Log("LoginWindow InitUI")
 end
 
 function this:BindWindow(uiObj)
@@ -43,7 +42,7 @@ function this:OnEnableUI(param)
     self.timer = self:NewTimer()
     self.timer:AddOnTimer(function () self:UpdateTime() end)
     self.timer:Start(true)
-    self.LoginButton:SetGray(true)
+    --self.LoginButton:SetGray(true)
     --self.LoginButton:SetGray(false)
 end
 

@@ -15,7 +15,6 @@ public class AFRManager : Singleton<AFRManager>{
 	public const string ATLASPATH = "Atlas/";
 	public void RegisterFunc()
 	{
-		Debug.Log("AFRManager start");
 		/** LuaAB加载注册 */
 		LuaManager.LoadLuaABFunc = (callBack)=>{
 			Dictionary<string,AssetBundle> abDic = new Dictionary<string, AssetBundle>();

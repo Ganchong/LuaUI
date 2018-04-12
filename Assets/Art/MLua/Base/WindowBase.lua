@@ -36,29 +36,24 @@ end
 --内部实现流程：SetUIObj-->BindWindow-->AddEventListener-->其他一次性操作
 --必要时可以自己控制流程
 function WindowBase:InitUI(uiObj)
-    Log("UIBse IniUI name："..self.name)
 end
 
 --打开UI,每次窗口打开都会调用
 --这里用于刷新数据
 function WindowBase:OnEnableUI(param)
-    Log("WindowBase OnEnableUI name :"..self.name)
 end
 
 --聚焦栈顶窗口
 function WindowBase:OnFocus()
-    Log("Focus window name is :"..self.name)
 end
 
 --隐藏UI
 function WindowBase:OnDisableUI()
     self:ClearBeat()
-    Log("WindowBase OnDisableUI name :"..self.name)
 end
 
 --关闭UI
 function WindowBase:CloseUI(callback)
-    Log("WindowBase closeUI name :"..self.name)
     if callback~=nil then
         callback()
     end
@@ -66,7 +61,6 @@ end
 
 --销毁UI
 function WindowBase:DestroyUI(callback)
-    Log("WindowBase DestroyUI ..name:"..self.name)
     if callback~=nil then
         callback()
     end

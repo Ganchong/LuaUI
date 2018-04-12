@@ -16,6 +16,8 @@ public class GameManager : SingletonBehaviour<GameManager>{
 	/** Root节点 */
 	const string COREROOT = "_CoreUISystem#";
 
+	[Tooltip("默认日志级别")]
+	public LogLevel logLevel;
 	[Tooltip("资源版本")]
 	public int streamingAssetVersion;
 	[Tooltip("是否使用AB包")]
@@ -36,6 +38,7 @@ public class GameManager : SingletonBehaviour<GameManager>{
 	List<StateBase> states = null;
 	void Awake()
 	{
+		Log.level = logLevel;
 		Application.targetFrameRate = TARGET_FRAMERATE;
 	}
 

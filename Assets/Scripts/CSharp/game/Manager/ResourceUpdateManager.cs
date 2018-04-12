@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using ABSystem;
 
 namespace LuaFramework.Core
@@ -141,7 +142,15 @@ namespace LuaFramework.Core
 					{
 						SDKHelper.saveState(StateStep.STEP14);
 						process=0.9f;
-						downLoadFinish();
+						int count = 0;
+						Action loadFinish = ()=>{count++;if(count<1)return;downLoadFinish();};
+						List<string> updateList = updateHelper.DownLoadList;
+						foreach (var str in updateList) {
+							if(str.StartsWith("lua/")){
+								LuaPool.Instance.Release(str.Replace(ResourceHelper.SUFFIX,""));
+							}
+						}
+						loadFinish();
 					}
 					break;
 				}
@@ -180,7 +189,7 @@ namespace LuaFramework.Core
 		{
 			int count = 0;
 			Action action1 = ()=>{count++;if(count>=3)action();};
-			ResourceHelper.Instance.LoadMainAssetAsync<GameObject>(ResourceHelper.UIPATH+"LoginwWindow",(data)=>{action1();});
+			ResourceHelper.Instance.LoadMainAssetAsync<GameObject>(ResourceHelper.UIPATH+"LoginWindow",(data)=>{action1();});
 			ResourceHelper.Instance.LoadResDataAsync(ResourceHelper.TEXTUREPATH+TextureHelper.BACKGROUND+"loginBack",(data)=>{action1();});
 			ResourceHelper.Instance.LoadResDataAsync(ResourceHelper.TEXTUREPATH+TextureHelper.BACKGROUND+"loginBack_3",(data)=>{action1();});
 		}

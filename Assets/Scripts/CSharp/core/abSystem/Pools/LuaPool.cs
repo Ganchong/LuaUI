@@ -26,29 +26,36 @@ namespace ABSystem{
 			path = "lua/"+path;
 			length = length<this.maxCount?length:this.maxCount;
 			CacheResData resData;
-			if (resDatas.TryGetValue (path, out resData))
-				callBack.Invoke (resData.Get<TextAsset> ());
-			else 
-			{
-				ResData  data = resourceHelper.LoadResData (path);
+			if(resDatas.TryGetValue(path,out resData)){
+				resData.reference++;
+				resData.LastTime = Time.unscaledTime;
+				callBack.Invoke (resData.resData.LoadAsset<TextAsset>(fileName));
+			}else{
+				HandlePool();
+				ResData data=resourceHelper.LoadResData (path);
 				if(!resDatas.TryGetValue(path,out resData))
 				{
 					if(unuseQueue.Count>0)
 						resData=unuseQueue.Dequeue();
-					else
-						resData=new CacheResData(length);
+					else 
+						resData=new CacheResData(maxCount);
 					resData.resData=data;
 					data.Retain();
 					resDatas.Add(path,resData);
 				}
-				try
-				{
-					callBack.Invoke (resData.resData.LoadAsset<TextAsset>(fileName));
-				}
-				catch(System.Exception e)
-				{
-					Debug.LogError(GetType().FullName+",resource load error,path="+path+",error="+e.ToString());
-				}
+				resData.reference++;
+				resData.LastTime=Time.unscaledTime;
+				callBack.Invoke (resData.resData.LoadAsset<TextAsset>(fileName));
+			}
+		}
+		/** 释放 */
+		public void Release(string path)
+		{
+			CacheResData resData;
+			if (resDatas.TryGetValue (path, out resData)){
+				resData.Release();
+				resDatas.Remove(path);
+				unuseQueue.Enqueue(resData);
 			}
 		}
 	}

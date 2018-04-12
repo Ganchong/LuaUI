@@ -70,7 +70,6 @@ function UIBase:StartFixedUpdate()
             self.fixHandle = FixedUpdateBeat:CreateListener(self.FixedUpdate,self)
         end
         FixedUpdateBeat:AddListener(self.fixHandle)
-        Log("Fixed beat window name is :"..self.name)
     end
 end
 
@@ -95,7 +94,6 @@ end
 function UIBase:StopFixedUpdate()
     if self.fixHandle~=nil then
         FixedUpdateBeat:RemoveListener(self.fixHandle)
-        Log("stop Fixed beat window name is :"..self.name)
     end
 end
 --停止LateUpdate方法
@@ -107,7 +105,6 @@ end
 
 --清除update
 function UIBase:ClearBeat()
-    Log("UIBase clearBeat window name is:"..self.name)
     self:StopUpdate()
     self:StopFixedUpdate()
     self:StopLateUpdate()

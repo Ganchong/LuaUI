@@ -104,8 +104,6 @@ function this:CheckUpdate()
             local url = SDKHelper.getUpdateDataUrl()
             local _, index = string.find(url, '/', 9)
             url = string.sub(url, 1, index) .. "version.txt?1=1"
-            Log("Access http connect")
-            Log(tostring(url))
             ResUpdateManager:AccessHttpConnect(url,
             --连接成功
                     function(result)

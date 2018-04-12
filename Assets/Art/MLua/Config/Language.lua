@@ -49,8 +49,12 @@ function Language.Get(str,...)
     if str == "" then
         return str
     end
-    if Language.str ~= nil and #args>0 then
-        return string.format(Language.str,args)
+    local value = Language[str]
+    if value ~= nil then
+        if #args>0 then
+            return string.format(value,args)
+        end
+        return value
     end
     if #args>0 then
         return string.format(str,args)

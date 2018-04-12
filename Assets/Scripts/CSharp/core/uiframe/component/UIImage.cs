@@ -28,10 +28,10 @@ namespace UGUIFrame
 		protected override void Awake ()
 		{
 			base.Awake ();
-			if (!string.IsNullOrEmpty(atlasName)) {
+			if (!string.IsNullOrEmpty (atlasName)) {
 				#if UNITY_EDITOR
 				string mainPath = "Assets/Art/Atlas/";
-				UnityEngine.U2D.SpriteAtlas atlas = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.U2D.SpriteAtlas> (mainPath+atlasName+"/"+atlasName+".spriteatlas");
+				UnityEngine.U2D.SpriteAtlas atlas = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.U2D.SpriteAtlas> (mainPath + atlasName + "/" + atlasName + ".spriteatlas");
 				if (atlas != null) {
 					sprite = atlas.GetSprite (spriteName);
 				}
@@ -103,11 +103,11 @@ namespace UGUIFrame
 			} else if (collider != null) {
 				var worldPoint = Vector3.zero;
 				var isInside = RectTransformUtility.ScreenPointToWorldPointInRectangle (
-					rectTransform,
-					sp,
-					eventCamera,
-					out worldPoint
-				);
+					               rectTransform,
+					               sp,
+					               eventCamera,
+					               out worldPoint
+				               );
 				if (isInside)
 					isInside = collider.OverlapPoint (worldPoint);
 				return isInside;
@@ -115,6 +115,7 @@ namespace UGUIFrame
 				return base.IsRaycastLocationValid (sp, eventCamera);
 			}
 		}
+
 		public float Alpha {
 			get {
 				return color.a;
@@ -125,6 +126,7 @@ namespace UGUIFrame
 				color = n;
 			}
 		}
+
 		public bool IsGray {
 			get {
 				return _isGray;

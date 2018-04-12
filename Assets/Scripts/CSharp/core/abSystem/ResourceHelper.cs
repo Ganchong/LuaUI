@@ -39,6 +39,8 @@ namespace ABSystem{
 		public const string AUDIOPATH="Audio/";
 		/** 贴图 */
 		public const string TEXTUREPATH="Texture/";
+		/** 图集 */
+		public const string ATLASPATH = "Atlas/";
 
 		/* fields */
 		/** 回调列表 */

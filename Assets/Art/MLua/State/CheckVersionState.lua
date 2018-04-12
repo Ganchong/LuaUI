@@ -9,6 +9,7 @@ require("State/BaseState")
 local CheckVersionState = class("CheckVersionState", BaseState)
 local this = CheckVersionState
 
+--构造
 function this:ctor()
     self.firstTime = true
     self.isUpdate = false

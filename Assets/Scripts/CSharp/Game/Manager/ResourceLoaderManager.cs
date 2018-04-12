@@ -10,9 +10,6 @@ using ABSystem;
 /// </summary>
 public class ResourceLoaderManager : Singleton<ResourceLoaderManager>
 {
-	/** UI资源路径 */
-	public const string UIPATH = "UI/";
-
 	/** 缓存资源 */
 	Dictionary<string ,ResData> cacheResData = new Dictionary<string, ResData> ();
 	/** 缓存GameObj*/
@@ -27,7 +24,7 @@ public class ResourceLoaderManager : Singleton<ResourceLoaderManager>
 		if (exist && obj == null)
 			objectMap.Remove (name);
 		if (!cacheResData.TryGetValue (name, out resData)) {
-			resData = ResourceHelper.Instance.LoadResData (UIPATH + name);
+			resData = ResourceHelper.Instance.LoadResData (ResourceHelper.UIPATH + name);
 			resData.Retain ();
 			cacheResData.Add (name, resData);
 		}

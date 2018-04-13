@@ -16,7 +16,7 @@ end
 
 function this:BindWindow(uiObj)
     --self.headStyle = Util.GetChildComponent(root,"headStyle",1)
-    self.ReturnButton = Util.GetChildComponent(uiObj,"root/ReturnButton",3)
+    self.ReturnButton = Util.GetChildComponent(uiObj,"root/ReturnButton",ComponentName.Button)
 end
 
 function this:OnEnableUI()

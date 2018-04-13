@@ -42,6 +42,7 @@ function this:OnEnableUI(param)
     self.timer = self:NewTimer()
     self.timer:AddOnTimer(function () self:UpdateTime() end)
     self.timer:Start(true)
+    self.LoginImage:LoadImage("","button1Press")
     --self.LoginButton:SetGray(true)
     --self.LoginButton:SetGray(false)
 end

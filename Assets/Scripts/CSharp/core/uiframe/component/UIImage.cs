@@ -58,6 +58,9 @@ namespace UGUIFrame
 		public void LoadImage (string atlasName, string spName, Action<UIImage> call = null)
 		{
 			if (null != LoadSprite) {
+				if(string.IsNullOrEmpty(atlasName)){
+					atlasName = this.atlasName;
+				} 
 				LoadSprite (atlasName, spName, this, call);
 			}
 		}

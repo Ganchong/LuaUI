@@ -17,6 +17,7 @@ function this:ctor()
     self._windowObjMap = {}
     --界面层级
     self._canvasLayerTrans = {}
+    self.isInit = false
 end
 
 --初始化
@@ -26,6 +27,9 @@ end
 
 --初始化UIRoot层级
 function this:InitUIRoot()
+    if self.isInit then
+        return
+    end
     local root = GameObject.Find("_CoreUISystem#").transform
     self._canvasLayerTrans[WindowLayer.CoreUIBG] = root:Find(WindowLayer.CoreUIBG)
     self._canvasLayerTrans[WindowLayer.MainLayer] = root:Find(WindowLayer.MainLayer)
@@ -34,6 +38,7 @@ function this:InitUIRoot()
     self._canvasLayerTrans[WindowLayer.FloatingLayer_A] = root:Find(WindowLayer.FloatingLayer_A)
     self._canvasLayerTrans[WindowLayer.FloatingLayer_B] = root:Find(WindowLayer.FloatingLayer_B)
     self._canvasLayerTrans[WindowLayer.FloatingLayer_C] = root:Find(WindowLayer.FloatingLayer_C)
+    self.isInit = true
 end
 
 --打开界面
@@ -92,6 +97,9 @@ end
 
 --销毁窗口
 function this:DestroyWindow(window)
+    if window == nil then
+        return
+    end
     window:CloseUI(function()
         window:OnDisableUI()
         window:StopAllTimer()
@@ -114,8 +122,12 @@ end
 --销毁所有窗口
 function this:DestroyAllWindow(callback)
     for key, value in pairs(self._openedWindowMap or {}) do
-        self:DestroyWindow(key)
+        if value ~= nil then
+            self:DestroyWindow(value)
+        end
     end
+    self._windowClassMap = {}
+    self._openingNameList = {}
     if callback ~= nil then
         callback()
     end

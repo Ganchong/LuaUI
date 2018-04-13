@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LuaInterface;
 /// <summary>
 /// 状态管理器
 /// </summary>
@@ -11,13 +12,41 @@ public class StateManager : Singleton<StateManager> {
 	/** 状态列表 */
 	List<StateBase> states = null;
 
-	/** 切换状态 */
-	public void ChangeState<T> () where T: StateBase, new()
+	/** 启动状态 */
+	public void LauncherState<T> () where T: StateBase, new()
 	{
 		if (curState != null)
 			curState.Exit ();
 		curState = GetState<T> ();
 		curState.Enter ();
+	}
+	/** 执行Lua方法 */
+	public void DoLuaFunction(string funcName)
+	{
+		if(curState==null){
+			Debug.LogWarning("attempt to call a null state");
+			return;
+		}
+		LuaFunction func = curState.GetLuaFunction(funcName);
+		if(func==null){
+			Debug.LogWarning("attempt to call a null luaFunction");
+			return;
+		}
+		func.Call();
+	}
+	/** 执行Lua方法 */
+	public void DoLuaFunction(string funcName,string msg)
+	{
+		if(curState==null){
+			Debug.LogWarning("attempt to call a null state");
+			return;
+		}
+		LuaFunction func = curState.GetLuaFunction(funcName);
+		if(func==null){
+			Debug.LogWarning("attempt to call a null luaFunction");
+			return;
+		}
+		func.Call<string>(msg);
 	}
 
 	/** 获取状态 */

@@ -34,10 +34,15 @@ function this:Enter()
             end,
     --设置WiFi提示委托
             function(size)
-                LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
-                        function()
-                            ResUpdateManager:DownLoadCurFileList()
-                        end, string.format(Language.network_01, size))
+                if Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork then
+                    LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
+                            function()
+                                ResUpdateManager:DownLoadCurFileList()
+                            end, string.format(Language.network_02, size))
+                else
+                    ResUpdateManager:DownLoadCurFileList()
+                end
+                self.isUpdate = true
             end,
     --设置下载进度委托
             function(curDownLoadSize, totalDownLoadSize)
@@ -162,8 +167,9 @@ function this:DownLoadFinish()
             end
             initFinish()
         end
-        LuaAPP.GetUIManager():DestroyAllWindow(loadFinish)
+        --LuaAPP.GetUIManager():DestroyAllWindow(loadFinish)//废弃，改到切换场景的时候销毁界面
         --这里需要扩展，更新完成后需要准备资源
+        initFinish()
     else
         if self.firstTime then
             self:InitNoUpdate(initFinish)
@@ -194,7 +200,7 @@ end
 --更新完成
 function this:UpdateFinish()
     self.firstTime = false
-    SDKHelper.SaveState(StateStep.STEP17)
+    LuaAPP.GetUIManager():DestroyAllWindow()
     self:ToLoginScene()
 end
 

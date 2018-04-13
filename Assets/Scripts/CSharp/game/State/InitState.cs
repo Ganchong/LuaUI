@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using LuaInterface;
 using LuaFramework.Core;
 
 /// <summary>
@@ -17,9 +18,13 @@ public class InitState : StateBase
 			InitResFunc (() => {
 				LuaManager.Instance.LuaStart ();
 				LuaManager.Instance.DoFile ("Main.lua");
-				LuaManager.Instance.GetLuaFunction ("CheckVersionUpdate").Call ();
 			});
 		}
+	}
+	/** 获取Lua方法 */
+	public override LuaFunction GetLuaFunction (string funcName)
+	{
+		return LuaManager.Instance.GetLuaFunction(funcName);
 	}
 
 	public override void Update ()

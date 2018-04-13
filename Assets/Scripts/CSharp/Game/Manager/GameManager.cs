@@ -29,6 +29,8 @@ public class GameManager : SingletonBehaviour<GameManager>
 	public bool openSDK = false;
 	[Tooltip ("是否可以更新")]
 	public bool update = false;
+	/** 是否加载完成 */
+	private bool sdkInited,resourceInited,initFailed;
 	/** 闪屏 */
 	public GameObject splash;
 
@@ -36,10 +38,29 @@ public class GameManager : SingletonBehaviour<GameManager>
 	{
 		Log.level = logLevel;
 		Application.targetFrameRate = TARGET_FRAMERATE;
+		if (splash == null)
+			splash = GameObject.Find ("Camera");
+		SDKHelper.initSDK ((node)=>{
+			if("success".Equals(node.ToString()))
+			{
+				initFailed=false;
+				SDKHelper.saveState(StateStep.STEP2);
+				if(resourceInited) splash.GetComponent<SplashAlpha>().start();
+				else sdkInited=true;
+			}
+			else
+			{
+				initFailed=true;
+				if(resourceInited) splash.GetComponent<SplashAlpha>().start();
+				else sdkInited=true;
+			}
+		});
+		SDKHelper.saveState(StateStep.STEP1);
 	}
 
 	void Start ()
 	{
+		CoroutineCenter.Instance.stop();
 		BASERESOURCES = Resources.Load<TextAsset> ("resourcesConfig").text.Replace ("\r", "").Split (new string[]{ "\n" }, StringSplitOptions.RemoveEmptyEntries);
 		int count = 0;
 		Action loadFinish = () => {
@@ -55,13 +76,20 @@ public class GameManager : SingletonBehaviour<GameManager>
 	/** 加载默认资源结束 */
 	void LoadResourcesFinish ()
 	{
-		if (splash == null)
-			splash = GameObject.Find ("Camera");
+		SDKHelper.saveState(StateStep.STEP3);
 		splash.GetComponent<SplashAlpha> ().setCallBack (() => {
 			InitRoot ();
 			AFRManager.Instance.RegisterFunc ();
-			StateManager.Instance.ChangeState<InitState> ();
-			Destroy (splash);
+			StateManager.Instance.LauncherState<InitState> ();
+			if(initFailed){
+				#if UNITY_ANDROID
+				StateManager.Instance.DoLuaFunction("ShowAlert","TIP_11");
+				#endif
+				Destroy (splash);
+			}else{
+				StateManager.Instance.DoLuaFunction("CheckVersionUpdate");
+				StartCoroutine(CoroutineCenter.delayRunFrameIE(()=>{Destroy(splash);},1));
+			}
 		});
 		splash.GetComponent<SplashAlpha> ().start ();
 	}

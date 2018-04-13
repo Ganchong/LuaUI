@@ -16,6 +16,17 @@ function CheckVersionUpdate()
     LuaAPP.ChangeState(StateNames.CheckVersionState)
 end
 
+function ShowAlert(msg)
+    LuaAPP.GetUIManager():Init()
+    local backManger = LuaAPP:GetBackGroundManager()
+    backManger:Init()
+    backManger:Change("loginBack_3")
+    LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
+            function()
+                Application.Quit()
+            end, Language[msg])
+end
+
 --切换场景通知
 function OnLevelWasLoad(level)
     collectgarbage("collect")

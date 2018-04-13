@@ -14,7 +14,7 @@ public class UpdateHelper : MonoBehaviour
 	/** 包版本信息路径 */
 	public static string appVersionPath;
 	/** 资源加载路径 */
-	private static string LocalPathRoot = ResourceHelper.ASEETPATH;
+	private static string LocalPathRoot;
 	/** 当前版本信息路径 */
 	public static string localVersionPath = (LocalPathRoot + "/VersionData");
 	/** 缓存路径 */
@@ -64,6 +64,7 @@ public class UpdateHelper : MonoBehaviour
 		ResCachePath = (Application.temporaryCachePath + "/temp");
 		cacheVersionPath = (ResCachePath + "/VersionData");
 		cacheDataPath = ResCachePath;
+		LocalPathRoot = ResourceHelper.ASEETPATH;
 	}
 
 	/** 更新完成状态 */

@@ -35,6 +35,7 @@ namespace LuaFramework.Core
 		UpdateHelper.UpdateStep lastUpdateStep;
 		/** 当前进度 */
 		float process = -1;
+		bool update = false;
 
 		/** 初始化委托 */
 		public void InitDelegate (SetUpdateTips setUpdateTips, MakeSureDownLoad makeSureDownLoad,
@@ -103,6 +104,7 @@ namespace LuaFramework.Core
 				lastUpdateStep = updateHelper.CurUpdateStep;
 				switch (lastUpdateStep) {
 				case UpdateHelper.UpdateStep.CheckVesion:
+					update = false;
 					process = 0;
 					setUpdateTips ("TIP_2", process);
 					break;
@@ -116,10 +118,8 @@ namespace LuaFramework.Core
 					break;
 				case UpdateHelper.UpdateStep.MakeSureDownload:
 					SDKHelper.saveState (StateStep.STEP12);
-					if (Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork) {
-						makeSureDownLoad ((updateHelper.DownloadTotalSize * 1f / (1024 * 1024)).ToString ("F"));
-					} else
-						DownLoadCurFileList ();
+					makeSureDownLoad ((updateHelper.DownloadTotalSize * 1f / (1024 * 1024)).ToString ("F"));
+					update = true;
 					process = 0.3f;
 					setUpdateTips ("", process);
 					break;
@@ -145,17 +145,16 @@ namespace LuaFramework.Core
 						int count = 0;
 						Action loadFinish = () => {
 							count++;
-							if (count < 1)
+							if (count < 3)
 								return;
 							downLoadFinish ();
 						};
-						List<string> updateList = updateHelper.DownLoadList;
-						foreach (var str in updateList) {
-							if (str.StartsWith ("lua/")) {
-								LuaPool.Instance.Release (str.Replace (ResourceHelper.SUFFIX, ""));
-							}
-						}
-						loadFinish ();
+						if(update){
+							ReleaseLuaCache(loadFinish);
+							ReInitCache(loadFinish);
+							ResourceHelper.Instance.InitManifest(()=>{InitResource(loadFinish);});
+						}else
+							downLoadFinish();
 					}
 					break;
 				}
@@ -168,11 +167,35 @@ namespace LuaFramework.Core
 				process = 0.1f + 0.1f * updateHelper.CurDownloadSize / 1000;
 				setUpdateTips ("", process);
 			}
-			#if UNITY_EDITOR
-			if (GameManager.Instance.isSkipFlash) {
-				setUpdateTips ("", process);
+		}
+		/** 释放lua缓存 */
+		private void ReleaseLuaCache(Action action)
+		{
+			List<string> updateList = updateHelper.DownLoadList;
+			foreach (var str in updateList) {
+				if (str.StartsWith ("lua/")) {
+					LuaPool.Instance.Release (str.Replace (ResourceHelper.SUFFIX, ""));
+				}
 			}
-			#endif
+			if(action!= null)action();
+		}
+		/** 重新加载resourceCofig中的资源 */
+		private void ReInitCache(Action action)
+		{
+			List<string> updateList = updateHelper.DownLoadList;
+			string[] paths = GameManager.BASERESOURCES;
+			List<string> tmpPaths = new List<string>();
+			foreach (var path in paths) {
+				if(updateList.Contains(path)){
+					tmpPaths.Add(path);
+					ResourceHelper.Instance.Release(path);
+				}
+			}
+			if(tmpPaths.Count>0){
+				ResourcesManager.Instance.cache(tmpPaths.ToArray(),action);
+			}else{
+				action();
+			}
 		}
 
 		/** 切换场景 */
@@ -184,12 +207,16 @@ namespace LuaFramework.Core
 		/** 切换场景 */
 		private IEnumerator ToLoginScene ()
 		{
+			SDKHelper.saveState(StateStep.STEP17);
 			UpdateHelper helper = GetComponent<UpdateHelper> ();
 			if (helper != null)
 				Destroy (helper);
 			yield return null;
 			SDKHelper.saveState (StateStep.STEP18);
-			StateManager.Instance.ChangeState<LoginState> ();
+			if(update){
+				StateManager.Instance.LauncherState<LoginState> ();
+			}
+			StateManager.Instance.DoLuaFunction("Main");
 		}
 
 		/** 预加载基础资源 */

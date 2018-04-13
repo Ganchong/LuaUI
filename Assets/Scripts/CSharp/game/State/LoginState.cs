@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using LuaFramework.Core;
 using ABSystem;
+using LuaInterface;
 
 /// <summary>
 /// 登录状态
@@ -21,9 +22,13 @@ public class LoginState : StateBase
 			InitResFunc (() => {
 				LuaManager.Instance.LuaStart ();
 				LuaManager.Instance.DoFile ("Main.lua");
-				LuaManager.Instance.GetLuaFunction ("Main").Call ();
 			});
 		}
+	}
+	/** 执行Lua方法 */
+	public override LuaFunction GetLuaFunction (string funcName)
+	{
+		return LuaManager.Instance.GetLuaFunction(funcName);
 	}
 
 	public override void Update ()

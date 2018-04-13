@@ -4,8 +4,15 @@
 --- DateTime: 2018/4/3 14:38
 --- 背景管理器
 BackGroundManager = class("BackGroundManager")
+function BackGroundManager:ctor()
+    self.isInit = false
+end
 
 function BackGroundManager:Init()
+    if self.isInit then
+        return
+    end
+    self.isInit = true
     local root = GameObject.Find("_CoreUISystem#").transform
     self.BackGround = LuaUtil.GetChildComponent(root,WindowLayer.CoreUIBG,ComponentName.UIRawImage)
    -- self.BackGround:LoadImage("loginBack")

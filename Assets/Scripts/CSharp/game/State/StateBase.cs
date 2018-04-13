@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using LuaInterface;
 
 /// <summary>
 /// 状态基类
@@ -11,6 +12,12 @@ public class StateBase {
 	{
 		
 	}
+	/** 执行Lua方法 */
+	public virtual LuaFunction GetLuaFunction(string funcName)
+	{
+		return null;
+	}
+
 	/** 更新状态 */
 	public virtual void Update()
 	{

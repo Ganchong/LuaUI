@@ -53,7 +53,6 @@ function this:Update()
         self.tips.text = Language.TIP_8
         LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverFinish)
         self.process = -1
-        self:FinishWindow()
     end
 end
 

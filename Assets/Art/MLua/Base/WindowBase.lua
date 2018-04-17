@@ -61,6 +61,9 @@ end
 
 --销毁UI
 function WindowBase:DestroyUI(callback)
+    if self.destroyAction ~=nil then
+        self:destroyAction()
+    end
     if callback~=nil then
         callback()
     end

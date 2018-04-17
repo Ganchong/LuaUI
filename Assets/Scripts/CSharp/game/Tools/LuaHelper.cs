@@ -24,6 +24,18 @@ public static class LuaHelper {
 	{
 		return GameManager.Instance;
 	}
+
+	/** 认证管理器 */
+	public static CertifyManager GetCertifyManager()
+	{
+		return CertifyManager.Instance;
+	}
+
+	/** 服务器管理器 */
+	public static ServerManager GetServerManager()
+	{
+		return ServerManager.Instance;
+	}
 }
 
 

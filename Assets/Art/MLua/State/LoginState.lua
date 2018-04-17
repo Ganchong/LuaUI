@@ -10,6 +10,7 @@ local this = LoginState
 
 function this:Enter()
     LuaAPP.GetUIManager():OpenWindow(WindowName.LoginWindow)
+
 end
 
 function this:Update()

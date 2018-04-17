@@ -7,3 +7,6 @@
 GlobalConst = {
     resourceVersion = 18,
 }
+HandlerConst = {
+    AFFICHE = 22,--公告
+}

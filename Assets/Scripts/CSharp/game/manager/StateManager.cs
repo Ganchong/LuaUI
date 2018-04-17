@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LuaInterface;
+using System;
 /// <summary>
 /// 状态管理器
 /// </summary>
@@ -35,7 +36,7 @@ public class StateManager : Singleton<StateManager> {
 		func.Call();
 	}
 	/** 执行Lua方法 */
-	public void DoLuaFunction(string funcName,string msg)
+	public void DoLuaFunction(string funcName,string msg,Action callback,bool changeBack = false)
 	{
 		if(curState==null){
 			Debug.LogWarning("attempt to call a null state");
@@ -46,7 +47,7 @@ public class StateManager : Singleton<StateManager> {
 			Debug.LogWarning("attempt to call a null luaFunction");
 			return;
 		}
-		func.Call<string>(msg);
+		func.Call<string,Action,bool>(msg,callback,changeBack);
 	}
 
 	/** 获取状态 */

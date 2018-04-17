@@ -65,8 +65,7 @@ public class LoginServer
 	/** 获取服务器 */
 	public Server getServer()
 	{
-		//return ServerManager.Instance.getServer(id);
-		return null;
+		return ServerManager.Instance.getServer(id);
 	}
 }
 

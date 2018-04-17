@@ -200,6 +200,11 @@ public class SDKHelper
 		version.jsonRead(json.ToJsonNode());
 		return version;
 	}
+	/** 获取版本version */
+	public static String getVersion()
+	{
+		return getAppVersion().version;
+	}
 	/** 退出游戏 */
 	public static void exit()
 	{

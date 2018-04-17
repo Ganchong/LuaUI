@@ -10,21 +10,26 @@ function Main()
     LuaAPP.Init()
     LuaAPP.ChangeState(StateNames.LoginState)
 end
-
+--检查更新
 function CheckVersionUpdate()
     LuaAPP.Init()
     LuaAPP.ChangeState(StateNames.CheckVersionState)
 end
 
-function ShowAlert(msg)
+--显示Alert
+function ShowAlert(msg,callback,changeBack)
     LuaAPP.GetUIManager():Init()
-    local backManger = LuaAPP:GetBackGroundManager()
-    backManger:Init()
-    backManger:Change("loginBack_3")
+    if changeBack~=nil and changeBack == true then
+        local backManger = LuaAPP:GetBackGroundManager()
+        backManger:Init()
+        backManger:Change("loginBack_3")
+    end
     LuaAPP.GetUIManager():OpenWindow(WindowName.Alert,
             function()
-                Application.Quit()
-            end, Language[msg])
+                if callback~=nil then
+                    callback()
+                end
+            end, Language.Get(msg))
 end
 
 --切换场景通知

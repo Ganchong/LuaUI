@@ -29,6 +29,8 @@ public class GameManager : SingletonBehaviour<GameManager>
 	public bool openSDK = false;
 	[Tooltip ("是否可以更新")]
 	public bool update = false;
+	[Tooltip("是否托管")]
+	public bool gm = false;
 	/** 是否加载完成 */
 	private bool sdkInited,resourceInited,initFailed;
 	/** 闪屏 */
@@ -83,7 +85,9 @@ public class GameManager : SingletonBehaviour<GameManager>
 			StateManager.Instance.LauncherState<InitState> ();
 			if(initFailed){
 				#if UNITY_ANDROID
-				StateManager.Instance.DoLuaFunction("ShowAlert","TIP_11");
+				StateManager.Instance.DoLuaFunction("ShowAlert","TIP_11",()=>{
+					Application.Quit();
+				},true);
 				#endif
 				Destroy (splash);
 			}else{

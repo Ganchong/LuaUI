@@ -436,5 +436,10 @@ namespace LuaFramework.Core {
 			Dropdown.OptionData data = new Dropdown.OptionData(str);
 			com.options.Add(data);
 		}
+
+		public static void SetPlayerPrefs()
+		{
+			
+		}
     }
 }

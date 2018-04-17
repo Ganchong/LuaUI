@@ -79,6 +79,7 @@ WindowName = {
     UpdateDriver = "UpdateDriver",
     CreateRoleWindow = "CreateRoleWindow",
     Alert = "Alert",
+    AfficheWindow = "AfficheWindow",
 }
 
 

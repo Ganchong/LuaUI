@@ -151,12 +151,18 @@ public static class CustomSettings
         _GT(typeof(LuaProfiler)),
 
 		_GT(typeof(AppVersion)),
+		_GT(typeof(Server)),
+		_GT(typeof(LoginServer)),
 		_GT(typeof(SDKHelper)),
 		_GT(typeof(LuaHelper)),
 		_GT(typeof(CoroutineCenter)),
 		_GT(typeof(GameManager)),
+		_GT(typeof(CertifyManager)),
+		_GT(typeof(ServerManager)),
 		_GT(typeof(ResourceUpdateManager)),
 		_GT(typeof(NetworkReachability)),
+		_GT(typeof(StateManager)),
+		_GT(typeof(PlayerPrefsTool)),
 
 		_GT(typeof(UnityEngine.Events.UnityEvent)),
 		_GT(typeof(Text)),
@@ -168,6 +174,7 @@ public static class CustomSettings
 		_GT(typeof(UIButton)),
 		_GT(typeof(UIImage)),
 		_GT(typeof(UIText)),
+		_GT(typeof(InputField)),
     };
 
     public static List<Type> dynamicList = new List<Type>()

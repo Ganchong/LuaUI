@@ -13,6 +13,7 @@ Language = {
     loginWindow_01 = "登录",
     loginWindow_02 = "账号：",
     loginWindow_03 = "密码：",
+    loginWindow_04 = "%s区",
     --MainWindow
     mainWindow_01 = "首冲",
     mainWindow_02 = "每日任务",
@@ -31,7 +32,7 @@ Language = {
     TIP_11 = "初始化SDK失败,退出游戏",
 
     --Version
-    Version = "版本号%s",
+    Version = "版本号:%s",
 
     --NetWork
     network_01 = "当前网络不可用，请检查网络",
@@ -52,12 +53,12 @@ function Language.Get(str,...)
     local value = Language[str]
     if value ~= nil then
         if #args>0 then
-            return string.format(value,args)
+            return string.format(value,...)
         end
         return value
     end
     if #args>0 then
-        return string.format(str,args)
+        return string.format(str,...)
     end
     return str
 end

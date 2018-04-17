@@ -37,11 +37,14 @@ require("Define/StateStepDefine")
 GameObject = UnityEngine.GameObject
 WWW = UnityEngine.WWW
 Util = LuaFramework.Core.Util
-ResUpdateManager = LuaHelper.GetResourceUpdateManager()
-GameManager = LuaHelper.GetGameManager()
 Application = UnityEngine.Application
 NetworkReachability = UnityEngine.NetworkReachability
+PlayerPrefs = PlayerPrefs
+GameManager = LuaHelper.GetGameManager()
+ResUpdateManager = LuaHelper.GetResourceUpdateManager()
 CoroutineCenter = LuaHelper.GetCoroutineCenter()
+CertifyManager = LuaHelper.GetCertifyManager()
+ServerManager = LuaHelper.GetServerManager()
 
 ---#全局方法定义#--
 --日志打印

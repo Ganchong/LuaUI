@@ -15,7 +15,7 @@ function BackGroundManager:Init()
     self.isInit = true
     local root = GameObject.Find("_CoreUISystem#").transform
     self.BackGround = LuaUtil.GetChildComponent(root,WindowLayer.CoreUIBG,ComponentName.UIRawImage)
-   -- self.BackGround:LoadImage("loginBack")
+   --self:Change("loginBack_3")
 end
 
 function BackGroundManager:Change(backName)

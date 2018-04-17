@@ -150,7 +150,6 @@ public static class CustomSettings
         _GT(typeof(Resources)),     
         _GT(typeof(LuaProfiler)),
 
-		_GT(typeof(AppVersion)),
 		_GT(typeof(Server)),
 		_GT(typeof(LoginServer)),
 		_GT(typeof(SDKHelper)),

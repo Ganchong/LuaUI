@@ -38,7 +38,7 @@ function this:OnEnableUI()
     self.process = 0
     self.slider.value = 0
     self.tips.text = Language.TIP_0
-    self.version.text = string.format(Language.Version, SDKHelper.getAppVersion().version)
+    self.version.text = string.format(Language.Version, SDKHelper.getVersion())
     LuaAPP.GetBackGroundManager():Change("loginBack_3")
 end
 

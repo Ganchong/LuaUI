@@ -34,6 +34,13 @@ public class ServerManager : Singleton<ServerManager>
 		}
 		return loginServers [0];
 	}
+	/** 获取最后登录的服务器信息 */
+	public Server getLastServer()
+	{
+		LoginServer server = getLastLoginServer();
+		if(server==null)return null;
+		return server.getServer();
+	}
 	/** 添加最近登录服务器 */
 	public void addLoginServer(Server server,Player player)
 	{

@@ -84,7 +84,7 @@ function this:OnEnableUI(param)
     LuaAPP.GetBackGroundManager():Change("loginBack")
     self.version.text = Language.Get("Version", tostring(SDKHelper.getVersion()))
     local action = function()
-        self.curServer = ServerManager:getLastLoginServer():getServer()
+        self.curServer = ServerManager:getLastServer()
         self.serverText.text = Language.Get("loginWindow_04", tostring(self.curServer.ID)) .. " " .. tostring(self.curServer.Name)
     end
     if not self.openSDK then

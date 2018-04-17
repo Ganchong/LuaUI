@@ -85,7 +85,7 @@ function this:CloseWindow(name)
         table.remove(self._openingNameList, index)
     end
     if window:IsStatic() then
-        window:CloseWindow(function()
+        window:OnCloseWindow(function()
             window:OnDisableWindow()
             window:StopAllTimer()
             self:RestAllWindow(window)
@@ -100,10 +100,10 @@ function this:DestroyWindow(window)
     if window == nil then
         return
     end
-    window:CloseWindow(function()
+    window:OnCloseWindow(function()
         window:OnDisableWindow()
         window:StopAllTimer()
-        window:DestroyWindow()
+        window:OnDestroyWindow()
         self:RestAllWindow(window)
         --启动销毁程序
         Util.DestroyObject(self._openedWindowMap[window.name].UIObj)

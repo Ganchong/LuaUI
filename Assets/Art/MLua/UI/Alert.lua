@@ -6,7 +6,7 @@
 Alert = class("Alert", WindowBase)
 local this = Alert
 
-function this:InitUI(uiObj)
+function this:OnWDAwake(uiObj)
     self.UIObj = uiObj
     self:BindWindow(uiObj)
     self:AddButtonEvent()
@@ -23,7 +23,7 @@ function this:AddButtonEvent()
     self.CancelButton.onClick:AddListener(function() self:CancelEvent() end)
 end
 
-function this:OnEnableUI(param)
+function this:OnWDStart(param)
     self.action = param[1]
     self.Tips.text = param[2]
 end

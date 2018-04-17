@@ -8,8 +8,7 @@ UpdateDriver = class("UpdateDriver", WindowBase)
 
 local this = UpdateDriver
 
-function this:InitUI(uiObj)
-    self.UIObj = uiObj
+function this:OnWDAwake(uiObj)
     self:BindWindow(uiObj)
     self:AddButtonEvent()
 end
@@ -33,7 +32,7 @@ function this:AddButtonEvent()
             end)
 end
 --逻辑开始
-function this:OnEnableUI()
+function this:OnWDStart()
     self:StartUpdate()
     self.process = 0
     self.slider.value = 0

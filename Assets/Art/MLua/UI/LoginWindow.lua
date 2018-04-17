@@ -14,8 +14,7 @@ LoginWindow = class("LoginWindow", WindowBase)
 
 local this = LoginWindow
 
-function this:InitUI(uiObj)
-    self.UIObj = uiObj
+function this:OnWDAwake(uiObj)
     self:BindWindow(uiObj)
     self:AddButtonEvent()
 end
@@ -87,7 +86,7 @@ function this:LoginEvent()
     CertifyManager:init(self.curServer, uid)
 end
 
-function this:OnEnableUI(param)
+function this:OnWDStart(param)
     LuaAPP.GetBackGroundManager():Change("loginBack")
     self.openSDK = GameManager.openSDK
     self.userName.text = PlayerPrefs.GetString(PlayerSetting.UID)

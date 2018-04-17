@@ -5,6 +5,9 @@
 ---
 UIBase = class("UIBase")
 
+function UIBase:OnAwakeUI()
+end
+
 function UIBase:OnEnableUI()
 end
 

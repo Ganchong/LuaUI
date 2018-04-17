@@ -6,8 +6,7 @@
 
 AfficheWindow = class("AfficheWindow",WindowBase)
 local this = AfficheWindow
-function this:InitUI(uiObj)
-    self.UIObj = uiObj
+function this:OnWDAwake(uiObj)
     self:BindWindow(uiObj)
     self:AddButtonEvent()
 end
@@ -20,7 +19,7 @@ function this:AddButtonEvent()
 
 end
 
-function this:OnEnableUI(param)
+function this:OnWDStart(param)
     self.affiches = param[1]
     self.destroyAction = param[2]
 end

@@ -7,7 +7,7 @@
 CreateRoleWindow = class("CreateRoleWindow", WindowBase)
 local this = CreateRoleWindow
 
-function this:InitUI(uiObj)
+function this:OnWDAwake(uiObj)
     Log("CreateRoleWindow InitUI")
     self.UIObj = uiObj
     self:BindWindow(uiObj)
@@ -19,7 +19,7 @@ function this:BindWindow(uiObj)
     self.ReturnButton = Util.GetChildComponent(uiObj,"root/ReturnButton",ComponentName.Button)
 end
 
-function this:OnEnableUI()
+function this:OnWDStart()
     LuaAPP.GetBackGroundManager():Change("createRoleBack")
 end
 

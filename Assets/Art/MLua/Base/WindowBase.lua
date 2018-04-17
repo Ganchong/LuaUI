@@ -35,12 +35,12 @@ end
 --初始化UI，只调用一次
 --内部实现流程：SetUIObj-->BindWindow-->AddEventListener-->其他一次性操作
 --必要时可以自己控制流程
-function WindowBase:InitUI(uiObj)
+function WindowBase:OnWindowAwake(uiObj)
 end
 
 --打开UI,每次窗口打开都会调用
 --这里用于刷新数据
-function WindowBase:OnEnableUI(param)
+function WindowBase:OnWindowStart(param)
 end
 
 --聚焦栈顶窗口
@@ -48,22 +48,28 @@ function WindowBase:OnFocus()
 end
 
 --隐藏UI
-function WindowBase:OnDisableUI()
+function WindowBase:OnDisableWindow()
+    self:OnEnableSubUI()
     self:ClearBeat()
 end
 
+--调用所有子UI
+function WindowBase:OnDisableSubUI()
+    for k, v in pairs(self.subUIs or {}) do
+        v:OnDisableUI()
+    end
+end
+
 --关闭UI
-function WindowBase:CloseUI(callback)
+function WindowBase:CloseWindow(callback)
     if callback~=nil then
         callback()
     end
 end
 
 --销毁UI
-function WindowBase:DestroyUI(callback)
-    if self.destroyAction ~=nil then
-        self:destroyAction()
-    end
+function WindowBase:DestroyWindow(callback)
+    self:OnDestroyUI()
     if callback~=nil then
         callback()
     end

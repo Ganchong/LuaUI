@@ -3,11 +3,10 @@ using System;
 
 public class PlayerPrefsTool
 {
-    static string _logTAG = "nonine";
     static string GetProjectID(string key)
     {
         string prefsKey = string.Empty;
-        prefsKey = string.Format("Pixone.Nonine.{0}", key);
+        prefsKey = key;//string.Format("Pixone.Nonine.{0}", key);
         return prefsKey;
     }
     public static void SetString(string key, string value)

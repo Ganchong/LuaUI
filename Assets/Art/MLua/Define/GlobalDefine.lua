@@ -62,6 +62,7 @@ EventName = {
     --LoginEvent 1-10
     LoginEvent1 = 1,
     LoginEvent2 = 2,
+    LoginOut = 3,
     --MainEvent 11-20
     MainEvent1 = 11,
     MainEvent2 = 12,
@@ -70,7 +71,7 @@ EventName = {
     UpdateDriverSetTips = 22,
     UpdateDriverSetDownValue = 23,
     UpdateDriverFinish = 24,
-
+    UpdateDriverStart = 25,
 }
 
 --窗口名

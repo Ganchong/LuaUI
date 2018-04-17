@@ -54,7 +54,7 @@ function this:OpenWindow(name, ...)
         if window:GetUIType() == WindowType.FullType then
             self:HideAllWindow()
         end
-        self:OnEnableWindow(window, param)
+        self:OnWindowStart(window, param)
         return
     end
     --未曾打开过
@@ -66,8 +66,8 @@ function this:OpenWindow(name, ...)
         if window:GetUIType() == WindowType.FullType then
             self:HideAllWindow()
         end
-        window:InitUI(uiObj)
-        self:OnEnableWindow(window, param)
+        window:OnWindowAwake(uiObj)
+        self:OnWindowStart(window, param)
         self._openedWindowMap[name] = window
     end)
 end
@@ -85,8 +85,8 @@ function this:CloseWindow(name)
         table.remove(self._openingNameList, index)
     end
     if window:IsStatic() then
-        window:CloseUI(function()
-            window:OnDisableUI()
+        window:CloseWindow(function()
+            window:OnDisableWindow()
             window:StopAllTimer()
             self:RestAllWindow(window)
         end )
@@ -100,10 +100,10 @@ function this:DestroyWindow(window)
     if window == nil then
         return
     end
-    window:CloseUI(function()
-        window:OnDisableUI()
+    window:CloseWindow(function()
+        window:OnDisableWindow()
         window:StopAllTimer()
-        window:DestroyUI()
+        window:DestroyWindow()
         self:RestAllWindow(window)
         --启动销毁程序
         Util.DestroyObject(self._openedWindowMap[window.name].UIObj)
@@ -155,7 +155,7 @@ function this:RestAllWindow(window)
                     if opening then
                         table.remove(self._openingNameList, index)
                     end
-                    self:OnEnableWindow(tmpWindow, "")
+                    self:OnWindowStart(tmpWindow, "")
                 end
                 --聚焦当前窗口
                 if j == #self._openingNameList - i + 1 then
@@ -202,7 +202,7 @@ function this:HideAllWindow()
     for i = #self._openingNameList, 1, -1 do
         local window = self._openedWindowMap[self._openingNameList[i]]
         window:SetVisible(false)
-        window:OnDisableUI()
+        window:OnDisableWindow()
         window:StopAllTimer()
         if window:GetUIType() == WindowType.FullType then
             return
@@ -211,9 +211,9 @@ function this:HideAllWindow()
 end
 
 --重新显示UI
-function this:OnEnableWindow(window, param)
+function this:OnWindowStart(window, param)
     window:SetVisible(true)
-    window:OnEnableUI(param)
+    window:OnWindowStart(param)
     table.insert(self._openingNameList, window.name)
 end
 

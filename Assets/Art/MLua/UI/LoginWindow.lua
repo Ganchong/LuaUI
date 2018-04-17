@@ -27,7 +27,7 @@ function this:BindWindow(uiObj)
     self.userName = LuaUtil.GetChildComponent(uiObj, "root/userName", ComponentName.InputField)--账号
     self.inputServer = LuaUtil.GetChildComponent(uiObj, "root/inputServer", ComponentName.InputField)--密码(ip)
     self.loginButton = LuaUtil.GetChildComponent(uiObj, "root/LoginButton", ComponentName.UIButton)--登录按钮
-    self.loginButtonText = LuaUtil.GetChildComponent(uiObj, "root/LoginButton/Text", ComponentName.UIText)--登录按钮
+    self.loginButtonText = LuaUtil.GetChildComponent(uiObj, "root/LoginButton/Text", ComponentName.UIText)--登录按钮文字
 end
 
 --添加事件
@@ -35,6 +35,14 @@ function this:AddButtonEvent()
     self.loginButton.onClick:AddListener(function()
         self:LoginEvent()
     end)
+    LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverStart,
+            function()
+                self:FinishWindow()
+            end)
+    LuaAPP.GetGlobalEvent():AddEvent(EventName.UpdateDriverStart,
+            function()
+                self:OnEnableUI()
+            end)
 end
 
 --登录事件处理
@@ -63,7 +71,7 @@ function this:LoginEvent()
     PlayerPrefs.SetString(PlayerSetting.SeverIP, self.inputServer.text)
     local uid = tonumber(self.userName.text)
     local server = tostring(self.inputServer.text)
-    if server ~= nil and server ~= nil then
+    if server ~= nil and server ~= "" then
         local strs = string.split(server, ':')
         if #strs == 3 then
             self.curServer.ID = -1
@@ -80,9 +88,18 @@ function this:LoginEvent()
 end
 
 function this:OnEnableUI(param)
-    self.openSDK = GameManager.openSDK
     LuaAPP.GetBackGroundManager():Change("loginBack")
+    self.openSDK = GameManager.openSDK
+    self.userName.text = PlayerPrefs.GetString(PlayerSetting.UID)
+    self.inputServer.text = PlayerPrefs.GetString(PlayerSetting.ServerIP)
+    self.userName.gameObject:SetActive(not self.openSDK)
+    self.inputServer.gameObject:SetActive(not self.openSDK)
     self.version.text = Language.Get("Version", tostring(SDKHelper.getVersion()))
+    self:ShowServerInfo()
+end
+
+--显示服务器信息
+function this:ShowServerInfo()
     local action = function()
         self.curServer = ServerManager:getLastServer()
         self.serverText.text = Language.Get("loginWindow_04", tostring(self.curServer.ID)) .. " " .. tostring(self.curServer.Name)

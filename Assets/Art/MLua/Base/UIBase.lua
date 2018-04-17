@@ -5,6 +5,57 @@
 ---
 UIBase = class("UIBase")
 
+function UIBase:OnEnableUI()
+end
+
+function UIBase:OnDisableUI()
+end
+
+function UIBase:OnDestroyUI()
+    self:UnRegisterAllEvent()
+    if self.destroyAction ~=nil then
+        self:destroyAction()
+    end
+end
+
+
+--注册事件
+function UIBase:RegisterEvent(type,event,isOnce,isFirst)
+    if self.eventMap ==nil then
+        self.eventMap = YMDictionary:New('string','table')
+    end
+    LuaAPP.GetGlobalEvent():AddEvent(type,event,isOnce,isFirst)
+    if self.eventMap:ContainsKey(type) then
+        self.eventMap[type]:Add(event)
+    else
+        local list = YMList:New('function')
+        list:Add(event)
+        self.eventMap:Add(type,list)
+    end
+end
+
+--注销事件
+function UIBase:UnRegisterEvent(type,event)
+    if self.eventMap==nil then
+        return
+    end
+    if self.eventMap:ContainsKey(type) then
+        self.eventMap[type]:Remove(event)
+        LuaAPP.GetGlobalEvent():RemoveEvent(type,event)
+    end
+end
+
+--注销所有事件
+function UIBase:UnRegisterAllEvent()
+    if self.eventMap == nil then
+        return
+    end
+    for k, v in pairs(self.eventMap) do
+        LuaAPP.GetGlobalEvent():RemoveEvent(k)
+    end
+    self.eventMap:Clear()
+end
+
 --创建定时器
 function UIBase:NewTimer(timer,intervalTime)
     if self.timerList == nil then

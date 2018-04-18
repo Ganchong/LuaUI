@@ -4,7 +4,7 @@
 --- DateTime: 2018/4/8 20:47
 --- 检查版本更新状态
 
-require("State/BaseState")
+require(ModulePath.BaseState)
 
 local CheckVersionState = class("CheckVersionState", BaseState)
 local this = CheckVersionState

@@ -35,6 +35,7 @@ namespace LuaFramework.Core
 		UpdateHelper.UpdateStep lastUpdateStep;
 		/** 当前进度 */
 		float process = -1;
+		/** 是否有更新 */
 		bool update = false;
 
 		/** 初始化委托 */
@@ -216,7 +217,7 @@ namespace LuaFramework.Core
 			if(update){
 				StateManager.Instance.LauncherState<LoginState> ();
 			}
-			StateManager.Instance.DoLuaFunction("Main");
+			StateManager.Instance.DoLuaFunction(LuaFuncName.Main);
 		}
 
 		/** 预加载基础资源 */

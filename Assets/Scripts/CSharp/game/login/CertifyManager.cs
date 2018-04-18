@@ -34,7 +34,7 @@ public class CertifyManager : Singleton<CertifyManager>,IEventSender
 					{
 						if(node["serverVersion"].ToInt () > GameManager.Instance.streamingAssetVersion) 
 						{
-							this.SendEvent ((int)GameEvent.ResourceUpdate);
+							StateManager.Instance.DoLuaFunction(LuaFuncName.CheckVersionUpdate);
 							return;
 						}
 					}
@@ -47,7 +47,7 @@ public class CertifyManager : Singleton<CertifyManager>,IEventSender
 				} else {
 					if(error=="version")
 					{
-						StateManager.Instance.DoLuaFunction("ShowAlert","connect_version",()=>{
+						StateManager.Instance.DoLuaFunction(LuaFuncName.ShowAlert,"connect_version",()=>{
 							string downUrl=SDKHelper.getDownUrl();
 							if(!string.IsNullOrEmpty(downUrl))
 								Application.OpenURL(downUrl);

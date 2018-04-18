@@ -76,11 +76,12 @@ EventName = {
 
 --窗口名
 WindowName = {
-    LoginWindow = "LoginWindow",
-    UpdateDriver = "UpdateDriver",
-    CreateRoleWindow = "CreateRoleWindow",
-    Alert = "Alert",
-    AfficheWindow = "AfficheWindow",
+    LoginWindow = "LoginWindow",--登录
+    UpdateDriver = "UpdateDriver",--更新
+    CreateRoleWindow = "CreateRoleWindow",--创建角色
+    Alert = "Alert",--提示框
+    AfficheWindow = "AfficheWindow",--公告
+    TipWindow = "TipWindow",--提示条
 }
 
 

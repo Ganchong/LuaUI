@@ -29,11 +29,12 @@ end
 --打开UI,每次窗口打开都会调用
 --这里用于刷新数据
 function WindowBase:OnWindowStart(param)
-    self:OnWDStart()
+    self:OnWDStart(param)
 end
 
 --聚焦栈顶窗口
 function WindowBase:OnFocus()
+    Log("OnFocus window name :"..self.name)
 end
 
 --隐藏UI

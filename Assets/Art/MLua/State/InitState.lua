@@ -3,7 +3,7 @@
 --- Created by 干冲.
 --- DateTime: 2018/3/22 14:47
 ---
-require("State/BaseState")
+require(ModulePath.BaseState)
 
 local InitSate = class("InitSate",BaseState)
 local this = InitSate

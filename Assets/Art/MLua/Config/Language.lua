@@ -14,6 +14,7 @@ Language = {
     loginWindow_02 = "账号：",
     loginWindow_03 = "密码：",
     loginWindow_04 = "%s区",
+    loginWindow_05 = "登录失败！",
     --MainWindow
     mainWindow_01 = "首冲",
     mainWindow_02 = "每日任务",

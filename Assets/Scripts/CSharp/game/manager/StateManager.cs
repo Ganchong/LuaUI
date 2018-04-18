@@ -36,6 +36,21 @@ public class StateManager : Singleton<StateManager> {
 		func.Call();
 	}
 	/** 执行Lua方法 */
+	public void DoLuaFunction(string funcName,string msg)
+	{
+		if(curState==null){
+			Debug.LogWarning("attempt to call a null state");
+			return;
+		}
+		LuaFunction func = curState.GetLuaFunction(funcName);
+		if(func==null){
+			Debug.LogWarning("attempt to call a null luaFunction");
+			return;
+		}
+		func.Call<string>(msg);
+	}
+
+	/** 执行Lua方法 */
 	public void DoLuaFunction(string funcName,string msg,Action callback,bool changeBack = false)
 	{
 		if(curState==null){

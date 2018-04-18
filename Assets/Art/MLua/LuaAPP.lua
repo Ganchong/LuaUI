@@ -3,10 +3,10 @@
 --- Created by 干冲.
 --- DateTime: 2018/3/22 19:28
 ---
-require("Manager/ConfigManager")
-require("Manager/TimerManager")
-require("Manager/UIManager")
-require("Manager/BackGroundManager")
+require(ModulePath.ConfigManager)
+require(ModulePath.TimerManager)
+require(ModulePath.UIManager)
+require(ModulePath.BackGroundManager)
 
 
 --Lua应用

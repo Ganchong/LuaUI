@@ -107,12 +107,6 @@ function this:DestroyWindow(window)
         self:RestAllWindow(window)
         --启动销毁程序
         Util.DestroyObject(self._openedWindowMap[window.name].UIObj)
-        --这里的obj已经销毁，_windowObjMap[name]虽然此时不为nil，但是数据已经不存在了
-        --也就是说不置为空,_windowObjMap[name]永远不为空，那么下次用的话会报错
-        --比如说下一帧调用_windowObjMap[name].transform的时候C#端将会抛出异常，说他是nil
-        --if self._windowObjMap[name].transform.parent==nil then
-        --    Log("=======================")
-        --end
         self._windowObjMap[window.name] = nil
         self._openedWindowMap[window.name].UIObj = nil
         self._openedWindowMap[window.name] = nil
@@ -123,6 +117,10 @@ end
 function this:DestroyAllWindow(callback)
     for key, value in pairs(self._openedWindowMap or {}) do
         if value ~= nil then
+            local opening, index = self:IsOpening(value.name)
+            if opening then
+                table.remove(self._openingNameList, index)
+            end
             self:DestroyWindow(value)
         end
     end
@@ -191,11 +189,12 @@ end
 function this:GetWindowClass(name)
     local windowClass = self._windowClassMap[name]
     if windowClass == nil then
-        windowClass = require("UI/" .. name)
+        windowClass = require("UI/" .. name.."/"..name)
         self._windowClassMap[name] = windowClass
     end
     return windowClass
 end
+
 
 --隐藏所有UI（除了当前显示的）
 function this:HideAllWindow()

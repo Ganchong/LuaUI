@@ -4,35 +4,35 @@
 --- DateTime: 2018/3/22 16:10
 ---
 --引入全局表定义
-require("Define/GlobalDefine")
+require(ModulePath.GlobalDefine)
 --引入lua Class
-require("Common/DefinitionClass")
+require(ModulePath.DefinitionClass)
 --引入UI管理器
-require("Manager/UIManager")
+require(ModulePath.UIManager)
 --引入背景管理器
-require("Manager/BackGroundManager")
+require(ModulePath.BackGroundManager)
 --引入lua APP
-require("LuaApp")
+require(ModulePath.LuaAPP)
 --引入UIBase
-require("Base/UIBase")
+require(ModulePath.UIBase)
 --引入窗口基类
-require("Base/WindowBase")
+require(ModulePath.WindowBase)
 --引入有序列表
-require("Common/YMList")
+require(ModulePath.YMList)
 --引入字典
-require("Common/YMDictionary")
+require(ModulePath.YMDictionary)
 --引入定时器
-require("Common/Timer")
+require(ModulePath.Timer)
 --引入定时器管理器
-require("Manager/TimerManager")
+require(ModulePath.TimerManager)
 --引入语言表
-require("Config/Language")
+require(ModulePath.Language)
 --引入Lua工具
-require("Common/LuaUtil")
+require(ModulePath.LuaUtil)
 --引入事件系统
-require("Common/YMEvent")
+require(ModulePath.YMEvent)
 --引入状态步骤
-require("Define/StateStepDefine")
+require(ModulePath.StateStepDefine)
 
 GameObject = UnityEngine.GameObject
 WWW = UnityEngine.WWW

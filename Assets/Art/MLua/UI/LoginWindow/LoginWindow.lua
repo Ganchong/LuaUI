@@ -4,7 +4,7 @@
 --- DateTime: 2018/3/24 19:06
 --- 登录窗口
 
-require("Define/PlayerSetting")
+require(ModulePath.PlayerSetting)
 local SDKHelper = SDKHelper
 local PlayerPrefs = PlayerPrefsTool
 local ServerManager = ServerManager
@@ -46,6 +46,7 @@ end
 
 --登录事件处理
 function this:LoginEvent()
+    ShowTips("@loginWindow_05")
     if self.openSDK then
         if not SDKHelper.isLogin() then
             SDKHelper.login(function(msg)

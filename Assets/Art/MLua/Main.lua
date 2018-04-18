@@ -3,7 +3,8 @@
 --- Created by 干冲.
 --- DateTime: 2018/3/21 17:24
 ---
-require("Define/Define")
+require("Config/ModulePath")
+require(ModulePath.Define)
 
 --Lua端主入口，从这里开始lua逻辑
 function Main()
@@ -13,6 +14,7 @@ end
 --检查更新
 function CheckVersionUpdate()
     LuaAPP.Init()
+    LuaAPP.GetGlobalEvent():DispatchEvent(EventName.UpdateDriverStart)
     LuaAPP.ChangeState(StateNames.CheckVersionState)
 end
 
@@ -30,6 +32,11 @@ function ShowAlert(msg,callback,changeBack)
                     callback()
                 end
             end, Language.Get(msg))
+end
+
+function ShowTips(msg)
+    LuaAPP.GetUIManager():Init()
+    LuaAPP.GetUIManager():OpenWindow(WindowName.TipWindow,msg)
 end
 
 --切换场景通知

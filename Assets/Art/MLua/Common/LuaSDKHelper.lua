@@ -4,8 +4,8 @@
 --- DateTime: 2018/4/17 15:12
 --- Lua端SDK帮助器
 
-require("Common/YMList")
-local Affiche = require("UI/Affiche/Affiche")
+require(ModulePath.YMList)
+local Affiche = require(ModulePath.Affiche)
 
 local SDKHelper = SDKHelper
 

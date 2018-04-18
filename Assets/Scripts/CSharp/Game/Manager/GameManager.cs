@@ -34,6 +34,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 	/** 是否加载完成 */
 	private bool sdkInited,resourceInited,initFailed;
 	/** 闪屏 */
+	[HideInInspector]
 	public GameObject splash;
 
 	void Awake ()
@@ -85,13 +86,13 @@ public class GameManager : SingletonBehaviour<GameManager>
 			StateManager.Instance.LauncherState<InitState> ();
 			if(initFailed){
 				#if UNITY_ANDROID
-				StateManager.Instance.DoLuaFunction("ShowAlert","TIP_11",()=>{
+				StateManager.Instance.DoLuaFunction(LuaFuncName.ShowAlert,"TIP_11",()=>{
 					Application.Quit();
 				},true);
 				#endif
 				Destroy (splash);
 			}else{
-				StateManager.Instance.DoLuaFunction("CheckVersionUpdate");
+				StateManager.Instance.DoLuaFunction(LuaFuncName.CheckVersionUpdate);
 				StartCoroutine(CoroutineCenter.delayRunFrameIE(()=>{Destroy(splash);},1));
 			}
 		});
